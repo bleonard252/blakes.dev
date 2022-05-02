@@ -1,5 +1,5 @@
 import { Component, Fragment, render } from 'preact';
-import { Icon } from '@iconify/react';
+import { Icon, InlineIcon } from '@iconify/react';
 import resolveConfig from 'tailwindcss/resolveConfig';
 import tailwindConfig from '../../tailwind.config.js';
 import Menubar from '../components/menubar.tsx';
@@ -26,7 +26,12 @@ class View extends Component {
         <div class="X-Column col-span-1" id="column-about">
           <div class="X-Card" id="about-card">
             {(accountResult?.header_static && !accountResult?.header_static?.endsWith("missing.png")) ? <img src={accountResult.header_static} class="h-[170px] rounded-t-md" id="banner" /> : ``}
-            {(accountResult?.avatar_static) ? <img src={accountResult.avatar_static} class="X-Profile-Avatar is-primary" id="avatar" /> : ``}
+            <div class="-mt-[48px] m-4 mb-0">
+              {(accountResult?.avatar_static) ? <img src={accountResult.avatar_static} class="rounded-full w-[96px] h-[96px] X-Profile-Avatar is-primary" id="avatar" /> : ``}
+              <a href="https://indieweb.social/users/blake/remote_follow" class="float-right -mt-[48px] mb-0 p-2 bg-blue-500 inline-block hover:bg-blue-400 text-white rounded-md transition-colors">
+                <InlineIcon icon="simple-icons:mastodon" className="inline" /> Follow
+              </a>
+            </div>
             <h1>{accountResult?.display_name ?? `Blake Leonard`}</h1>
             {(accountResult?.note) ? <div class="p-4"><SanitizedHTML html={accountResult.note} /></div> : ``}
             {(accountResult?.fields) ? <div class="X-KVTable">
