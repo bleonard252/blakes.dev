@@ -1,5 +1,3 @@
-// Browser import!
-
 //if (localStorage.theme === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
 export function X_Apply_Theme() {
   function set(stylesheet: string) {
@@ -10,7 +8,7 @@ export function X_Apply_Theme() {
       _.rel = "stylesheet";
       _.id = "themeStylesheet";
       _.href = stylesheet;
-      document.querySelector("link[rel=stylesheet]:last-of-type").after(_);
+      (document.querySelector("link[rel=stylesheet]:last-of-type") || document.querySelector("link:last-of-type")).after(_);
     }
   }
   switch (localStorage.theme) {

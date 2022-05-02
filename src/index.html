@@ -7,6 +7,9 @@
   <link rel="stylesheet" href="styles/main.pcss">
   <!-- <link rel="stylesheet" href="styles/theme/arc-dark.pcss" id="themeStylesheet"> -->
   <title>Blake Leonard - Personal Website</title>
+  <script>
+    import("./scripts/applytheme.ts").then((x) => x.X_Apply_Theme());
+  </script>
 </head>
 <body class="bg-scheme-1 text-onscheme-1">
   <main id="root">
@@ -14,6 +17,5 @@
     <a class="hidden" href="https://indieweb.social/@blake" rel="me">@blake@indieweb.social</a>
   </main>
   <script type="module" src="views/home.tsx" defer></script>
-  <script type="module" src="scripts/applytheme.html.ts"></script>
 </body>
 </html>
