@@ -27,16 +27,6 @@ body, html {
     @apply text-xl;
   }
 }
-.X-Row-Card {
-  @apply bg-gray-100 rounded-md flex flex-row;
-  align-items: center;
-  &>h1, &>h2, &>p {
-    @apply p-2 pl-4 pr-4;
-  }
-  h1 {
-    @apply text-xl;
-  }
-}
 
 .X-Profile-Avatar.is-primary {
   &:first-child {
@@ -79,12 +69,12 @@ body, html {
   @apply text-green-500 hover:underline;
 }
 .is-not-verified a {
-  @apply text-blue-500 hover:underline;
+  @apply text-blue-500 hover:underline !important;
 }
 
 .X-Arb {
   a {
-    @apply text-blue-500 hover:underline;
+    @apply text-primary-3 hover:underline;
   }
   p:not(:last-child) {
     @apply mb-4
@@ -92,5 +82,25 @@ body, html {
   span.invisible {
     visibility: hidden;
     display: none;
+  }
+}
+@layer base {
+  .hover\:bg-opacity-25:hover {
+    --tw-bg-opacity: .25 !important
+  }
+  .hover\:bg-opacity-0:hover {
+    --tw-bg-opacity: 0 !important
+  }
+  .hover\:bg-opacity-100:hover {
+    --tw-bg-opacity: 0 !important
+  }
+  .bg-opacity-25 {
+    --tw-bg-opacity: .25 !important
+  }
+  .bg-opacity-0 {
+    --tw-bg-opacity: 0 !important
+  }
+  .bg-opacity-100 {
+    --tw-bg-opacity: 0 !important
   }
 }

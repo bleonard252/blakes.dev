@@ -4,7 +4,7 @@
   "repository": "https://github.com/bleonard252/1024256.xyz",
   "author": "Blake Leonard <blake@1024256.xyz>",
   "scripts": {
-    "build": "parcel build src/**.html",
+    "build": "parcel build src/**.html && cp -r static/* dist/",
     "serve": "parcel serve src/**.html"
   },
   "license": "PWL",
