@@ -57,7 +57,7 @@ class View extends Component {
           </div>
         </div>
         <div class="X-Column col-span-1 lg:col-span-2 xl:col-span-3" id="column-posts">
-          <div class="grid m-auto grid-cols-2 lg:grid-cols-3 2xl:grid-cols-4 p-6 gap-4" id="projects">
+          <div class="grid m-auto grid-cols-1 md:grid-cols-2 lg:grid-cols-3 2xl:grid-cols-4 md:px-6 py-6 gap-4" id="projects">
             <div class="X-Card bg-scheme-2 rounded-md flex flex-col mb-2 col-span-1">
               <img src={new URL('../images/lucidlog.png', import.meta.url)} class=" rounded-t-md" />
               <h1>LucidLog Dream Journal</h1>
@@ -84,13 +84,13 @@ class View extends Component {
                 <a href="https://github.com/dahliaOS" class="p-2 m-2 text-primary-3 inline-block bg-opacity-0 hover:bg-opacity-25 bg-primary-1 rounded-md transition-colors">GitHub</a>
               </div>
             </div>
-            <div class="X-Card bg-scheme-2 rounded-md flex flex-row items-center mb-2 col-span-full">
+            <div class="X-Card bg-scheme-2 rounded-md flex flex-wrap items-center mb-2 col-span-full">
               <h1 class="inline">Tesseract</h1>
               <p>An abandoned Flutter-based Matrix client.</p>
               <span class="flex-grow"></span>
               <a href="https://gitlab.com/bleonard252/tesseract" class="p-2 m-2 text-primary-3 inline-block bg-opacity-0 hover:bg-opacity-25 bg-primary-1 rounded-md transition-colors">GitLab</a>
             </div>
-            <div class="X-Card bg-scheme-2 rounded-md flex flex-row items-center mb-2 col-span-full">
+            <div class="X-Card bg-scheme-2 rounded-md flex flex-wrap items-center mb-2 col-span-full">
               <h1 class="inline">Vivid</h1>
               <p class="inline">An abandoned Mastodon/Pleroma frontend.</p>
               <span class="flex-grow"></span>
