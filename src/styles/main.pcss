@@ -8,9 +8,10 @@
 }
 
 body, html {
-  @apply bg-gray-50 text-black;
+  /* @apply bg-gray-50 text-black; */
   font-family: 'Radio Canada', Arial, Helvetica, sans-serif;
   height: 100%;
+  width: 100%;
 }
 
 .X-Column {
@@ -18,7 +19,7 @@ body, html {
 }
 
 .X-Card {
-  @apply bg-gray-100 rounded-md flex flex-col;
+  /* @apply bg-gray-100 rounded-md flex flex-col; */
   &>h1, &>h2, &>p {
     @apply p-2 pl-4 pr-4;
   }
@@ -42,12 +43,12 @@ body, html {
     @apply mt-4 !important;
   }
 }
-.X-Profile-Avatar img {
+/* .X-Profile-Avatar img {
   border: theme('spacing.1') theme('colors.gray.200') solid;
-}
+} */
 
 .X-KVTable {
-  border: 1px theme('colors.gray.300') solid;
+  /* border: 1px theme('colors.gray.300') solid; */
   width: 100%;
   display: block;
   .row {
@@ -55,8 +56,14 @@ body, html {
   }
   .row>span {
     width: 50%;
-    border: 1px theme('colors.gray.300') solid;
-    @apply p-1 pl-4 pr-4 text-center first:bg-gray-200;
+    /* border: 1px theme('colors.gray.300') solid; */
+    @apply p-1 pl-4 pr-4 text-center whitespace-nowrap overflow-hidden text-ellipsis block;
+  }
+  .row.X-Uneven>:first-child {
+    width: 40%;
+  }
+  .row.X-Uneven>:last-child {
+    width: 60%;
   }
 }
 
@@ -81,5 +88,9 @@ body, html {
   }
   p:not(:last-child) {
     @apply mb-4
+  }
+  span.invisible {
+    visibility: hidden;
+    display: none;
   }
 }

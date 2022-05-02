@@ -5,6 +5,7 @@ import tailwindConfig from '../../tailwind.config.js';
 import Menubar from '../components/menubar';
 import SanitizedHTML from 'react-sanitized-html';
 import { statSync } from 'fs';
+import { attributes, classes, tags } from '../scripts/sanitize';
 
 const fullConfig = resolveConfig(tailwindConfig as any) as any;
 
@@ -24,22 +25,22 @@ class View extends Component {
       <Menubar />
       <div class="grid m-auto grid-cols-1 lg:grid-cols-3 xl:grid-cols-4 p-6 gap-4">
         <div class="X-Column col-span-1" id="column-about">
-          <div class="X-Card" id="about-card">
+          <div class="X-Card bg-scheme-2 rounded-md flex flex-col text-onscheme-2" id="about-card">
             {(accountResult?.header_static && !accountResult?.header_static?.endsWith("missing.png")) ? <img src={accountResult.header_static} class="h-[170px] rounded-t-md" id="banner" /> : ``}
             <div class="-mt-[48px] m-4 mb-0 X-Profile-Avatar is-primary">
-              {(accountResult?.avatar_static) ? <img src={accountResult.avatar_static} class="rounded-full w-[96px] h-[96px]" id="avatar" /> : <div class="rounded-full w-[96px] h-[96px] bg-gray-200" id="avatar" />}
-              <a href="https://indieweb.social/users/blake/remote_follow" class="float-right -mt-[36px] mb-0 p-2 bg-blue-500 inline-block hover:bg-blue-400 text-white rounded-md transition-colors">
-                <InlineIcon icon="simple-icons:mastodon" className="inline" /> Follow
+              {(accountResult?.avatar_static) ? <img src={accountResult.avatar_static} class="rounded-full w-[96px] h-[96px] border-2 border-scheme-3" id="avatar" /> : <div class="rounded-full w-[96px] h-[96px] bg-scheme-2" id="avatar" />}
+              <a href="https://indieweb.social/users/blake/remote_follow" class="float-right -mt-[36px] mb-0 p-2 bg-primary-3 inline-block hover:bg-primary-5 text-white rounded-md transition-colors">
+                <InlineIcon icon="simple-icons:mastodon" className="lg:inline" /><span class="hidden lg:inline"> Follow</span>
               </a>
             </div>
             <h1>{accountResult?.display_name ?? `Blake Leonard`}</h1>
             {(accountResult?.note) ? <div class="p-4"><SanitizedHTML html={accountResult.note} /></div> : ``}
             {(accountResult?.fields) ? <div class="X-KVTable">
-              {(accountResult?.fields || []).map(field => <div class="row" key={field.name}>
+              {(accountResult?.fields || []).map(field => <div class="row X-Uneven -last:border-b-2 -first:border-t-2 border-b-scheme-3 bg-color-" key={field.name}>
                 <span>{field.name}</span>
-                <span class={(field.verified_at ? "is-verified" : "is-not-verified")}>
+                <span class={(field.verified_at ? "is-verified" : "is-not-verified")+" X-Arb"}>
                   {field.verified_at ? <Fragment><Icon icon="feather:check" color={fullConfig.theme.colors.green[500]} className="inline" />&nbsp;</Fragment> : ``}
-                  <SanitizedHTML html={field.value} />
+                  <SanitizedHTML html={field.value} allowedTags={tags} allowedClasses={classes} className="contents" />
                 </span>
               </div>)}
             </div> : ``}
@@ -47,7 +48,7 @@ class View extends Component {
         </div>
         <div class="X-Column col-span-1 lg:col-span-2 xl:col-span-3" id="column-posts">
           <div class="grid m-auto grid-cols-2 lg:grid-cols-3 2xl:grid-cols-4 p-6 gap-4" id="projects">
-            <div class="X-Card mb-2 col-span-1">
+            <div class="X-Card bg-scheme-2 rounded-md flex flex-col mb-2 col-span-1">
               <img src={new URL('../images/lucidlog.png', import.meta.url)} class=" rounded-t-md" />
               <h1>LucidLog Dream Journal</h1>
               <p>A dream journal app that grows with you.</p>
@@ -56,7 +57,7 @@ class View extends Component {
                 <a href="https://resources.dreamstation.one" class="p-2 m-2 text-blue-500 inline-block hover:bg-blue-200 rounded-md transition-colors">Learn more</a>
               </div>
             </div>
-            <div class="X-Card mb-2 col-span-1">
+            <div class="X-Card bg-scheme-2 rounded-md flex flex-col mb-2 col-span-1">
               <img src={new URL('../images/bodacious.png', import.meta.url)} class=" rounded-t-md" />
               <h1>Bodacious</h1>
               <p>A pretty mp3 player with some neat features.</p>
@@ -65,7 +66,7 @@ class View extends Component {
                 <a href="https://github.com/bleonard252/bodacious" class="p-2 m-2 text-blue-500 inline-block hover:bg-blue-200 rounded-md transition-colors">GitHub</a>
               </div>
             </div>
-            <div class="X-Card mb-2 col-span-1">
+            <div class="X-Card bg-scheme-2 rounded-md flex flex-col mb-2 col-span-1">
               <img src={new URL('../images/dahliaos.png', import.meta.url)} class=" rounded-t-md" />
               <h1>dahliaOS</h1>
               <p>A new OS with a Flutter-based DE and an aim to run on multiple kernels.</p>
@@ -87,7 +88,7 @@ class View extends Component {
               <a href="https://github.com/bleonard252/vivid-fe" class="p-2 m-2 text-blue-500 inline-block hover:bg-blue-200 rounded-md transition-colors">GitHub</a>
             </div>
           </div>
-          {(statusesResult || []).map(status => <div class="X-Card mb-4">
+          {(statusesResult || []).map(status => <div class="bg-scheme-2 rounded-md flex flex-col mb-4">
             {status.reblog ? <div class="flex flex-row items-center p-4 pb-0" id={"s"+status.id}>
               <img src={status.account.avatar_static} class="h-4 rounded-full mr-2" />
               <span><strong>{status.account.display_name ?? status.account.username}</strong> boosted</span>
@@ -129,7 +130,7 @@ class View extends Component {
           </span>
         </div>
       </a>
-      {status.in_reply_to_account_id && status.in_reply_to_id ? <a href={"https://indieweb.social/web/statuses/108107905852000559"+status.in_reply_to_id} class="ml-4 mr-4 mb-2 text-sm italic opacity-70 hover:opacity-100 hover:underline">Replying to a post</a> : `` }
+      {status.in_reply_to_account_id && status.in_reply_to_id ? <a href={"https://indieweb.social/web/statuses/"+status.in_reply_to_id} class="ml-4 mr-4 mb-2 text-sm italic opacity-70 hover:opacity-100 hover:underline">Replying to a post</a> : `` }
       <div class="ml-4 mr-4 X-Arb">
         <SanitizedHTML html={status.content} />
       </div>
