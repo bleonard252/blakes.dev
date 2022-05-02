@@ -115,14 +115,16 @@ class View extends Component {
 
   Status({status}) {
     return <>
-      <div class="flex flex-row items-center p-4">
-        <img src={status.account.avatar_static} class="h-12 rounded-full mr-2" />
-        <span>
-          <a class="text-blue-500 hover:underline" href="status.account.url">{status.account.display_name ?? status.account.username}</a><br />
-          <span class="text-sm text-opacity-70">@{status.account.acct.includes("@") ? status.account.acct : status.account.acct+"@indieweb.social"}</span>
-        </span>
-        {status.in_reply_to_account_id && status.in_reply_to_id ? <span class="text-sm italic text-opacity-70">Replying to...</span> : ``}
-      </div>
+      <a class="group" href={status.account.url}>
+        <div class="flex flex-row items-center p-4">
+          <img src={status.account.avatar_static} class="h-12 rounded-full mr-2" />
+          <span>
+            <span class="text-blue-500 group-hover:underline">{status.account.display_name ?? status.account.username}</span><br />
+            <span class="text-sm opacity-70">@{status.account.acct.includes("@") ? status.account.acct : status.account.acct+"@indieweb.social"}</span>
+          </span>
+        </div>
+      </a>
+      {status.in_reply_to_account_id && status.in_reply_to_id ? <a href={"https://indieweb.social/web/statuses/108107905852000559"+status.in_reply_to_id} class="ml-4 mr-4 mb-2 text-sm italic opacity-70 hover:opacity-100 hover:underline">Replying to a post</a> : `` }
       <div class="ml-4 mr-4 X-Arb">
         <SanitizedHTML html={status.content} />
       </div>
