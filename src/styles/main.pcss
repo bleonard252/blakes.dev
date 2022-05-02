@@ -1,0 +1,87 @@
+@tailwind base;
+@tailwind utilities;
+
+@font-face {
+  font-family: 'Radio Canada';
+  src: url(../fonts/RadioCanada-Variable.ttf)
+  /* Obtained from Google Fonts */
+}
+
+body, html {
+  @apply bg-gray-50 text-black;
+  font-family: 'Radio Canada', Arial, Helvetica, sans-serif;
+  height: 100%;
+}
+
+.X-Column {
+  display: inline;
+}
+
+.X-Card {
+  @apply bg-gray-100 rounded-md flex flex-col;
+  &>h1, &>h2, &>p {
+    @apply p-2 pl-4 pr-4;
+  }
+  h1 {
+    @apply text-xl;
+  }
+}
+.X-Row-Card {
+  @apply bg-gray-100 rounded-md flex flex-row;
+  align-items: center;
+  &>h1, &>h2, &>p {
+    @apply p-2 pl-4 pr-4;
+  }
+  h1 {
+    @apply text-xl;
+  }
+}
+
+.X-Profile-Avatar.is-primary {
+  @apply rounded-full m-4 mb-0;
+  width: 96px;
+  height: 96px;
+  margin-top: -48px;
+  &:first-child {
+    @apply mt-4 !important;
+  }
+  border: theme('spacing.1') theme('colors.gray.200') solid;
+}
+
+.X-KVTable {
+  border: 1px theme('colors.gray.300') solid;
+  width: 100%;
+  display: block;
+  .row {
+    display: flex;
+  }
+  .row>span {
+    width: 50%;
+    border: 1px theme('colors.gray.300') solid;
+    @apply p-1 pl-4 pr-4 text-center first:bg-gray-200;
+  }
+}
+
+.tooltip {
+  @apply invisible absolute;
+}
+
+.has-tooltip:hover .tooltip {
+  @apply visible z-50;
+}
+
+.is-verified a {
+  @apply text-green-500 hover:underline;
+}
+.is-not-verified a {
+  @apply text-blue-500 hover:underline;
+}
+
+.X-Arb {
+  a {
+    @apply text-blue-500 hover:underline;
+  }
+  p:not(:last-child) {
+    @apply mb-4
+  }
+}

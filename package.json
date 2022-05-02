@@ -1,0 +1,37 @@
+{
+  "name": "website",
+  "version": "1.0.0",
+  "repository": "https://github.com/bleonard252/1024256.xyz",
+  "author": "Blake Leonard <blake@1024256.xyz>",
+  "scripts": {
+    "build": "parcel build src/**.html",
+    "serve": "parcel serve src/**.html"
+  },
+  "license": "PWL",
+  "private": true,
+  "alias": {
+    "react": "preact/compat",
+    "react-dom/test-utils": "preact/test-utils",
+    "react-dom": "preact/compat",
+    "react/jsx-runtime": "preact/jsx-runtime"
+  },
+  "devDependencies": {
+    "@iconify/react": "^3.2.1",
+    "@parcel/transformer-inline-string": "2.5.0",
+    "@types/tailwindcss": "^3.0.10",
+    "parcel": "^2.5.0",
+    "postcss": "^8.4.13",
+    "postcss-nested": "^5.0.6",
+    "preact-cli": "^3.3.5",
+    "tailwindcss": "^3.0.24",
+    "typescript": "^4.6.4"
+  },
+  "dependencies": {
+    "@tailwindcss/typography": "^0.5.2",
+    "htm": "^3.1.1",
+    "preact": "^10.7.1",
+    "prop-types": "^15.8.1",
+    "react-sanitized-html": "^2.0.0",
+    "sanitize-html": "^2.7.0"
+  }
+}
