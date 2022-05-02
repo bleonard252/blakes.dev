@@ -2,7 +2,7 @@ import { Component, Fragment, render } from 'preact';
 import { Icon, InlineIcon } from '@iconify/react';
 import resolveConfig from 'tailwindcss/resolveConfig';
 import tailwindConfig from '../../tailwind.config.js';
-import Menubar from '../components/menubar.tsx';
+import Menubar from '../components/menubar';
 import SanitizedHTML from 'react-sanitized-html';
 import { statSync } from 'fs';
 
@@ -26,9 +26,9 @@ class View extends Component {
         <div class="X-Column col-span-1" id="column-about">
           <div class="X-Card" id="about-card">
             {(accountResult?.header_static && !accountResult?.header_static?.endsWith("missing.png")) ? <img src={accountResult.header_static} class="h-[170px] rounded-t-md" id="banner" /> : ``}
-            <div class="-mt-[48px] m-4 mb-0">
-              {(accountResult?.avatar_static) ? <img src={accountResult.avatar_static} class="rounded-full w-[96px] h-[96px] X-Profile-Avatar is-primary" id="avatar" /> : ``}
-              <a href="https://indieweb.social/users/blake/remote_follow" class="float-right -mt-[48px] mb-0 p-2 bg-blue-500 inline-block hover:bg-blue-400 text-white rounded-md transition-colors">
+            <div class="-mt-[48px] m-4 mb-0 X-Profile-Avatar is-primary">
+              {(accountResult?.avatar_static) ? <img src={accountResult.avatar_static} class="rounded-full w-[96px] h-[96px]" id="avatar" /> : <div class="rounded-full w-[96px] h-[96px] bg-gray-200" id="avatar" />}
+              <a href="https://indieweb.social/users/blake/remote_follow" class="float-right -mt-[36px] mb-0 p-2 bg-blue-500 inline-block hover:bg-blue-400 text-white rounded-md transition-colors">
                 <InlineIcon icon="simple-icons:mastodon" className="inline" /> Follow
               </a>
             </div>
