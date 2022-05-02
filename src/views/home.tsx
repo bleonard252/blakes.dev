@@ -4,8 +4,8 @@ import resolveConfig from 'tailwindcss/resolveConfig';
 import tailwindConfig from '../../tailwind.config.js';
 import Menubar from '../components/menubar';
 import SanitizedHTML from 'react-sanitized-html';
-import { statSync } from 'fs';
 import { attributes, classes, tags } from '../scripts/sanitize';
+import { X_Apply_Theme, X_Current_Theme } from '../scripts/applytheme';
 
 const fullConfig = resolveConfig(tailwindConfig as any) as any;
 
@@ -23,24 +23,31 @@ class View extends Component {
   render({}, { accountResult=null, statusesResult=null }) {
     return <Fragment>
       <Menubar />
+      <div class="hidden md:block md:absolute m-4 w-min md:m-0 right-4 top-4 p-2 rounded-md bg-scheme-3 overflow-x-auto overflow-y-visible shadow-lg">
+        <button class="X-MenuBarButton has-tooltip p-2 text-opacity-30 hover:text-opacity-70 text-onscheme-3 hover:bg-scheme-4 inline-block rounded-md transition-colors"
+          onClick={() => {X_Current_Theme() == "arc-dark" ? localStorage.theme = "arc-light" : localStorage.theme = "arc-dark"; X_Apply_Theme();}}>
+          <span class="tooltip rounded-md shadow-lg p-1 bg-gray-300 mt-8 ml-2 -translate-x-[50%] text-gray-700">GitHub</span>
+          <InlineIcon icon="feather:moon" color="currentColor" />
+        </button>
+      </div>
       <div class="grid m-auto grid-cols-1 lg:grid-cols-3 xl:grid-cols-4 p-6 gap-4">
         <div class="X-Column col-span-1" id="column-about">
           <div class="X-Card bg-scheme-2 rounded-md flex flex-col text-onscheme-2" id="about-card">
             {(accountResult?.header_static && !accountResult?.header_static?.endsWith("missing.png")) ? <img src={accountResult.header_static} class="h-[170px] rounded-t-md" id="banner" /> : ``}
             <div class="-mt-[48px] m-4 mb-0 X-Profile-Avatar is-primary">
               {(accountResult?.avatar_static) ? <img src={accountResult.avatar_static} class="rounded-full w-[96px] h-[96px] border-2 border-scheme-3" id="avatar" /> : <div class="rounded-full w-[96px] h-[96px] bg-scheme-2" id="avatar" />}
-              <a href="https://github.com/bleonard252/follow" class="float-right -mt-[36px] mb-0 p-2 bg-primary-3 inline-block hover:bg-primary-5 text-white rounded-md transition-colors">
+              {/* <a href="https://github.com/bleonard252" class="float-right -mt-[36px] mb-0 p-2 bg-primary-3 inline-block hover:bg-primary-5 text-white rounded-md transition-colors">
                 <InlineIcon icon="simple-icons:github" className="lg:inline" /><span class="hidden lg:inline"> Follow</span>
-              </a>
-              <a href="https://indieweb.social/users/blake/remote_follow" class="float-right mr-2 -mt-[36px] mb-0 p-2 bg-primary-3 inline-block hover:bg-primary-5 text-white rounded-md transition-colors">
-                <InlineIcon icon="simple-icons:mastodon" className="inline" /><span class="hidden 2xl:inline"> Follow</span>
+              </a> */}
+              <a href="https://indieweb.social/users/blake/remote_follow" class="float-right -mt-[36px] mb-0 p-2 bg-primary-3 inline-block hover:bg-primary-5 text-white rounded-md transition-colors">
+                <InlineIcon icon="simple-icons:mastodon" className="inline" /><span class="hidden lg:inline"> Follow</span>
               </a>
             </div>
             <h1>{accountResult?.display_name ?? `Blake Leonard`}</h1>
             {(accountResult?.note) ? <div class="p-4"><SanitizedHTML html={accountResult.note} /></div> : ``}
             {(accountResult?.fields) ? <div class="X-KVTable last:rounded-b-md overflow-clip">
               {(accountResult?.fields || []).map(field => <div class="row X-Uneven -last:border-b-2 -first:border-t-2 border-b-scheme-3" key={field.name}>
-                <span class="bg-scheme-3">{field.name}</span>
+                <span class="bg-scheme-3 font-semibold">{field.name}</span>
                 <span class={(field.verified_at ? "is-verified" : "is-not-verified")+" X-Arb"}>
                   {field.verified_at ? <Fragment><Icon icon="feather:check" color={fullConfig.theme.colors.green[500]} className="inline" />&nbsp;</Fragment> : ``}
                   <SanitizedHTML html={field.value} allowedTags={tags} allowedClasses={classes} className="contents" />

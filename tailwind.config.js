@@ -5,7 +5,7 @@ module.exports = {
     './src/components/*.{html,tsx,js}',
     './src/views/*.{html,tsx,js}',
     './src/scripts/*.{html,tsx,js}',
-    './src/index.html'
+    './src/*.html'
   ],
   theme: {
     darkMode: 'class',
