@@ -28,7 +28,8 @@ class View extends Component {
         <button class="X-MenuBarButton has-tooltip p-2 text-opacity-30 hover:text-opacity-70 text-onscheme-3 hover:bg-scheme-4 inline-block rounded-md transition-colors"
           onClick={() => (document.getElementById("themeSwitcher") as any).showModal() }>
           <span class="tooltip rounded-md shadow-lg p-1 bg-gray-300 mt-8 ml-2 -translate-x-[50%] text-gray-700">GitHub</span>
-          <InlineIcon icon="feather:moon" color="currentColor" />
+          <InlineIcon icon="feather:moon" color="currentColor" className="X-Hide-Light" />
+          <InlineIcon icon="feather:sun" color="currentColor" className="X-Hide-Dark" />
         </button>
       </div>
       <div class="grid m-auto grid-cols-1 lg:grid-cols-3 xl:grid-cols-4 p-6 gap-4">

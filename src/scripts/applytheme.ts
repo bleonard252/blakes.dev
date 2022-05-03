@@ -36,8 +36,27 @@ export function X_Apply_Theme() {
         import.meta.url
       ).toString())
       break;
+    case ('unity-dark'):
+      set(new URL(
+        '../styles/theme/unity-dark.pcss',
+        import.meta.url
+      ).toString())
+      break;
+    case ('unity-light'):
+      set(new URL(
+        '../styles/theme/unity-light.pcss',
+        import.meta.url
+      ).toString())
+      break;
     case ('none'):
       document.getElementById("themeStylesheet")?.remove();
+      break;
+    case (null || ''):
+      localStorage.theme = 'unity-light';
+      set(new URL(
+        '../styles/theme/unity-light.pcss',
+        import.meta.url
+      ).toString());
       break;
     default:
   }

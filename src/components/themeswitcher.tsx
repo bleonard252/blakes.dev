@@ -1,7 +1,14 @@
-import { X_Apply_Theme } from "../scripts/applytheme";
+import { X_Apply_Theme, X_Current_Theme } from "../scripts/applytheme";
 
 export default function (props) {
-  return <dialog id="themeSwitcher" class="p-6 m-1 rounded-lg shadow-xl max-w-sm lg:max-w-md xl:max-w-lg max-h-[75vh] flex flex-wrap bg-scheme-2">
+  return <dialog id="themeSwitcher" class="p-10 m-1 rounded-lg shadow-xl max-w-sm lg:max-w-md xl:max-w-lg max-h-[75vh] flex flex-wrap bg-scheme-2">
+    <ThemeTile 
+      bgClass="bg-slate-50 text-black"
+      primaryClass="bg-blue-700 text-white hover:bg-blue-500"
+      cardClass="bg-slate-100"
+      theme="arc-light"
+      name="Arc Light"
+    />
     <ThemeTile 
       bgClass="bg-slate-900 text-white"
       primaryClass="bg-blue-700 text-white hover:bg-blue-500"
@@ -10,11 +17,11 @@ export default function (props) {
       name="Arc Dark"
     />
     <ThemeTile 
-      bgClass="bg-slate-50 text-black"
-      primaryClass="bg-blue-700 text-white hover:bg-blue-500"
-      cardClass="bg-slate-100"
-      theme="arc-light"
-      name="Arc Light"
+      bgClass="bg-mint-50 text-black"
+      primaryClass="bg-green-600 text-white hover:bg-green-400"
+      cardClass="bg-mint-100"
+      theme="mint-light"
+      name="Mint Light"
     />
     <ThemeTile 
       bgClass="bg-mint-900 text-white"
@@ -24,11 +31,18 @@ export default function (props) {
       name="Mint Dark"
     />
     <ThemeTile 
-      bgClass="bg-mint-50 text-black"
-      primaryClass="bg-green-600 text-white hover:bg-green-400"
-      cardClass="bg-mint-100"
-      theme="mint-light"
-      name="Mint Light"
+      bgClass="bg-zinc-50 text-black"
+      primaryClass="bg-orange-600 text-white hover:bg-orange-400"
+      cardClass="bg-zinc-100"
+      theme="unity-light"
+      name="Unity Light"
+    />
+    <ThemeTile 
+      bgClass="bg-zinc-900 text-white"
+      primaryClass="bg-orange-600 text-white hover:bg-orange-400"
+      cardClass="bg-zinc-800"
+      theme="unity-dark"
+      name="Unity Dark"
     />
     <div class="w-full">
       <form method="dialog">
@@ -41,7 +55,7 @@ export default function (props) {
 }
 
 function ThemeTile({ bgClass = "bg-white", primaryClass="bg-red-500", theme="none", name="Theme", cardClass="bg-gray-500" }) {
-  return <div class={bgClass+" rounded-md border-scheme-3 border-2 m-2 w-48 h-36 relative hover:shadow-lg active:shadow-2xl transition-shadow"}
+  return <div class={bgClass+" rounded-md "+(X_Current_Theme() === theme ? "border-primary-3" : "border-scheme-3")+" border-2 m-2 w-48 h-36 relative hover:shadow-lg active:shadow-2xl transition-shadow"}
     onClick={() => {localStorage.theme = theme; X_Apply_Theme();}}>
     <div class={cardClass+" rounded-md absolute top-4 left-4 p-2 select-none"}>{name}</div>
     <button class={primaryClass+" rounded-md absolute right-4 bottom-4 p-4 select-none"}>Primary</button>

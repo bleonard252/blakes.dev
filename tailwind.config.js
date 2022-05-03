@@ -1,5 +1,17 @@
 const colors = require('tailwindcss/colors');
 
+function withOpacityValue(variable) {
+  return ({ opacityValue }) => {
+    if (opacityValue === undefined) {
+      return `rgb(var(${variable}))`
+    }
+    return `rgb(var(${variable}) / ${opacityValue})`
+  }
+}
+function colorFamily(name) {
+  return ({ opacityValue, shade }) => {}
+}
+
 module.exports = {
   content: [
     './src/components/*.{html,tsx,ts,js}',
@@ -24,33 +36,61 @@ module.exports = {
           900: '#0F1E15',
         },
         scheme: {
-          1: colors.gray[50],
-          2: colors.gray[100],
-          3: colors.gray[200],
-          4: colors.gray[300],
-          5: colors.gray[400]
+          1: withOpacityValue('--scheme-1'),
+          2: withOpacityValue('--scheme-2'),
+          3: withOpacityValue('--scheme-3'),
+          4: withOpacityValue('--scheme-4'),
+          5: withOpacityValue('--scheme-5'),
         },
         primary: {
-          1: colors.red[700],
-          2: colors.red[600],
-          3: colors.red[500],
-          4: colors.red[400],
-          5: colors.red[300]
+          1: withOpacityValue('--primary-1'),
+          2: withOpacityValue('--primary-2'),
+          3: withOpacityValue('--primary-3'),
+          4: withOpacityValue('--primary-4'),
+          5: withOpacityValue('--primary-5'),
         },
         onscheme: {
-          1: colors.black,
-          2: colors.black,
-          3: colors.black,
-          4: colors.black,
-          5: colors.black
+          1: withOpacityValue('--onscheme-1'),
+          2: withOpacityValue('--onscheme-2'),
+          3: withOpacityValue('--onscheme-3'),
+          4: withOpacityValue('--onscheme-4'),
+          5: withOpacityValue('--onscheme-5'),
         },
         onprimary: {
-          1: colors.white,
-          2: colors.white,
-          3: colors.white,
-          4: colors.white,
-          5: colors.black
+          1: withOpacityValue('--onprimary-1'),
+          2: withOpacityValue('--onprimary-2'),
+          3: withOpacityValue('--onprimary-3'),
+          4: withOpacityValue('--onprimary-4'),
+          5: withOpacityValue('--onprimary-5'),
         },
+        // scheme: {
+        //   1: colors.gray[50],
+        //   2: colors.gray[100],
+        //   3: colors.gray[200],
+        //   4: colors.gray[300],
+        //   5: colors.gray[400]
+        // },
+        // primary: {
+        //   1: colors.red[700],
+        //   2: colors.red[600],
+        //   3: colors.red[500],
+        //   4: colors.red[400],
+        //   5: colors.red[300]
+        // },
+        // onscheme: {
+        //   1: colors.black,
+        //   2: colors.black,
+        //   3: colors.black,
+        //   4: colors.black,
+        //   5: colors.black
+        // },
+        // onprimary: {
+        //   1: colors.white,
+        //   2: colors.white,
+        //   3: colors.white,
+        //   4: colors.white,
+        //   5: colors.black
+        // },
       }
     }
   },
