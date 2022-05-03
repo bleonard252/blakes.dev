@@ -5,8 +5,8 @@ import tailwindConfig from '../../tailwind.config.js';
 import Menubar from '../components/menubar';
 import SanitizedHTML from 'react-sanitized-html';
 import { attributes, classes, tags } from '../scripts/sanitize';
-import { X_Apply_Theme, X_Current_Theme } from '../scripts/applytheme';
 import ThemeSwitcher from '../components/themeswitcher';
+import applyShortcodes from '../scripts/applyshortcodes';
 
 const fullConfig = resolveConfig(tailwindConfig as any) as any;
 
@@ -24,14 +24,6 @@ class View extends Component {
   render({}, { accountResult=null, statusesResult=null }) {
     return <Fragment>
       <Menubar />
-      <div class="hidden md:block md:absolute m-4 w-min md:m-0 right-4 top-4 p-2 rounded-md bg-scheme-3 overflow-x-auto overflow-y-visible shadow-lg">
-        <button class="X-MenuBarButton has-tooltip p-2 text-opacity-30 hover:text-opacity-70 text-onscheme-3 hover:bg-scheme-4 inline-block rounded-md transition-colors"
-          onClick={() => (document.getElementById("themeSwitcher") as any).showModal() }>
-          <span class="tooltip rounded-md shadow-lg p-1 bg-gray-300 mt-8 ml-2 -translate-x-[50%] text-gray-700">GitHub</span>
-          <InlineIcon icon="feather:moon" color="currentColor" className="X-Hide-Light" />
-          <InlineIcon icon="feather:sun" color="currentColor" className="X-Hide-Dark" />
-        </button>
-      </div>
       <div class="grid m-auto grid-cols-1 lg:grid-cols-3 xl:grid-cols-4 p-6 gap-4">
         <div class="X-Column col-span-1" id="column-about">
           <div class="X-Card bg-scheme-2 rounded-md flex flex-col text-onscheme-2" id="about-card">
@@ -59,6 +51,7 @@ class View extends Component {
           </div>
         </div>
         <div class="X-Column col-span-1 lg:col-span-2 xl:col-span-3" id="column-posts">
+          <h1 class="text-2xl text-onscheme-2 p-6 pb-0">Projects</h1>
           <div class="grid m-auto grid-cols-1 md:grid-cols-2 lg:grid-cols-3 2xl:grid-cols-4 md:px-6 py-6 gap-4" id="projects">
             <div class="X-Card bg-scheme-2 rounded-md flex flex-col mb-2 col-span-1">
               <img src={new URL('../images/lucidlog.png', import.meta.url)} class=" rounded-t-md" />
@@ -100,6 +93,7 @@ class View extends Component {
               <a href="https://github.com/bleonard252/vivid-fe" class="p-2 m-2 text-primary-3 inline-block bg-opacity-0 hover:bg-opacity-25 bg-primary-1 rounded-md transition-colors">GitHub</a>
             </div>
           </div>
+          <h1 class="text-2xl text-onscheme-2 p-6 pt-0">Updates</h1>
           {(statusesResult || []).map(status => <div class="bg-scheme-2 rounded-md flex flex-col mb-4">
             {status.reblog ? <div class="flex flex-row items-center p-4 pb-0" id={"s"+status.id}>
               <img src={status.account.avatar_static} class="h-4 rounded-full mr-2" />
@@ -107,21 +101,21 @@ class View extends Component {
             </div> : ``}
             <this.Status status={status.reblog ?? status} />
             <div class="X-Action-Row mt-auto flex flex-row">
-              <a href={"https://indieweb.social/interact/"+(status.reblog ?? status).id+"?type=reply"} target="_blank" class="p-2 m-2 text-gray-500 inline-block hover:bg-opacity-25 hover:bg-blue-500 hover:text-blue-500 rounded-full transition-colors has-tooltip">
-                <span class="tooltip rounded-md shadow-lg p-1 bg-gray-300 mt-8 ml-2 -translate-x-[50%] text-gray-700">Reply</span>
+              <a href={"https://indieweb.social/interact/"+(status.reblog ?? status).id+"?type=reply"} aria-label="Reply" target="_blank" class="p-2 m-2 text-gray-500 inline-block hover:bg-opacity-25 hover:bg-blue-500 hover:text-blue-500 rounded-full transition-colors has-tooltip">
+                <div class="tooltip rounded-md shadow-lg p-1 bg-scheme-3 mt-8 ml-2 -translate-x-[50%] text-onscheme-3" aria-hidden>Reply</div>
                 <Icon icon="carbon:reply" />
               </a>
-              <a href={"https://indieweb.social/interact/"+(status.reblog ?? status).id+"?type=favourite"} target="_blank" class="p-2 m-2 text-gray-500 inline-block hover:bg-opacity-25 hover:bg-red-500 hover:text-red-500 rounded-full transition-colors has-tooltip">
-                <span class="tooltip rounded-md shadow-lg p-1 bg-gray-300 mt-8 ml-2 -translate-x-[50%] text-gray-700">Favorite</span>
+              <a href={"https://indieweb.social/interact/"+(status.reblog ?? status).id+"?type=favourite"} aria-label="Favorite" target="_blank" class="p-2 m-2 text-gray-500 inline-block hover:bg-opacity-25 hover:bg-red-500 hover:text-red-500 rounded-full transition-colors has-tooltip">
+                <div class="tooltip rounded-md shadow-lg p-1 bg-scheme-3 mt-8 ml-2 -translate-x-[50%] text-onscheme-3" aria-hidden>Favorite</div>
                 <Icon icon="feather:heart" />
               </a>
-              <a href={"https://indieweb.social/interact/"+(status.reblog ?? status).id+"?type=boost"} target="_blank" class="p-2 m-2 text-gray-500 inline-block hover:bg-opacity-25 hover:bg-green-500 hover:text-green-500 rounded-full transition-colors has-tooltip">
-                <span class="tooltip rounded-md shadow-lg p-1 bg-gray-300 mt-8 ml-2 -translate-x-[50%] text-gray-700">Boost</span>
+              <a href={"https://indieweb.social/interact/"+(status.reblog ?? status).id+"?type=boost"} aria-label="Boost" target="_blank" class="p-2 m-2 text-gray-500 inline-block hover:bg-opacity-25 hover:bg-green-500 hover:text-green-500 rounded-full transition-colors has-tooltip">
+                <div class="tooltip rounded-md shadow-lg p-1 bg-scheme-3 mt-8 ml-2 -translate-x-[50%] text-onscheme-3" aria-hidden>Boost</div>
                 <Icon icon="feather:repeat" />
               </a>
               <span class="flex-grow" />
-              <a href={status.url} class="p-2 m-2 text-gray-500 inline-block hover:bg-scheme-3 hover:text-onscheme-3 rounded-full transition-colors has-tooltip">
-                <span class="tooltip rounded-md shadow-lg p-1 bg-gray-300 mt-8 ml-2 -translate-x-[100%] text-gray-700">Read&nbsp;More</span>
+              <a href={status.url} aria-label="Read More" class="p-2 m-2 text-gray-500 inline-block hover:bg-scheme-3 hover:text-onscheme-3 rounded-full transition-colors has-tooltip">
+                <div class="tooltip rounded-md shadow-lg p-1 bg-scheme-3 mt-8 ml-2 -translate-x-[100%] text-onscheme-3" aria-hidden>Read&nbsp;More</div>
                 <Icon icon="carbon:launch" />
               </a>
             </div>
@@ -145,7 +139,7 @@ class View extends Component {
       </a>
       {status.in_reply_to_account_id && status.in_reply_to_id ? <a href={"https://indieweb.social/web/statuses/"+status.in_reply_to_id} class="ml-4 mr-4 mb-2 text-sm italic opacity-70 hover:opacity-100 hover:underline">Replying to a post</a> : `` }
       <div class="ml-4 mr-4 X-Arb">
-        <SanitizedHTML html={status.content} />
+        <SanitizedHTML html={applyShortcodes(status.content, status.emojis || [])} allowedTags={tags} allowedAttributes={attributes} allowedClasses={classes} />
       </div>
       {status.media_attachments ? <div class="m-4 mt-2 mb-0 flex flex-row">
         {status.media_attachments.map(att => att.type == "image" ? <a href={att.remote_url || att.url}>

@@ -4,6 +4,9 @@ import { useState } from 'preact/hooks';
 export default function (props) {
   const [themeValue, updateThemeValue] = useState(localStorage.theme);
   return <dialog id="themeSwitcher" class="p-10 m-1 rounded-lg shadow-xl max-w-sm lg:max-w-md xl:max-w-lg max-h-[75vh] flex flex-wrap bg-scheme-2">
+    <div class="w-full mb-0 pb-0">
+      <h1 class="text-2xl text-onscheme-2">Theme Switcher</h1>
+    </div>
     <ThemeTile 
       bgClass="bg-slate-50 text-black"
       primaryClass="bg-blue-700 text-white hover:bg-blue-500"

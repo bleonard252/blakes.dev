@@ -80,14 +80,14 @@ body, html {
   }
 }
 
-@layer base {
-  .tooltip {
-    @apply invisible absolute;
-  }
+.wtf {}
 
-  .has-tooltip:hover .tooltip {
-    @apply visible z-50;
-  }
+.tooltip {
+  @apply invisible absolute;
+}
+
+.has-tooltip:hover .tooltip {
+  @apply visible z-50;
 }
 
 .is-verified a {
@@ -111,6 +111,10 @@ body, html {
 }
 .X-Hide-Dark, .X-Hide-Light {
   @apply hidden h-0 w-0 p-0 m-0
+}
+
+.text-onscheme-4h, .text-onscheme-5h {
+  @apply text-red-500
 }
 
 dialog:not([open]) {
