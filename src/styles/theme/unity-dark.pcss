@@ -1,82 +1,35 @@
-@tailwind base;
-@layer base {
-  .bg-scheme-1 {
-    @apply bg-neutral-900
-  }
-  .bg-scheme-2 {
-    @apply bg-neutral-800
-  }
-  .bg-scheme-3 {
-    @apply bg-neutral-700
-  }
-  .bg-scheme-4 {
-    @apply bg-neutral-600
-  }
-  .bg-scheme-5 {
-    @apply bg-neutral-500
-  }
-  .border-scheme-3 {
-    @apply border-neutral-700
-  }
-  .outline-scheme-5 {
-    @apply outline-neutral-500
-  }
-  .text-primary-1 {
-    @apply text-orange-800
-  }
-  .text-primary-2 {
-    @apply text-orange-700
-  }
-  .text-primary-3, .text-primary {
-    @apply text-orange-600
-  }
-  .text-primary-4 {
-    @apply text-orange-500
-  }
-  .text-primary-5 {
-    @apply text-orange-400
-  }
-  .bg-primary-1 {
-    @apply bg-orange-800
-  }
-  .bg-primary-2 {
-    @apply bg-orange-700
-  }
-  .bg-primary-3, .bg-primary {
-    @apply bg-orange-600
-  }
-  .bg-primary-4 {
-    @apply bg-orange-500
-  }
-  .bg-primary-5 {
-    @apply bg-orange-400
-  }
-  .text-onprimary, .text-onprimary-1, .text-onprimary-2, .text-onprimary-3, .text-onprimary-4 {
-    @apply text-white
-  }
-  .text-onprimary-5 {
-    @apply text-black
-  }
-  .text-onscheme, .text-onscheme-1, .text-onscheme-2, .text-onscheme-3 {
-    @apply text-white
-  }
-  .text-onscheme-4, .text-onscheme-5 {
-    @apply text-neutral-300
-  }
-  .text-onscheme-4h, .text-onscheme-5h {
-    @apply text-white
-  }
+:root {
+  --scheme-1: 23 23 23;
+  --scheme-2: 41 37 36;
+  --scheme-3: 64 64 64;
+  --scheme-4: 82 82 82;
+  --scheme-5: 115 115 115;
+  --primary-1: 154 52 18;
+  --primary-2: 194 65 12;
+  --primary-3: 234 88 12;
+  --primary-4: 249 115 22;
+  --primary-5: 251 146 60;
+  --onprimary-1: 255 255 255;
+  --onprimary-2: 255 255 255;
+  --onprimary-3: 255 255 255;
+  --onprimary-4: 255 255 255;
+  --onprimary-5: 0 0 0;
+  --onscheme-1: 255 255 255;
+  --onscheme-2: 255 255 255;
+  --onscheme-3: 255 255 255;
+  --onscheme-4: 255 255 255;
+  --onscheme-5: 255 255 255;
+}
 
-  .X-Arb a {
-    @apply text-orange-600
-  }
-  #homeButton {
-    @apply text-orange-600 outline-orange-600 hover:text-orange-400 hover:outline-orange-400
-  }
-  .X-MenuBarButton {
-    @apply text-opacity-100 text-neutral-500 hover:text-neutral-400
-  }
-  .X-Hide-Light {
-    @apply inline-block
-  }
+.X-Arb a {
+  @apply text-orange-600
+}
+#homeButton {
+  @apply text-orange-600 outline-orange-600 hover:text-orange-400 hover:outline-orange-400
+}
+.X-MenuBarButton {
+  @apply text-opacity-100 text-neutral-500 hover:text-neutral-400
+}
+.X-Hide-Light {
+  @apply inline h-4 w-4
 }

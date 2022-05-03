@@ -1,82 +1,35 @@
-@tailwind base;
-@layer base {
-  .bg-scheme-1 {
-    @apply bg-mint-900
-  }
-  .bg-scheme-2 {
-    @apply bg-mint-800
-  }
-  .bg-scheme-3 {
-    @apply bg-mint-700
-  }
-  .bg-scheme-4 {
-    @apply bg-mint-600
-  }
-  .bg-scheme-5 {
-    @apply bg-mint-500
-  }
-  .border-scheme-3 {
-    @apply border-mint-700
-  }
-  .outline-scheme-5 {
-    @apply outline-mint-500
-  }
-  .text-primary-1 {
-    @apply text-green-900
-  }
-  .text-primary-2 {
-    @apply text-green-800
-  }
-  .text-primary-3, .text-primary {
-    @apply text-green-700
-  }
-  .text-primary-4 {
-    @apply text-green-600
-  }
-  .text-primary-5 {
-    @apply text-green-500
-  }
-  .bg-primary-1 {
-    @apply bg-green-800
-  }
-  .bg-primary-2 {
-    @apply bg-green-700
-  }
-  .bg-primary-3, .bg-primary {
-    @apply bg-green-600
-  }
-  .bg-primary-4 {
-    @apply bg-green-500
-  }
-  .bg-primary-5 {
-    @apply bg-green-400
-  }
-  .text-onprimary, .text-onprimary-1, .text-onprimary-2, .text-onprimary-3, .text-onprimary-4 {
-    @apply text-white
-  }
-  .text-onprimary-5 {
-    @apply text-black
-  }
-  .text-onscheme, .text-onscheme-1, .text-onscheme-2, .text-onscheme-3 {
-    @apply text-white
-  }
-  .text-onscheme-4, .text-onscheme-5 {
-    @apply text-mint-300
-  }
-  .text-onscheme-4h, .text-onscheme-5h {
-    @apply text-white
-  }
+:root {
+  --scheme-1: 15 30 21;
+  --scheme-2: 29 54 39;
+  --scheme-3: 45 77 58;
+  --scheme-4: 64 101 79;
+  --scheme-5: 84 124 100;
+  --primary-1: 20 83 45;
+  --primary-2: 22 101 52;
+  --primary-3: 21 128 61;
+  --primary-4: 22 163 74;
+  --primary-5: 34 197 94;
+  --onprimary-1: 255 255 255;
+  --onprimary-2: 255 255 255;
+  --onprimary-3: 255 255 255;
+  --onprimary-4: 255 255 255;
+  --onprimary-5: 0 0 0;
+  --onscheme-1: 255 255 255;
+  --onscheme-2: 255 255 255;
+  --onscheme-3: 255 255 255;
+  --onscheme-4: 255 255 255;
+  --onscheme-5: 255 255 255;
+}
 
-  .X-Arb a {
-    @apply text-green-600
-  }
-  #homeButton {
-    @apply text-green-600 outline-green-600 hover:text-green-400 hover:outline-green-400
-  }
-  .X-MenuBarButton {
-    @apply text-opacity-100 text-mint-500 hover:text-mint-400
-  }
-  .X-Hide-Light {
-    @apply inline-block
-  }
+.X-Arb a {
+  @apply text-green-600
+}
+#homeButton {
+  @apply text-green-600 outline-green-600 hover:text-green-400 hover:outline-green-400
+}
+.X-MenuBarButton {
+  @apply text-opacity-100 text-mint-500 hover:text-mint-400
+}
+.X-Hide-Light {
+  @apply inline h-4 w-4
 }
