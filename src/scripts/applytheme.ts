@@ -19,13 +19,27 @@ export function X_Apply_Theme() {
       ).toString())
       break;
     case ('arc-light'):
-      //set("");
-      //document.getElementById("themeStylesheet")?.remove();
       set(new URL(
         '../styles/theme/arc-light.pcss',
         import.meta.url
       ).toString())
       break;
+    case ('mint-dark'):
+      set(new URL(
+        '../styles/theme/mint-dark.pcss',
+        import.meta.url
+      ).toString())
+      break;
+    case ('mint-light'):
+      set(new URL(
+        '../styles/theme/mint-light.pcss',
+        import.meta.url
+      ).toString())
+      break;
+    case ('none'):
+      document.getElementById("themeStylesheet")?.remove();
+      break;
+    default:
   }
 }
 export function X_Current_Theme() {

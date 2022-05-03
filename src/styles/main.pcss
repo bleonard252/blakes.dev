@@ -86,6 +86,20 @@ body, html {
     display: none;
   }
 }
+
+dialog:not([open]) {
+  @apply invisible hidden;
+}
+dialog[open] {
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+dialog::backdrop {
+  @apply bg-black/50;
+}
+
+
 @layer base {
   .hover\:bg-opacity-25:hover {
     --tw-bg-opacity: .25 !important

@@ -11,6 +11,18 @@ module.exports = {
     darkMode: 'class',
     extend: {
       colors: {
+        mint: {
+          50: '#DAF2E3',
+          100: '#BBDBC7',
+          200: '#9EC3AD',
+          300: '#83AB93',
+          400: '#6B947B',
+          500: '#547C64',
+          600: '#40654F',
+          700: '#2D4D3A',
+          800: '#1D3627',
+          900: '#0F1E15',
+        },
         scheme: {
           1: colors.gray[50],
           2: colors.gray[100],

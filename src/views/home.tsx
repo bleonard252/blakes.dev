@@ -6,6 +6,7 @@ import Menubar from '../components/menubar';
 import SanitizedHTML from 'react-sanitized-html';
 import { attributes, classes, tags } from '../scripts/sanitize';
 import { X_Apply_Theme, X_Current_Theme } from '../scripts/applytheme';
+import ThemeSwitcher from '../components/themeswitcher';
 
 const fullConfig = resolveConfig(tailwindConfig as any) as any;
 
@@ -25,7 +26,7 @@ class View extends Component {
       <Menubar />
       <div class="hidden md:block md:absolute m-4 w-min md:m-0 right-4 top-4 p-2 rounded-md bg-scheme-3 overflow-x-auto overflow-y-visible shadow-lg">
         <button class="X-MenuBarButton has-tooltip p-2 text-opacity-30 hover:text-opacity-70 text-onscheme-3 hover:bg-scheme-4 inline-block rounded-md transition-colors"
-          onClick={() => {X_Current_Theme() == "arc-dark" ? localStorage.theme = "arc-light" : localStorage.theme = "arc-dark"; X_Apply_Theme();}}>
+          onClick={() => (document.getElementById("themeSwitcher") as any).showModal() }>
           <span class="tooltip rounded-md shadow-lg p-1 bg-gray-300 mt-8 ml-2 -translate-x-[50%] text-gray-700">GitHub</span>
           <InlineIcon icon="feather:moon" color="currentColor" />
         </button>
@@ -126,6 +127,7 @@ class View extends Component {
           </div>)}
         </div>
       </div>
+      <ThemeSwitcher />
     </Fragment>;
   }
 
