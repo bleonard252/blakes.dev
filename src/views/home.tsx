@@ -7,10 +7,15 @@ import SanitizedHTML from 'react-sanitized-html';
 import { attributes, classes, tags } from '../scripts/sanitize';
 import ThemeSwitcher from '../components/themeswitcher';
 import applyShortcodes from '../scripts/applyshortcodes';
+import TimeAgo from 'javascript-time-ago';
+import ta_en from 'javascript-time-ago/locale/en.json';
 
 const fullConfig = resolveConfig(tailwindConfig as any) as any;
 
 const root = document.querySelector("#root");
+
+TimeAgo.addDefaultLocale(ta_en);
+const tago = new TimeAgo('en');
 
 class View extends Component {
   async componentDidMount() {
@@ -94,10 +99,15 @@ class View extends Component {
             </div>
           </div>
           <h1 class="text-2xl text-onscheme-2 p-6 pt-0">Updates</h1>
-          {(statusesResult || []).map(status => <div class="bg-scheme-2 rounded-md flex flex-col mb-4">
+          {(statusesResult || []).filter((v) => v.visibility == "public").map(status => <div class="bg-scheme-2 rounded-md flex flex-col mb-4">
             {status.reblog ? <div class="flex flex-row items-center p-4 pb-0" id={"s"+status.id}>
               <img src={status.account.avatar_static} class="h-4 rounded-full mr-2" />
-              <span><strong>{status.account.display_name ?? status.account.username}</strong> boosted</span>
+              <span>
+                <strong>{status.account.display_name ?? status.account.username}</strong> boosted &bull; <span 
+                title={tago.format(new Date(status.created_at), 'round-minute')+': '+(new Date(status.created_at)).toLocaleString()}>
+                  {tago.format(new Date(status.created_at), 'twitter-minute-now')}
+                </span>
+              </span>
             </div> : ``}
             <this.Status status={status.reblog ?? status} />
             <div class="X-Action-Row mt-auto flex flex-row">
@@ -105,13 +115,13 @@ class View extends Component {
                 <div class="tooltip rounded-md shadow-lg p-1 bg-scheme-3 mt-8 ml-2 -translate-x-[50%] text-onscheme-3" aria-hidden>Reply</div>
                 <Icon icon="carbon:reply" />
               </a>
-              <a href={"https://indieweb.social/interact/"+(status.reblog ?? status).id+"?type=favourite"} aria-label="Favorite" target="_blank" class="p-2 m-2 text-gray-500 inline-block hover:bg-opacity-25 hover:bg-red-500 hover:text-red-500 rounded-full transition-colors has-tooltip">
-                <div class="tooltip rounded-md shadow-lg p-1 bg-scheme-3 mt-8 ml-2 -translate-x-[50%] text-onscheme-3" aria-hidden>Favorite</div>
-                <Icon icon="feather:heart" />
-              </a>
               <a href={"https://indieweb.social/interact/"+(status.reblog ?? status).id+"?type=boost"} aria-label="Boost" target="_blank" class="p-2 m-2 text-gray-500 inline-block hover:bg-opacity-25 hover:bg-green-500 hover:text-green-500 rounded-full transition-colors has-tooltip">
                 <div class="tooltip rounded-md shadow-lg p-1 bg-scheme-3 mt-8 ml-2 -translate-x-[50%] text-onscheme-3" aria-hidden>Boost</div>
                 <Icon icon="feather:repeat" />
+              </a>
+              <a href={"https://indieweb.social/interact/"+(status.reblog ?? status).id+"?type=favourite"} aria-label="Favorite" target="_blank" class="p-2 m-2 text-gray-500 inline-block hover:bg-opacity-25 hover:bg-red-500 hover:text-red-500 rounded-full transition-colors has-tooltip">
+                <div class="tooltip rounded-md shadow-lg p-1 bg-scheme-3 mt-8 ml-2 -translate-x-[50%] text-onscheme-3" aria-hidden>Favorite</div>
+                <Icon icon="feather:heart" />
               </a>
               <span class="flex-grow" />
               <a href={status.url} aria-label="Read More" class="p-2 m-2 text-gray-500 inline-block hover:bg-scheme-3 hover:text-onscheme-3 rounded-full transition-colors has-tooltip">
@@ -133,7 +143,12 @@ class View extends Component {
           <img src={status.account.avatar_static} class="h-12 rounded-full mr-2" />
           <span>
             <span class="text-primary-3 group-hover:underline">{status.account.display_name ?? status.account.username}</span><br />
-            <span class="text-sm opacity-70">@{status.account.acct.includes("@") ? status.account.acct : status.account.acct+"@indieweb.social"}</span>
+            <span class="text-sm opacity-70">
+              @{status.account.acct.includes("@") ? status.account.acct : status.account.acct+"@indieweb.social"} &bull; <span 
+              title={tago.format(new Date(status.created_at), 'round-minute')+': '+(new Date(status.created_at)).toLocaleString()}>
+                {tago.format(new Date(status.created_at), 'twitter-minute-now')}
+              </span>
+            </span>
           </span>
         </div>
       </a>
