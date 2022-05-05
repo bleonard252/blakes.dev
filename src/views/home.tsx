@@ -26,7 +26,13 @@ class View extends Component {
   }
 
 
-  render({}, { accountResult=null, statusesResult=null }) {
+  render({}, { accountResult= {
+    header_static: "https://cdn.masto.host/indiewebsocial/accounts/headers/108/211/420/273/068/716/original/91a4928cad091656.png",
+    avatar_static: "https://cdn.masto.host/indiewebsocial/accounts/avatars/108/211/420/273/068/716/original/5c3ef68912afe7cd.jpg",
+    display_name: "Blake Leonard",
+    note: "<p>Developer of dahliaOS, LucidLog, Bodacious, and more. Sometimes tries to design and write. 18 M (he/him) from Raleigh, NC. Cool tech enthusiast.</p>",
+    fields: [{name: "Loading...", value: "Loading...", verified_at: Date.now()}]
+  }, statusesResult=null }) {
     return <Fragment>
       <Menubar />
       <div class="grid m-auto grid-cols-1 lg:grid-cols-3 xl:grid-cols-4 p-6 gap-4">
@@ -63,7 +69,7 @@ class View extends Component {
               <h1>LucidLog Dream Journal</h1>
               <p>A dream journal app that grows with you.</p>
               <div class="X-Action-Row text-right mt-auto">
-                <a href="#" class="p-2 m-2 text-primary-3 inline-block bg-opacity-0 hover:bg-opacity-25 bg-primary-1 rounded-md transition-colors">Google Play</a>
+                <a href="https://play.google.com/store/apps/details?id=xyz.u1024256.ldr.journal" class="p-2 m-2 text-primary-3 inline-block bg-opacity-0 hover:bg-opacity-25 bg-primary-1 rounded-md transition-colors">Google Play</a>
                 <a href="https://resources.dreamstation.one" class="p-2 m-2 text-primary-3 inline-block bg-opacity-0 hover:bg-opacity-25 bg-primary-1 rounded-md transition-colors">Learn more</a>
               </div>
             </div>
@@ -72,7 +78,7 @@ class View extends Component {
               <h1>Bodacious</h1>
               <p>A pretty mp3 player with some neat features.</p>
               <div class="X-Action-Row text-right mt-auto">
-                <a href="#" class="p-2 m-2 text-primary-3 inline-block bg-opacity-0 hover:bg-opacity-25 bg-primary-1 rounded-md transition-colors">Google Play</a>
+                <a href="https://play.google.com/store/apps/details?id=xyz.u1024256.bodacious" class="p-2 m-2 text-primary-3 inline-block bg-opacity-0 hover:bg-opacity-25 bg-primary-1 rounded-md transition-colors">Google Play</a>
                 <a href="https://github.com/bleonard252/bodacious" class="p-2 m-2 text-primary-3 inline-block bg-opacity-0 hover:bg-opacity-25 bg-primary-1 rounded-md transition-colors">GitHub</a>
               </div>
             </div>
@@ -99,7 +105,9 @@ class View extends Component {
             </div>
           </div>
           <h1 class="text-2xl text-onscheme-2 p-6 pt-0">Updates</h1>
-          {(statusesResult || []).filter((v) => v.visibility == "public").map(status => <div class="bg-scheme-2 rounded-md flex flex-col mb-4">
+          {statusesResult == null ? <div class="border-red-500 rounded-lg p-6">
+            Posts loading...
+          </div> : (statusesResult || []).filter((v) => v.visibility == "public").map(status => <div class="bg-scheme-2 rounded-md flex flex-col mb-4">
             {status.reblog ? <div class="flex flex-row items-center p-4 pb-0" id={"s"+status.id}>
               <img src={status.account.avatar_static} class="h-4 rounded-full mr-2" />
               <span>

@@ -37,5 +37,10 @@
     "prop-types": "^15.8.1",
     "react-sanitized-html": "^2.0.0",
     "sanitize-html": "^2.7.0"
+  },
+  "routes": ["/index.html"],
+  "rendererConfig": {
+    "renderAfterDocumentEvent": "ready",
+    "headless": false
   }
 }
