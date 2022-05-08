@@ -3,8 +3,8 @@ import { useState } from 'preact/hooks';
 
 export default function (props) {
   const [themeValue, updateThemeValue] = useState(localStorage.theme);
-  return <dialog id="themeSwitcher" class="p-10 m-1 rounded-lg shadow-xl max-w-sm lg:max-w-md xl:max-w-lg max-h-[75vh] flex flex-wrap bg-scheme-2">
-    <div class="w-full mb-0 pb-0">
+  return <dialog id="themeSwitcher" class="p-10 m-1 rounded-lg shadow-xl max-w-xs lg:max-w-md xl:max-w-lg w-full max-h-[75vh] flex flex-wrap lg:grid lg:grid-cols-2 lg:gap-4 bg-scheme-2">
+    <div class="w-full mb-0 pb-0 col-span-full">
       <h1 class="text-2xl text-onscheme-2">Theme Switcher</h1>
     </div>
     <ThemeTile 
@@ -61,7 +61,25 @@ export default function (props) {
       updateThemeValue={updateThemeValue}
       name="Unity Dark"
     />
-    <div class="w-full mb-0 pb-0">
+    <ThemeTile 
+      bgClass="bg-[#ffffff] text-[#2e3338]"
+      primaryClass="bg-[rgb(88,101,242)] text-white hover:bg-[rgb(91,101,242)]"
+      cardClass="bg-[#f2f3f5]"
+      theme="chaos-light"
+      active={themeValue == "chaos-light"}
+      updateThemeValue={updateThemeValue}
+      name="Chaos Light"
+    />
+    <ThemeTile 
+      bgClass="bg-[rgb(24,25,28)] text-[rgb(220,221,222)]"
+      primaryClass="bg-[rgb(88,101,242)] text-white hover:bg-[rgb(91,101,242)]"
+      cardClass="bg-[rgb(32,34,37)]"
+      theme="chaos-dark"
+      active={themeValue == "chaos-dark"}
+      updateThemeValue={updateThemeValue}
+      name="Chaos Dark"
+    />
+    <div class="col-span-full mb-0 pb-0">
       <form method="dialog">
         <button type="submit" class="p-2 m-2 text-primary-3 inline-block bg-opacity-0 hover:bg-opacity-25 bg-primary-1 rounded-md transition-colors">
           Exit
@@ -72,7 +90,7 @@ export default function (props) {
 }
 
 function ThemeTile({ active = false, updateThemeValue = (value: string) => {}, bgClass = "bg-white", primaryClass="bg-red-500", theme="none", name="Theme", cardClass="bg-gray-500" }) {
-  return <div class={bgClass+" rounded-md "+(active ? "border-primary-3" : "border-scheme-3")+" border-2 m-2 w-48 h-36 relative hover:shadow-lg active:shadow-2xl transition-shadow"}
+  return <div class={"flex-grow lg:col-span-1 "+bgClass+" rounded-md "+(active ? "border-primary-3" : "border-scheme-3")+" border-2 m-2 min-w-48 w-full h-36 relative hover:shadow-lg active:shadow-2xl transition-shadow"}
     onClick={() => {localStorage.theme = theme; X_Apply_Theme(); updateThemeValue(theme);}}>
     <div class={cardClass+" rounded-md absolute top-4 left-4 p-2 select-none"}>{name}</div>
     <button class={primaryClass+" rounded-md absolute right-4 bottom-4 p-4 select-none"}>Primary</button>

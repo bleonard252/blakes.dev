@@ -48,6 +48,18 @@ export function X_Apply_Theme() {
         import.meta.url
       ).toString())
       break;
+    case ('chaos-dark'):
+      set(new URL(
+        '../styles/theme/chaos-dark.pcss',
+        import.meta.url
+      ).toString())
+      break;
+    case ('chaos-light'):
+      set(new URL(
+        '../styles/theme/chaos-light.pcss',
+        import.meta.url
+      ).toString())
+      break;
     case ('none'):
       document.getElementById("themeStylesheet")?.remove();
       break;
