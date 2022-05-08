@@ -9,6 +9,5 @@ export default function applyShortcodes(text: string, emojis: Record<string, any
       }
     }
   }
-  console.log(output);
   return output;
 }
