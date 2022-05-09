@@ -40,7 +40,7 @@ class View extends Component {
           <div class="X-Card bg-scheme-2 rounded-md flex flex-col text-onscheme-2" id="about-card">
             {(accountResult?.header_static && !accountResult?.header_static?.endsWith("missing.png")) ? <div style={{backgroundImage: "url('"+accountResult.header_static+"')"}} class="h-[170px] bg-center bg-cover rounded-t-md" id="banner" /> : ``}
             <div class="-mt-[48px] m-4 mb-0 X-Profile-Avatar is-primary">
-              {(accountResult?.avatar_static) ? <img src={accountResult.avatar_static} class="rounded-full w-[96px] h-[96px] border-2 border-scheme-3" id="avatar" /> : <div class="rounded-full w-[96px] h-[96px] bg-scheme-2" id="avatar" />}
+              {(accountResult?.avatar_static) ? <img src={accountResult.avatar_static} class="rounded-full w-[96px] h-[96px] border-2 border-scheme-3" id="avatar" aria-hidden /> : <div class="rounded-full w-[96px] h-[96px] bg-scheme-2" id="avatar"  aria-hidden />}
               {/* <a href="https://github.com/bleonard252" class="float-right -mt-[36px] mb-0 p-2 bg-primary-3 inline-block hover:bg-primary-5 text-white rounded-md transition-colors">
                 <InlineIcon icon="simple-icons:github" className="lg:inline" /><span class="hidden lg:inline"> Follow</span>
               </a> */}
@@ -65,7 +65,7 @@ class View extends Component {
           <h1 class="text-2xl text-onscheme-2 p-6 pb-0">Projects</h1>
           <div class="grid m-auto grid-cols-1 md:grid-cols-2 lg:grid-cols-3 2xl:grid-cols-4 md:px-6 py-6 gap-4" id="projects">
             <div class="X-Card bg-scheme-2 rounded-md flex flex-col mb-2 col-span-1">
-              <img src={new URL('../images/lucidlog.png', import.meta.url)} class=" rounded-t-md" />
+              <img src={new URL('../images/lucidlog.png', import.meta.url)} class=" rounded-t-md" alt="Purple cloud with an inverted pattern on a purple background with a non-inverted pattern"/>
               <h1>LucidLog Dream Journal</h1>
               <p>A dream journal app that grows with you.</p>
               <div class="X-Action-Row text-right mt-auto">
@@ -74,7 +74,7 @@ class View extends Component {
               </div>
             </div>
             <div class="X-Card bg-scheme-2 rounded-md flex flex-col mb-2 col-span-1">
-              <img src={new URL('../images/bodacious.png', import.meta.url)} class=" rounded-t-md" />
+              <img src={new URL('../images/bodacious.png', import.meta.url)} class=" rounded-t-md" alt="The guitar pick and play symbol used as the logo, followed by the name, Bodacious!" />
               <h1>Bodacious</h1>
               <p>A pretty mp3 player with some neat features.</p>
               <div class="X-Action-Row text-right mt-auto">
@@ -83,7 +83,7 @@ class View extends Component {
               </div>
             </div>
             <div class="X-Card bg-scheme-2 rounded-md flex flex-col mb-2 col-span-1">
-              <img src={new URL('../images/dahliaos.png', import.meta.url)} class=" rounded-t-md" />
+              <img src={new URL('../images/dahliaos.png', import.meta.url)} class=" rounded-t-md" alt="A screenshot of the dahliaOS desktop, with the calculator, terminal, and notes apps open." />
               <h1>dahliaOS</h1>
               <p>A new OS with a Flutter-based DE and an aim to run on multiple kernels.</p>
               <div class="X-Action-Row text-right mt-auto">
@@ -107,12 +107,14 @@ class View extends Component {
           <h1 class="text-2xl text-onscheme-2 p-6 pt-0">Updates</h1>
           {statusesResult == null ? <div class="border-red-500 rounded-lg p-6">
             Posts loading...
-          </div> : (statusesResult || []).filter((v) => v.visibility == "public").map(status => <div class="bg-scheme-2 rounded-md flex flex-col mb-4">
+          </div> : (statusesResult || []).filter((v) => v.visibility == "public").map(status => <div class="bg-scheme-2 rounded-md flex flex-col mb-4"
+            role="article">
             {status.reblog ? <div class="flex flex-row items-center p-4 pb-0" id={"s"+status.id}>
-              <img src={status.account.avatar_static} class="h-4 rounded-full mr-2" />
+              <img src={status.account.avatar_static} class="h-4 rounded-full mr-2" aria-hidden />
               <span>
-                <strong>{status.account.display_name ?? status.account.username}</strong> boosted &bull; <span 
-                title={tago.format(new Date(status.created_at), 'round-minute')+': '+(new Date(status.created_at)).toLocaleString()}>
+                <strong>{status.account.display_name ?? status.account.username}</strong> boosted <span aria-hidden>&bull; </span><span 
+                title={tago.format(new Date(status.created_at), 'round-minute')+': '+(new Date(status.created_at)).toLocaleString()}
+                aria-label={tago.format(new Date(status.created_at), 'twitter-minute-now')}>
                   {tago.format(new Date(status.created_at), 'twitter-minute-now')}
                 </span>
               </span>
