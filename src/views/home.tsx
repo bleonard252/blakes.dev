@@ -34,9 +34,16 @@ class View extends Component {
     fields: [{name: "Loading...", value: "Loading...", verified_at: Date.now()}]
   }, statusesResult=null }) {
     return <Fragment>
+      <div class="group bg-scheme-2 text-onscheme-2 absolute z-100 w-0 h-0 top-0 left-0 print:hidden flex flex-col focus-within:w-auto focus-within:h-auto overflow-hidden">
+        <span class="p-2">Skip to:</span>
+        <a class="focus:bg-primary-3 focus:text-onprimary-3 p-2" href="#profile">Profile</a>
+        <a class="focus:bg-primary-3 focus:text-onprimary-3 p-2" href="#projects">Projects</a>
+        <a class="focus:bg-primary-3 focus:text-onprimary-3 p-2" href="#updates">Updates</a>
+      </div>
       <Menubar />
       <div class="grid m-auto grid-cols-1 lg:grid-cols-3 xl:grid-cols-4 p-6 gap-4">
         <div class="X-Column col-span-1" id="column-about">
+          <a name="profile" id="profile" aria-hidden></a>
           <div class="X-Card bg-scheme-2 rounded-md flex flex-col text-onscheme-2" id="about-card">
             {(accountResult?.header_static && !accountResult?.header_static?.endsWith("missing.png")) ? <div style={{backgroundImage: "url('"+accountResult.header_static+"')"}} class="h-[170px] bg-center bg-cover rounded-t-md" id="banner" /> : ``}
             <div class="-mt-[48px] m-4 mb-0 X-Profile-Avatar is-primary">
@@ -104,7 +111,7 @@ class View extends Component {
               <a href="https://github.com/bleonard252/vivid-fe" class="p-2 m-2 text-primary-3 inline-block bg-opacity-0 hover:bg-opacity-25 bg-primary-1 rounded-md transition-colors">GitHub</a>
             </div>
           </div>
-          <h1 class="text-2xl text-onscheme-2 p-6 pt-0">Updates</h1>
+          <h1 class="text-2xl text-onscheme-2 p-6 pt-0" id="updates">Updates</h1>
           {statusesResult == null ? <div class="border-red-500 rounded-lg p-6">
             Posts loading...
           </div> : (statusesResult || []).filter((v) => v.visibility == "public").map(status => <div class="bg-scheme-2 rounded-md flex flex-col mb-4"
