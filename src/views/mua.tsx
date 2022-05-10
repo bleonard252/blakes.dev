@@ -1,5 +1,6 @@
 import { InlineIcon } from "@iconify/react";
 import { Component, render } from "preact";
+import { Button } from "../components/button";
 
 const root = document.querySelector("#root");
 
@@ -8,44 +9,47 @@ class View extends Component {
     return <>
       <div role="menubar" id="menubar" class="p-2 flex flex-row items-center overflow-x-auto overflow-y-hidden">
         <h1 class="inline-block text-xl ml-4 mr-4 text-primary-3">WINDGUST</h1>
-          <button class="bg-primary-3 dark:bg-onscheme-1 hover:bg-primary-4 dark:hover:bg-onscheme-1/75 active:bg-primary-2 dark:active:bg-onscheme-1/50 rounded-md text-onprimary-3 dark:text-scheme-1 p-2 mr-2">Mail</button>
-          <button class="bg-transparent hover:bg-onscheme-1/25 active:bg-onscheme-1/10 active:text-onscheme-1/75 rounded-md text-onscheme-1 p-2 mr-2">Calendar</button>
-          <button class="bg-transparent hover:bg-onscheme-1/25 active:bg-onscheme-1/10 active:text-onscheme-1/75 rounded-md text-onscheme-1 p-2 mr-2">Contacts</button>
-          <button class="bg-transparent hover:bg-onscheme-1/25 active:bg-onscheme-1/10 active:text-onscheme-1/75 rounded-md text-onscheme-1 p-2 mr-2">Tasks</button>
+          <Button class="mr-2" primary filled static>Mail</Button>
+          <Button class="mr-2">Calendar</Button>
+          <Button class="mr-2">Contacts</Button>
+          <Button class="mr-2">Tasks</Button>
         <div class="flex-grow"></div>
         <button class="bg-transparent hover:bg-onscheme-1/25 active:bg-onscheme-1/10 active:text-onscheme-1/75 rounded-2xl text-onscheme-1 p-2 mr-2 flex flex-row" aria-label="Account menu"><InlineIcon icon="feather:chevron-down" /><InlineIcon icon="feather:user" /></button>
       </div>
       <div class="flex flex-row flex-wrap md:flex-nowrap w-full">
         <div role="sidebar" id="sidebar" class="m-4 flex flex-col w-48">
           <div role="section" aria-label="All inboxes" class="contents">
-            <button class="bg-primary-3 dark:bg-onscheme-1 hover:bg-primary-4 dark:hover:bg-onscheme-1/75 active:bg-primary-2 dark:active:bg-onscheme-1/50 rounded-md text-onprimary-3 dark:text-scheme-1 p-2 mr-2 w-full flex flex-row gap-2 items-center">
+            <Button class="mr-2 w-full" primary filled static>
               <InlineIcon icon="carbon:list-boxes" /> Dashboard
-            </button>
-            <button class="bg-transparent hover:bg-onscheme-1/25 rounded-md text-onscheme-1 p-2 mr-2 w-full flex flex-row gap-2 items-center active:bg-onscheme-1/10 active:text-onscheme-1/75">
+            </Button>
+            <Button class="mr-2 w-full">
               <InlineIcon icon="feather:inbox" /> All inboxes
-            </button>
-            <button class="bg-transparent hover:bg-onscheme-1/25 rounded-md text-onscheme-1 p-2 mr-2 w-full flex flex-row gap-2 items-center active:bg-onscheme-1/10 active:text-onscheme-1/75">
+            </Button>
+            <Button class="mr-2 w-full">
               <InlineIcon icon="carbon:chat" /> Delta Chat
-            </button>
+            </Button>
           </div>
           <hr class="mt-2 mb-2 text-onscheme-1" />
           <div role="section" aria-label="Gmail" class="contents">
             <strong aria-hidden class="m-2 my-1">Gmail</strong>
-            <button class="bg-transparent hover:bg-onscheme-1/25 rounded-md text-onscheme-1 p-2 mr-2 w-full flex flex-row gap-2 items-center active:bg-onscheme-1/10 active:text-onscheme-1/75">
+            <Button class="mr-2 w-full">
               <InlineIcon icon="feather:inbox" /> Inbox
-            </button>
-            <button class="bg-transparent hover:bg-onscheme-1/25 rounded-md text-onscheme-1 p-2 mr-2 w-full flex flex-row gap-2 items-center active:bg-onscheme-1/10 active:text-onscheme-1/75">
+            </Button>
+            {/* <button class="bg-transparent hover:bg-onscheme-1/25 rounded-md text-onscheme-1 p-2 mr-2 w-full flex flex-row gap-2 items-center active:bg-onscheme-1/10 active:text-onscheme-1/75">
               <InlineIcon icon="feather:folder" /> A Folder
-            </button>
-            <button class="bg-transparent hover:bg-onscheme-1/25 rounded-md text-onscheme-1 p-2 mr-2 w-full flex flex-row gap-2 items-center active:bg-onscheme-1/10 active:text-onscheme-1/75">
+            </button> */}
+            <Button class="mr-2 w-full">
+              <InlineIcon icon="feather:folder" /> A Folder
+            </Button>
+            <Button class="mr-2 w-full">
               <InlineIcon icon="icon-park-outline:message-sent" /> Sent
-            </button>
-            <button class="bg-transparent hover:bg-onscheme-1/25 rounded-md text-onscheme-1 p-2 mr-2 w-full flex flex-row gap-2 items-center active:bg-onscheme-1/10 active:text-onscheme-1/75">
+            </Button>
+            <Button class="mr-2 w-full">
               <InlineIcon icon="feather:shield" /> Spam
-            </button>
-            <button class="bg-transparent hover:bg-onscheme-1/25 rounded-md text-onscheme-1 p-2 mr-2 w-full flex flex-row gap-2 items-center active:bg-onscheme-1/10 active:text-onscheme-1/75">
+            </Button>
+            <Button class="mr-2 w-full">
               <InlineIcon icon="feather:trash-2" /> Trash
-            </button>
+            </Button>
           </div>
         </div>
         <div class="max-w-sm last:max-w-none m-4 mr-0 last:mr-4 rounded-l-lg last:rounded-lg flex flex-row flex-grow bg-scheme-2 text-onscheme-2 overflow-clip">
