@@ -13,6 +13,7 @@ function colorFamily(name) {
 }
 
 module.exports = {
+  darkMode: 'class',
   content: [
     './src/components/*.{html,tsx,ts,js}',
     './src/views/*.{html,tsx,ts,js}',
@@ -20,7 +21,6 @@ module.exports = {
     './src/*.html'
   ],
   theme: {
-    darkMode: 'class',
     extend: {
       colors: {
         mint: {

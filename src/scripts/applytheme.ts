@@ -72,6 +72,11 @@ export function X_Apply_Theme() {
       break;
     default:
   }
+  if (localStorage.theme?.endsWith("-dark")) {
+    document.body.classList.add("dark");
+  } else {
+    document.body.classList.remove("dark");
+  }
 }
 export function X_Current_Theme() {
   return localStorage.theme;
