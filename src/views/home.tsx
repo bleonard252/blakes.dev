@@ -9,6 +9,7 @@ import ThemeSwitcher from '../components/themeswitcher';
 import applyShortcodes from '../scripts/applyshortcodes';
 import TimeAgo from 'javascript-time-ago';
 import ta_en from 'javascript-time-ago/locale/en.json';
+import { Button } from '../components/button';
 
 const fullConfig = resolveConfig(tailwindConfig as any) as any;
 
@@ -51,9 +52,9 @@ class View extends Component {
               {/* <a href="https://github.com/bleonard252" class="float-right -mt-[36px] mb-0 p-2 bg-primary-3 inline-block hover:bg-primary-5 text-white rounded-md transition-colors">
                 <InlineIcon icon="simple-icons:github" className="lg:inline" /><span class="hidden lg:inline"> Follow</span>
               </a> */}
-              <a href="https://indieweb.social/users/blake/remote_follow" class="float-right -mt-[36px] mb-0 p-2 bg-primary-3 inline-block hover:bg-primary-5 text-white rounded-md transition-colors">
-                <InlineIcon icon="simple-icons:mastodon" className="inline" /><span class="hidden lg:inline"> Follow</span>
-              </a>
+              <Button primary filled href="https://indieweb.social/users/blake/remote_follow" class="float-right -mt-[36px] mb-0">
+                <InlineIcon icon="simple-icons:mastodon" className="inline" aria-hidden /><span class="hidden lg:inline"> Follow</span>
+              </Button>
             </div>
             <h1>{accountResult?.display_name ?? `Blake Leonard`}</h1>
             {(accountResult?.note) ? <div class="p-4"><SanitizedHTML html={accountResult.note} /></div> : ``}
@@ -76,8 +77,8 @@ class View extends Component {
               <h1>LucidLog Dream Journal</h1>
               <p>A dream journal app that grows with you.</p>
               <div class="X-Action-Row text-right mt-auto">
-                <a href="https://play.google.com/store/apps/details?id=xyz.u1024256.ldr.journal" class="p-2 m-2 text-primary-3 inline-block bg-opacity-0 hover:bg-opacity-25 bg-primary-1 rounded-md transition-colors">Google Play</a>
-                <a href="https://resources.dreamstation.one" class="p-2 m-2 text-primary-3 inline-block bg-opacity-0 hover:bg-opacity-25 bg-primary-1 rounded-md transition-colors">Learn more</a>
+                <Button primary class="m-2" href="https://play.google.com/store/apps/details?id=xyz.u1024256.ldr.journal">Google Play</Button>
+                <Button primary class="m-2" href="https://resources.dreamstation.one">Learn more</Button>
               </div>
             </div>
             <div class="X-Card bg-scheme-2 rounded-md flex flex-col mb-2 col-span-1">
@@ -85,8 +86,8 @@ class View extends Component {
               <h1>Bodacious</h1>
               <p>A pretty mp3 player with some neat features.</p>
               <div class="X-Action-Row text-right mt-auto">
-                <a href="https://play.google.com/store/apps/details?id=xyz.u1024256.bodacious" class="p-2 m-2 text-primary-3 inline-block bg-opacity-0 hover:bg-opacity-25 bg-primary-1 rounded-md transition-colors">Google Play</a>
-                <a href="https://github.com/bleonard252/bodacious" class="p-2 m-2 text-primary-3 inline-block bg-opacity-0 hover:bg-opacity-25 bg-primary-1 rounded-md transition-colors">GitHub</a>
+                <Button primary class="m-2" href="https://play.google.com/store/apps/details?id=xyz.u1024256.bodacious">Google Play</Button>
+                <Button primary class="m-2" href="https://github.com/bleonard252/bodacious">GitHub</Button>
               </div>
             </div>
             <div class="X-Card bg-scheme-2 rounded-md flex flex-col mb-2 col-span-1">
@@ -94,21 +95,21 @@ class View extends Component {
               <h1>dahliaOS</h1>
               <p>A new OS with a Flutter-based DE and an aim to run on multiple kernels.</p>
               <div class="X-Action-Row text-right mt-auto">
-                <a href="https://github.com/dahliaOS" class="p-2 m-2 text-primary-3 inline-block bg-opacity-0 hover:bg-opacity-25 bg-primary-1 rounded-md transition-colors">GitHub</a>
+                <Button primary class="m-2" href="https://github.com/dahliaOS">GitHub</Button>
               </div>
             </div>
             <div class="X-Card bg-scheme-2 rounded-md flex flex-wrap items-center mb-2 col-span-full">
               <h1 class="inline">Tesseract</h1>
               <p>An abandoned Flutter-based Matrix client.</p>
               <span class="flex-grow"></span>
-              <a href="https://gitlab.com/bleonard252/tesseract" class="p-2 m-2 text-primary-3 inline-block bg-opacity-0 hover:bg-opacity-25 bg-primary-1 rounded-md transition-colors">GitLab</a>
+              <Button primary class="m-2" href="https://gitlab.com/bleonard252/tesseract">GitLab</Button>
             </div>
             <div class="X-Card bg-scheme-2 rounded-md flex flex-wrap items-center mb-2 col-span-full">
               <h1 class="inline">Vivid</h1>
               <p class="inline">An abandoned Mastodon/Pleroma frontend.</p>
               <span class="flex-grow"></span>
-              <a href="https://bleonard252.github.io/vivid-fe" class="p-2 m-2 text-primary-3 inline-block bg-opacity-0 hover:bg-opacity-25 bg-primary-1 rounded-md transition-colors">Try</a>
-              <a href="https://github.com/bleonard252/vivid-fe" class="p-2 m-2 text-primary-3 inline-block bg-opacity-0 hover:bg-opacity-25 bg-primary-1 rounded-md transition-colors">GitHub</a>
+              <Button primary class="m-2" href="https://bleonard252.github.io/vivid-fe">Try</Button>
+              <Button primary class="m-2" href="https://github.com/bleonard252/vivid-fe">GitHub</Button>
             </div>
           </div>
           <h1 class="text-2xl text-onscheme-2 p-6 pt-0" id="updates">Updates</h1>
