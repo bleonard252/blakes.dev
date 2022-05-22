@@ -20,18 +20,21 @@ const tago = new TimeAgo('en');
 
 class View extends Component {
   async componentDidMount() {
-    let accountLookup = fetch("https://indieweb.social/api/v1/accounts/108211420273068716").then(value => value.json())
-    let statusesLookup = fetch("https://indieweb.social/api/v1/accounts/108211420273068716/statuses").then(value => value.json());
+    let accountLookup = fetch("https://fosstodon.org/api/v1/accounts/108341459214885420").then(value => value.json())
+    let statusesLookup = Promise.all([
+      fetch("https://fosstodon.org/api/v1/accounts/108341459214885420/statuses"),
+      fetch("https://indieweb.social/api/v1/accounts/108211420273068716/statuses"),
+    ]).then(async (value) => ([...(await value[0].json()), ...(await value[1].json())]));
     let [accountResult, statusesResult] = await Promise.all([accountLookup, statusesLookup]);
     this.setState({ accountResult, statusesResult });
   }
 
 
   render({}, { accountResult= {
-    header_static: "https://cdn.masto.host/indiewebsocial/accounts/headers/108/211/420/273/068/716/original/91a4928cad091656.png",
-    avatar_static: "https://cdn.masto.host/indiewebsocial/accounts/avatars/108/211/420/273/068/716/original/5c3ef68912afe7cd.jpg",
+    header_static: "https://cdn.fosstodon.org/accounts/headers/108/341/459/214/885/420/original/5a3ca4c658a0eec1.png",
+    avatar_static: "https://cdn.fosstodon.org/accounts/avatars/108/341/459/214/885/420/original/812fc1236c967e3c.jpg",
     display_name: "Blake Leonard",
-    note: "<p>Developer of dahliaOS, LucidLog, Bodacious, and more. Sometimes tries to design and write. 18 M (he/him) from Raleigh, NC. Cool tech enthusiast.</p>",
+    note: "<p>A software developer with a passion for the powers, rights, and freedoms of users. Developer of dahliaOS, LucidLog, Bodacious, and more. Sometimes tries to design and write. 18 M (he/him) from Raleigh, NC. Cool tech enthusiast.</p>",
     fields: [{name: "Loading...", value: "Loading...", verified_at: Date.now()}]
   }, statusesResult=null }) {
     return <Fragment>
@@ -52,7 +55,7 @@ class View extends Component {
               {/* <a href="https://github.com/bleonard252" class="float-right -mt-[36px] mb-0 p-2 bg-primary-3 inline-block hover:bg-primary-5 text-white rounded-md transition-colors">
                 <InlineIcon icon="simple-icons:github" className="lg:inline" /><span class="hidden lg:inline"> Follow</span>
               </a> */}
-              <Button primary filled href="https://indieweb.social/users/blake/remote_follow" class="float-right -mt-[36px] mb-0">
+              <Button primary filled href="https://fosstodon.org/users/blake/remote_follow" class="float-right -mt-[36px] mb-0">
                 <InlineIcon icon="simple-icons:mastodon" className="inline" aria-hidden /><span class="hidden lg:inline"> Follow</span>
               </Button>
             </div>
@@ -129,15 +132,15 @@ class View extends Component {
             </div> : ``}
             <this.Status status={status.reblog ?? status} />
             <div class="X-Action-Row mt-auto flex flex-row">
-              <a href={"https://indieweb.social/interact/"+(status.reblog ?? status).id+"?type=reply"} aria-label="Reply" target="_blank" class="p-2 m-2 text-gray-500 inline-block hover:bg-opacity-25 hover:bg-blue-500 hover:text-blue-500 rounded-full transition-colors has-tooltip">
+              <a href={"https://"+this.host(status.uri)+"/interact/"+(status.reblog ?? status).id+"?type=reply"} aria-label="Reply" target="_blank" class="p-2 m-2 text-gray-500 inline-block hover:bg-opacity-25 hover:bg-blue-500 hover:text-blue-500 rounded-full transition-colors has-tooltip">
                 <div class="tooltip rounded-md shadow-lg p-1 bg-scheme-3 mt-8 ml-2 -translate-x-[50%] text-onscheme-3" aria-hidden>Reply</div>
                 <Icon icon="carbon:reply" />
               </a>
-              <a href={"https://indieweb.social/interact/"+(status.reblog ?? status).id+"?type=boost"} aria-label="Boost" target="_blank" class="p-2 m-2 text-gray-500 inline-block hover:bg-opacity-25 hover:bg-green-500 hover:text-green-500 rounded-full transition-colors has-tooltip">
+              <a href={"https://"+this.host(status.uri)+"/interact/"+(status.reblog ?? status).id+"?type=boost"} aria-label="Boost" target="_blank" class="p-2 m-2 text-gray-500 inline-block hover:bg-opacity-25 hover:bg-green-500 hover:text-green-500 rounded-full transition-colors has-tooltip">
                 <div class="tooltip rounded-md shadow-lg p-1 bg-scheme-3 mt-8 ml-2 -translate-x-[50%] text-onscheme-3" aria-hidden>Boost</div>
                 <Icon icon="feather:repeat" />
               </a>
-              <a href={"https://indieweb.social/interact/"+(status.reblog ?? status).id+"?type=favourite"} aria-label="Favorite" target="_blank" class="p-2 m-2 text-gray-500 inline-block hover:bg-opacity-25 hover:bg-red-500 hover:text-red-500 rounded-full transition-colors has-tooltip">
+              <a href={"https://"+this.host(status.uri)+"/interact/"+(status.reblog ?? status).id+"?type=favourite"} aria-label="Favorite" target="_blank" class="p-2 m-2 text-gray-500 inline-block hover:bg-opacity-25 hover:bg-red-500 hover:text-red-500 rounded-full transition-colors has-tooltip">
                 <div class="tooltip rounded-md shadow-lg p-1 bg-scheme-3 mt-8 ml-2 -translate-x-[50%] text-onscheme-3" aria-hidden>Favorite</div>
                 <Icon icon="feather:heart" />
               </a>
@@ -159,15 +162,15 @@ class View extends Component {
               </div> : ``}
               <this.Status status={status.reblog || status} showFull={true} />
               <div class="X-Action-Row mt-auto flex flex-row">
-                <a href={"https://indieweb.social/interact/"+(status.reblog ?? status).id+"?type=reply"} aria-label="Reply" target="_blank" class="p-2 m-2 text-gray-500 inline-block hover:bg-opacity-25 hover:bg-blue-500 hover:text-blue-500 rounded-full transition-colors has-tooltip">
+                <a href={"https://"+this.host(status.uri)+"/interact/"+(status.reblog ?? status).id+"?type=reply"} aria-label="Reply" target="_blank" class="p-2 m-2 text-gray-500 inline-block hover:bg-opacity-25 hover:bg-blue-500 hover:text-blue-500 rounded-full transition-colors has-tooltip">
                   <div class="tooltip rounded-md shadow-lg p-1 bg-scheme-3 mt-8 ml-2 -translate-x-[50%] text-onscheme-3" aria-hidden>Reply</div>
                   <Icon icon="carbon:reply" />
                 </a>
-                <a href={"https://indieweb.social/interact/"+(status.reblog ?? status).id+"?type=boost"} aria-label="Boost" target="_blank" class="p-2 m-2 text-gray-500 inline-block hover:bg-opacity-25 hover:bg-green-500 hover:text-green-500 rounded-full transition-colors has-tooltip">
+                <a href={"https://"+this.host(status.uri)+"/interact/"+(status.reblog ?? status).id+"?type=boost"} aria-label="Boost" target="_blank" class="p-2 m-2 text-gray-500 inline-block hover:bg-opacity-25 hover:bg-green-500 hover:text-green-500 rounded-full transition-colors has-tooltip">
                   <div class="tooltip rounded-md shadow-lg p-1 bg-scheme-3 mt-8 ml-2 -translate-x-[50%] text-onscheme-3" aria-hidden>Boost</div>
                   <Icon icon="feather:repeat" />
                 </a>
-                <a href={"https://indieweb.social/interact/"+(status.reblog ?? status).id+"?type=favourite"} aria-label="Favorite" target="_blank" class="p-2 m-2 text-gray-500 inline-block hover:bg-opacity-25 hover:bg-red-500 hover:text-red-500 rounded-full transition-colors has-tooltip">
+                <a href={"https://"+this.host(status.uri)+"/interact/"+(status.reblog ?? status).id+"?type=favourite"} aria-label="Favorite" target="_blank" class="p-2 m-2 text-gray-500 inline-block hover:bg-opacity-25 hover:bg-red-500 hover:text-red-500 rounded-full transition-colors has-tooltip">
                   <div class="tooltip rounded-md shadow-lg p-1 bg-scheme-3 mt-8 ml-2 -translate-x-[50%] text-onscheme-3" aria-hidden>Favorite</div>
                   <Icon icon="feather:heart" />
                 </a>
@@ -185,7 +188,14 @@ class View extends Component {
     </Fragment>;
   }
 
+  host(uri) {
+    return new URL(uri).hostname;
+  }
+
   Status({status, showFull = false}) {
+    function host(uri) {
+      return new URL(uri).hostname;
+    }
     return <>
       <a class="group" href={status.account.url}>
         <div class="flex flex-row items-center p-4">
@@ -193,7 +203,7 @@ class View extends Component {
           <span>
             <span class="text-primary-3 group-hover:underline">{status.account.display_name ?? status.account.username}<span class="hidden"> says</span></span><br />
             <span class="text-sm opacity-70">
-              <span aria-hidden>@{status.account.acct.includes("@") ? status.account.acct : status.account.acct+"@indieweb.social"} &bull; </span><span 
+              <span aria-hidden>@{status.account.acct.includes("@") ? status.account.acct : status.account.acct+"@"+host(status.account.url)} &bull; </span><span
               title={tago.format(new Date(status.created_at), 'round-minute')+': '+(new Date(status.created_at)).toLocaleString()}
               aria-label={tago.format(new Date(status.created_at), 'twitter-minute-now')}>
                 {tago.format(new Date(status.created_at), 'twitter-minute-now')}
