@@ -1,5 +1,6 @@
 import { X_Apply_Theme, X_Current_Theme } from "../scripts/applytheme";
 import { useState } from 'preact/hooks';
+import { h, Fragment } from "preact";
 
 export default function (props) {
   const [themeValue, updateThemeValue] = useState(localStorage.theme);

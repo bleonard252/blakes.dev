@@ -1,4 +1,5 @@
 import { InlineIcon } from "@iconify/react";
+import { h, Fragment } from "preact";
 import { X_Apply_Theme, X_Current_Theme } from "../scripts/applytheme";
 
 export default function (props) {

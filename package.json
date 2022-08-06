@@ -39,7 +39,8 @@
     "sanitize-html": "^2.7.0"
   },
   "routes": [
-    "/index.html"
+    "/index.html",
+    "/mua.html"
   ],
   "rendererConfig": {
     "renderAfterDocumentEvent": "ready",

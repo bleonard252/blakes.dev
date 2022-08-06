@@ -1,4 +1,4 @@
-import { Component, Fragment, render } from 'preact';
+import { Component, Fragment, render, h } from 'preact';
 import { Icon, InlineIcon } from '@iconify/react';
 import resolveConfig from 'tailwindcss/resolveConfig';
 import tailwindConfig from '../../tailwind.config.js';
@@ -235,4 +235,4 @@ class View extends Component {
   }
 }
 
-render(<View />, root);
+render(<View />, root!);

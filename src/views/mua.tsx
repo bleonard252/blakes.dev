@@ -1,5 +1,5 @@
 import { InlineIcon } from "@iconify/react";
-import { Component, render } from "preact";
+import { Component, render, h, Fragment } from "preact";
 import { Button } from "../components/button";
 
 const root = document.querySelector("#root");
