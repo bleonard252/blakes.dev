@@ -87,7 +87,7 @@ export function X_Apply_Theme() {
     case ('none'):
       document.getElementById("themeStylesheet")?.remove();
       break;
-    case (null || ''):
+    case (null || '' || undefined):
       localStorage.theme = 'unity-auto';
       set(new URL(
         '../styles/theme/unity-auto.pcss',

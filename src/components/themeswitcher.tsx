@@ -76,6 +76,9 @@ function ThemeTile({ active = false, updateThemeValue = (value: string) => {}, b
 }
 
 function basenameOf(theme: string) {
+  if (!theme) {
+    return "none";
+  }
   if (theme.endsWith("-light")) {
     return theme.substring(0, theme.length - 6);
   } else if (theme.endsWith("-dark")) {
@@ -84,7 +87,10 @@ function basenameOf(theme: string) {
     return theme.substring(0, theme.length - 5);
   }
 }
-function colorModeOf(theme: string) {
+function colorModeOf(theme: string): "light" | "dark" {
+  if (!theme) {
+    return "light";
+  }
   if (theme.endsWith("-light")) {
     return "light";
   } else if (theme.endsWith("-dark")) {
