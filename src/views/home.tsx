@@ -76,7 +76,7 @@ class View extends Component {
           <h1 class="text-2xl text-onscheme-2 p-6 pb-0">Projects</h1>
           <div class="grid m-auto grid-cols-1 md:grid-cols-2 lg:grid-cols-3 2xl:grid-cols-4 md:px-6 py-6 gap-4" id="projects">
             <div class="X-Card bg-scheme-2 rounded-md flex flex-col mb-2 col-span-1">
-              <img src={new URL('../images/lucidlog.png', import.meta.url)} class=" rounded-t-md" alt="Purple cloud with an inverted pattern on a purple background with a non-inverted pattern"/>
+              <img src={new URL('../images/lucidlog.png', import.meta.url).toString()} class=" rounded-t-md" alt="Purple cloud with an inverted pattern on a purple background with a non-inverted pattern"/>
               <h1>LucidLog Dream Journal</h1>
               <p>A dream journal app that grows with you.</p>
               <div class="X-Action-Row text-right mt-auto">
@@ -85,7 +85,7 @@ class View extends Component {
               </div>
             </div>
             <div class="X-Card bg-scheme-2 rounded-md flex flex-col mb-2 col-span-1">
-              <img src={new URL('../images/bodacious.png', import.meta.url)} class=" rounded-t-md" alt="The guitar pick and play symbol used as the logo, followed by the name, Bodacious!" />
+              <img src={new URL('../images/bodacious.png', import.meta.url).toString()} class=" rounded-t-md" alt="The guitar pick and play symbol used as the logo, followed by the name, Bodacious!" />
               <h1>Bodacious</h1>
               <p>A pretty mp3 player with some neat features.</p>
               <div class="X-Action-Row text-right mt-auto">
@@ -94,7 +94,7 @@ class View extends Component {
               </div>
             </div>
             <div class="X-Card bg-scheme-2 rounded-md flex flex-col mb-2 col-span-1">
-              <img src={new URL('../images/dahliaos.png', import.meta.url)} class=" rounded-t-md" alt="A screenshot of the dahliaOS desktop, with the calculator, terminal, and notes apps open." />
+              <img src={new URL('../images/dahliaos.png', import.meta.url).toString()} class=" rounded-t-md" alt="A screenshot of the dahliaOS desktop, with the calculator, terminal, and notes apps open." />
               <h1>dahliaOS</h1>
               <p>A new OS with a Flutter-based DE and an aim to run on multiple kernels.</p>
               <div class="X-Action-Row text-right mt-auto">

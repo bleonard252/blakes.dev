@@ -24,6 +24,12 @@ export function X_Apply_Theme() {
         import.meta.url
       ).toString())
       break;
+    case ('arc-auto'):
+      set(new URL(
+        '../styles/theme/arc-auto.pcss',
+        import.meta.url
+      ).toString())
+      break;
     case ('mint-dark'):
       set(new URL(
         '../styles/theme/mint-dark.pcss',
@@ -33,6 +39,12 @@ export function X_Apply_Theme() {
     case ('mint-light'):
       set(new URL(
         '../styles/theme/mint-light.pcss',
+        import.meta.url
+      ).toString())
+      break;
+    case ('mint-auto'):
+      set(new URL(
+        '../styles/theme/mint-auto.pcss',
         import.meta.url
       ).toString())
       break;
@@ -48,6 +60,12 @@ export function X_Apply_Theme() {
         import.meta.url
       ).toString())
       break;
+    case ('unity-auto'):
+      set(new URL(
+        '../styles/theme/unity-auto.pcss',
+        import.meta.url
+      ).toString())
+      break;
     case ('chaos-dark'):
       set(new URL(
         '../styles/theme/chaos-dark.pcss',
@@ -60,13 +78,19 @@ export function X_Apply_Theme() {
         import.meta.url
       ).toString())
       break;
+    case ('chaos-auto'):
+      set(new URL(
+        '../styles/theme/chaos-auto.pcss',
+        import.meta.url
+      ).toString())
+      break;
     case ('none'):
       document.getElementById("themeStylesheet")?.remove();
       break;
     case (null || ''):
-      localStorage.theme = 'unity-light';
+      localStorage.theme = 'unity-auto';
       set(new URL(
-        '../styles/theme/unity-light.pcss',
+        '../styles/theme/unity-auto.pcss',
         import.meta.url
       ).toString());
       break;
