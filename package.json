@@ -4,8 +4,8 @@
   "repository": "https://github.com/bleonard252/1024256.xyz",
   "author": "Blake Leonard <blake@1024256.xyz>",
   "scripts": {
-    "build": "parcel build src/**.html && cp -r static/* dist/ && cp -r static/.well-known dist/.well-known",
-    "serve": "parcel serve src/**.html"
+    "build": "parcel build 'src/**.html' 'src/nimbus/**.html' && cp -r static/* dist/ && cp -r static/.well-known dist/.well-known",
+    "serve": "parcel serve 'src/**.html' 'src/nimbus/**.html'"
   },
   "license": "PWL",
   "private": true,
@@ -18,6 +18,7 @@
   "devDependencies": {
     "@iconify/react": "^3.2.1",
     "@parcel/transformer-inline-string": "2.5.0",
+    "@parcel/transformer-mdx": "2.5.0",
     "@tailwindcss/typography": "^0.5.2",
     "@types/javascript-time-ago": "^2.0.3",
     "@types/sanitize-html": "^2.6.2",
@@ -30,6 +31,7 @@
     "typescript": "^4.6.4"
   },
   "dependencies": {
+    "@mdx-js/react": "^1",
     "htm": "^3.1.1",
     "javascript-time-ago": "^2.3.13",
     "multi-date": "^1.0.1",
@@ -38,9 +40,11 @@
     "react-sanitized-html": "^2.0.0",
     "sanitize-html": "^2.7.0"
   },
-  "routes": [
-    "/index.html",
-    "/mua.html"
+  "source": [
+    "src/index.html",
+    "src/mua.html",
+    "src/nimbus/matrix.html",
+    "src/404.html"
   ],
   "rendererConfig": {
     "renderAfterDocumentEvent": "ready",
