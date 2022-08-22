@@ -17,19 +17,27 @@
         },
         "onscheme_dark": {
           "type": "object",
-          "description": "The background colors used in dark mode. If not specified, dark mode is not supported.",
+          "description": "The foreground colors used in dark mode. If not specified, all are assumed to be white (#FFFFFF).",
           "$ref": "#/definitions/scheme"
         },
         "scheme_light": {
           "type": "object",
+          "description": "The background colors used in light mode.",
           "$ref": "#/definitions/scheme"
         },
         "onscheme_light": {
           "type": "object",
+          "description": "The foreground colors used in light mode. Generally, these are all `#000000`.",
           "$ref": "#/definitions/scheme"
         },
         "primary": {
           "type": "object",
+          "description": "The most prominent *color* in the theme. Buttons often display this color, and it can be used for branding.",
+          "$ref": "#/definitions/scheme"
+        },
+        "onprimary": {
+          "type": "object",
+          "description": "The foreground colors used when the primary color is a background, such as on buttons.\nThis is typically `#000000` and `#FFFFFF` but picked for the most contrast against each shade.",
           "$ref": "#/definitions/scheme"
         },
         "extra_postcss": {
@@ -56,6 +64,7 @@
       "required": [
         "onscheme_light",
         "primary",
+        "onprimary",
         "scheme_light"
       ],
       "dependencies": {

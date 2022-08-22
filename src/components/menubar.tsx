@@ -24,7 +24,7 @@ export default function (props) {
         <div class="has-tooltip h-6">
           <div class="tooltip rounded-md shadow-lg bg-scheme-4 mt-7 ml-4 -translate-x-[50%] text-onscheme-4 flex flex-col text-center">
             <a class="rounded-md X-ListedButton m-0 p-2 px-4 bg-opacity-0 hover:bg-opacity-25 bg-scheme-5 hover:text-onscheme-4h" href="https://gitlab.com/bleonard252">GitLab</a>
-            <a class="rounded-md X-ListedButton m-0 p-2 px-4 bg-opacity-0 hover:bg-opacity-25 bg-scheme-5 hover:text-onscheme-4h" href="#">Test Link</a>
+            <a class="rounded-md X-ListedButton m-0 p-2 px-4 bg-opacity-0 hover:bg-opacity-25 bg-scheme-5 hover:text-onscheme-4h" href="https://nimbus.blakes.dev">Try Nimbus!</a>
             <button class="block md:hidden rounded-md X-ListedButton m-0 p-2 px-4 bg-opacity-0 hover:bg-opacity-25 bg-scheme-5 hover:text-onscheme-4h" 
               onClick={() => (document.getElementById("themeSwitcher") as any).showModal() }>
               Theme Switcher
@@ -36,7 +36,7 @@ export default function (props) {
           </a>
         </div>
         <a class="X-MenuBarButton has-tooltip p-2 text-opacity-30 hover:text-opacity-70 text-onscheme-3 hover:bg-scheme-4 inline-block rounded-md transition-colors"
-          href="https://indieweb.social/@blake" rel="me" aria-label="Mastodon">
+          href="https://fosstodon.org/@blake" rel="me" aria-label="Mastodon">
           <div class="tooltip rounded-md shadow-lg p-1 bg-scheme-3 mt-8 ml-2 -translate-x-[50%] text-onscheme-3" aria-hidden>Mastodon</div>
           <InlineIcon icon="simple-icons:mastodon" color="currentColor" />
         </a>

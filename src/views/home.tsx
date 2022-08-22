@@ -123,7 +123,7 @@ class View extends Component {
             {status.reblog ? <div class="flex flex-row items-center p-4 pb-0" id={"s"+status.id}>
               <img src={status.account.avatar_static} class="h-4 rounded-full mr-2" aria-hidden />
               <span>
-                <strong>{status.account.display_name ?? status.account.username}</strong> boosted <span aria-hidden>&bull; </span><span 
+                <strong>{status.account.display_name ?? status.account.username}</strong> boosted <span aria-hidden>&bull; </span><span
                 title={tago.format(new Date(status.created_at), 'round-minute')+': '+(new Date(status.created_at)).toLocaleString()}
                 aria-label={tago.format(new Date(status.created_at), 'twitter-minute-now')}>
                   {tago.format(new Date(status.created_at), 'twitter-minute-now')}
@@ -218,7 +218,7 @@ class View extends Component {
           <Icon icon="feather:x" />
         </button>
       </form></div> : ``}
-      {status.in_reply_to_account_id && status.in_reply_to_id ? <a href={"https://indieweb.social/web/statuses/"+status.in_reply_to_id} class="ml-4 mr-4 mb-2 text-sm italic opacity-70 hover:opacity-100 hover:underline">Replying to a post</a> : `` }
+      {status.in_reply_to_account_id && status.in_reply_to_id ? <a href={"https://fosstodon.org/web/statuses/"+status.in_reply_to_id} class="ml-4 mr-4 mb-2 text-sm italic opacity-70 hover:opacity-100 hover:underline">Replying to a post</a> : `` }
       {status.spoiler_text && showFull ? <div class="ml-4 mr-4 mb-4 X-Arb">{status.spoiler_text}</div> : ``}
       <div class="ml-4 mr-4 X-Arb">
         {(!showFull && status.spoiler_text) || <SanitizedHTML html={applyShortcodes(status.content, status.emojis || [])} allowedTags={tags} allowedAttributes={attributes} allowedClasses={classes} />}
