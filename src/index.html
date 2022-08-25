@@ -7,8 +7,8 @@
   <link rel="stylesheet" href="styles/main.pcss">
 
   <meta property="og:site_name" content="blakes.dev - Blake Leonard">
-  <meta property="og:image" content="https://cdn.masto.host/indiewebsocial/accounts/avatars/108/211/420/273/068/716/original/5c3ef68912afe7cd.jpg">
-  <meta property="twitter:image" content="https://cdn.masto.host/indiewebsocial/accounts/avatars/108/211/420/273/068/716/original/5c3ef68912afe7cd.jpg">
+  <meta property="og:image" content="https://cdn.fosstodon.org/accounts/avatars/108/341/459/214/885/420/original/812fc1236c967e3c.jpg">
+  <meta property="twitter:image" content="https://cdn.fosstodon.org/accounts/avatars/108/341/459/214/885/420/original/812fc1236c967e3c.jpg">
   <meta name="title" content="Blake Leonard">
   <meta property="og:title" content="Blake Leonard">
   <meta property="twitter:title" content="Blake Leonard">
@@ -19,13 +19,11 @@
 
   <link rel="shortcut icon" href="../static/favicon.ico" type="image/x-icon">
 
-  <!-- <link rel="stylesheet" href="styles/theme/arc-dark.pcss" id="themeStylesheet"> -->
+  <link rel="stylesheet" href="theme:./styles/themes.txt" id="themeStylesheet">
   <title>Blake Leonard - Personal Website</title>
-  <script>
-    import("./scripts/applytheme.ts").then((x) => x.X_Apply_Theme());
-  </script>
+  <script type="module" src="./scripts/applythemenow.ts"></script>
 </head>
-<body class="bg-scheme-1 text-onscheme-1">
+<body class="bg-scheme-1 text-onscheme-1" data-theme="unity-dark">
   <main id="root">
     <!-- TODO: put a pre-rendered version here -->
     <a class="hidden" href="https://fosstodon.org/@blake" rel="me">@blake@fosstodon.org</a>

@@ -23,6 +23,8 @@
     "@types/javascript-time-ago": "^2.0.3",
     "@types/sanitize-html": "^2.6.2",
     "@types/tailwindcss": "^3.0.10",
+    "@private/parcel-transformer-theme-generator": "link:./tools/parcel/generate_themes",
+    "@types/react": "link:preact/compat",
     "parcel": "^2.5.0",
     "postcss": "^8.4.13",
     "postcss-nested": "^5.0.6",

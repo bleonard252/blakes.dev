@@ -1,0 +1,51 @@
+name: Unity
+scheme_light:
+  1: 0xf9fafb
+  2: 0xf3f4f6
+  3: 0xe5e7eb
+  4: 0xd1d5db
+  5: 0x9ca3af
+onscheme_light:
+  1: 0x000000
+  2: 0x000000
+  3: 0x000000
+  4: 0x000000
+  5: 0x000000
+scheme_dark:
+  1: 0x171717
+  2: 0x292524
+  3: 0x404040
+  4: 0x525252
+  5: 0x737373
+onscheme_dark:
+  1: 0xffffff
+  2: 0xffffff
+  3: 0xffffff
+  4: 0xffffff
+  5: 0xffffff
+primary:
+  1: 0x9a3412
+  2: 0xc2410c
+  3: 0xea580c
+  4: 0xf97316
+  5: 0xfb923c
+onprimary:
+  1: 0xffffff
+  2: 0xffffff
+  3: 0xffffff
+  4: 0xffffff
+  5: 0x000000
+extra_postcss: |
+  .X-Arb a {
+    @apply text-orange-600;
+  }
+  #homeButton {
+    @apply text-orange-600 outline-orange-600 hover:text-orange-400 hover:outline-orange-400;
+  }
+  .X-MenuBarButton {
+    @apply text-opacity-100 text-neutral-500 hover:text-neutral-400;
+  }
+extra_postcss_dark: |
+  #menubar.nimbus--header-bar {
+    @apply !text-white !bg-neutral-800;
+  }

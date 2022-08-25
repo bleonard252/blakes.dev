@@ -1,0 +1,52 @@
+name: Mint
+scheme_light:
+  1: 0xdaf2e3
+  2: 0xbbdbc7
+  3: 0x9ec3ad
+  4: 0x83ab93
+  5: 0x6b947b
+onscheme_light:
+  1: 0x000000
+  2: 0x000000
+  3: 0x000000
+  4: 0x000000
+  5: 0x000000
+onscheme_dark:
+  1: 0xffffff
+  2: 0xffffff
+  3: 0xffffff
+  4: 0xffffff
+  5: 0xffffff
+scheme_dark:
+  1: 0x0f1e15
+  2: 0x1d3627
+  3: 0x2d4d3a
+  4: 0x40654f
+  5: 0x547c64
+primary:
+  1: 0x14532d
+  2: 0x166534
+  3: 0x15803d
+  4: 0x16a34a
+  5: 0x22c55e
+onprimary:
+  1: 0xffffff
+  2: 0xffffff
+  3: 0xffffff
+  4: 0xffffff
+  5: 0x000000
+
+extra_postcss: |
+  .X-Arb a {
+    @apply text-green-600;
+  }
+  #homeButton {
+    @apply text-green-600 outline-green-600 hover:text-green-500 hover:outline-green-500;
+  }
+  .X-MenuBarButton {
+    @apply text-opacity-100 text-mint-500 hover:text-mint-700;
+  }
+extra_postcss_dark: |
+  #menubar.nimbus--header-bar {
+    @apply !text-white !bg-mint-800;
+  }
