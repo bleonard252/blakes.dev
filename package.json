@@ -4,8 +4,8 @@
   "repository": "https://github.com/bleonard252/1024256.xyz",
   "author": "Blake Leonard <blake@1024256.xyz>",
   "scripts": {
-    "build": "parcel build 'src/**.html' 'src/nimbus/**.html' && cp -r static/* dist/ && cp -r static/.well-known dist/.well-known",
-    "serve": "parcel serve 'src/**.html' 'src/nimbus/**.html'"
+    "build": "parcel build 'src/*.html' 'src/nimbus/*.html' && cp -r static/* dist/ && cp -r static/.well-known dist/.well-known",
+    "serve": "parcel serve 'src/*.html' 'src/nimbus/*.html'"
   },
   "license": "PWL",
   "private": true,
