@@ -46,7 +46,8 @@
     "src/index.html",
     "src/mua.html",
     "src/nimbus/matrix.html",
-    "src/404.html"
+    "src/404.html",
+    "src/now.html"
   ],
   "rendererConfig": {
     "renderAfterDocumentEvent": "ready",
