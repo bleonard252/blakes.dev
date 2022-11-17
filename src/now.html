@@ -4,21 +4,21 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="../styles/main.pcss">
+  <link rel="stylesheet" href="./styles/main.pcss">
 
   <meta property="og:site_name" content="blakes.dev - Blake Leonard">
-  <meta name="title" content="Nimbus ❤️ Matrix">
-  <meta property="og:title" content="Nimbus ❤️ Matrix">
-  <meta property="twitter:title" content="Nimbus ❤️ Matrix">
-  <meta name="description" content="Nimbus uses Matrix, a federated chat protocol, to build its forums.">
-  <meta property="og:description" content="Nimbus uses Matrix, a federated chat protocol, to build its forums.">
-  <meta property="twitter:description" content="Nimbus uses Matrix, a federated chat protocol, to build its forums.">
+  <meta name="title" content="Now Page - Blake Leonard">
+  <meta property="og:title" content="Now Page - Blake Leonard">
+  <meta property="twitter:title" content="Now Page - Blake Leonard">
+  <meta name="description" content="What am I doing right now?">
+  <meta property="og:description" content="What am I doing right now?">
+  <meta property="twitter:description" content="What am I doing right now?">
   <meta property="twitter:card" content="summary">
 
-  <link rel="shortcut icon" href="../../static/favicon.ico" type="image/x-icon">
+  <link rel="shortcut icon" href="../static/favicon.ico" type="image/x-icon">
 
   <!-- <link rel="stylesheet" href="styles/theme/arc-dark.pcss" id="themeStylesheet"> -->
-  <title>Nimbus ❤️ Matrix - Blake Leonard</title>
+  <title>Now Page - Blake Leonard</title>
   <script>
     import("../scripts/applytheme.ts").then((x) => x.X_Apply_Theme());
   </script>
@@ -29,9 +29,9 @@
     <a class="hidden" href="https://fosstodon.org/@blake" rel="me">@blake@fosstodon.org</a>
   </main>
   <script type="module">
-    import Page from "./matrix.mdx";
-    import Menubar from "../components/menubar";
-    import ThemeSwitcher from '../components/themeswitcher';
+    import Page from "./views/now.mdx";
+    import Menubar from "./components/menubar";
+    import ThemeSwitcher from './components/themeswitcher';
     import { h, render, Fragment } from "preact";
 
     render(<>
