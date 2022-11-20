@@ -16,6 +16,7 @@
     "react/jsx-runtime": "preact/jsx-runtime"
   },
   "devDependencies": {
+    "@cloudflare/workers-types": "^4.20221111.1",
     "@iconify/react": "^3.2.1",
     "@parcel/transformer-inline-string": "2.5.0",
     "@parcel/transformer-mdx": "2.5.0",
