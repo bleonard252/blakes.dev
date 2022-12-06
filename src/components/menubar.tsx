@@ -12,7 +12,7 @@ export default function (props) {
           <InlineIcon icon="simple-icons:github" color="currentColor" />
         </a>
         <a class="X-MenuBarButton has-tooltip p-2 text-opacity-30 hover:text-opacity-70 text-onscheme-3 hover:bg-scheme-4 inline-block rounded-md transition-colors"
-          href="https://codeberg.com/bleonard252" aria-label="Codeberg">
+          href="https://codeberg.org/bleonard252" aria-label="Codeberg">
           <div class="tooltip rounded-md shadow-lg p-1 bg-scheme-3 mt-8 ml-2 -translate-x-[50%] text-onscheme-3" aria-hidden>Codeberg</div>
           <InlineIcon icon="simple-icons:codeberg" color="currentColor" />
         </a>
