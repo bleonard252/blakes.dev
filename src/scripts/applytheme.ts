@@ -1,5 +1,6 @@
 //if (localStorage.theme === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
   export function X_Apply_Theme() {
+    if (typeof window === 'undefined') return;
     const set = (theme) => document.body.setAttribute("data-theme", theme);
     switch (localStorage.theme) {
       case "none":
@@ -23,5 +24,6 @@
     }
   }
   export function X_Current_Theme() {
+    if (!localStorage) return "unity-auto";
     return localStorage.theme;
   }

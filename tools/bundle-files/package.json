@@ -1,0 +1,13 @@
+{
+  "name": "@private/bundle-files",
+  "version": "0.0.0",
+  "private": true,
+  "scripts": {
+    "build": "tsc ./index.ts --esModuleInterop --resolveJsonModule --sourceMap"
+  },
+  "bin": "./index.js",
+  "type": "module",
+  "dependencies": {
+    "typescript": "*"
+  }
+}

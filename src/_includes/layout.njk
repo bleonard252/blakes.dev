@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="/styles/main.css">
+  <script type="module" src="/scripts/vendor/is-land.js"></script>
+  <script type="module" src="/scripts/vendor/iconify-icon.js"></script>
+
+  <meta property="og:site_name" content="blakes.dev - Blake Leonard">
+  {% if metaImage -%}
+    <meta property="og:image" content="{{ metaImage }}">
+    <meta property="twitter:image" content="{{ metaImage }}">
+  {%- endif -%}{%- if metaTitle -%}
+    <meta property="og:title" content="{{ metaTitle }}">
+    <meta property="twitter:title" content="{{ metaTitle }}">
+    <meta name="title" content="{{ metaTitle }}">
+  {%- endif -%}{%- if metaDescription -%}
+    <meta property="og:description" content="{{ metaDescription }}">
+    <meta property="twitter:description" content="{{ metaDescription }}">
+    <meta name="description" content="{{ metaDescription }}">
+  {%- endif -%}
+  {# <meta property="og:image" content="https://cdn.fosstodon.org/accounts/avatars/108/341/459/214/885/420/original/812fc1236c967e3c.jpg">
+  <meta property="twitter:image" content="https://cdn.fosstodon.org/accounts/avatars/108/341/459/214/885/420/original/812fc1236c967e3c.jpg">
+  <meta name="title" content="Blake Leonard">
+  <meta property="og:title" content="Blake Leonard">
+  <meta property="twitter:title" content="Blake Leonard">
+  <meta name="description" content="Developer of dahliaOS, LucidLog, Bodacious, and more. Sometimes tries to design and write. 18 M (he/him) from Raleigh, NC. Cool tech enthusiast.">
+  <meta property="og:description" content="Developer of dahliaOS, LucidLog, Bodacious, and more. Sometimes tries to design and write. 18 M (he/him) from Raleigh, NC. Cool tech enthusiast.">
+  <meta property="twitter:description" content="Developer of dahliaOS, LucidLog, Bodacious, and more. Sometimes tries to design and write. 18 M (he/him) from Raleigh, NC. Cool tech enthusiast."> #}
+  <meta property="twitter:card" content="summary">
+
+  <link rel="shortcut icon" href="{{ favicon | default('/favicon.ico') }}" type="image/x-icon">
+
+  <link rel="stylesheet" href="/styles/themes.css" id="themeStylesheet">
+  <title>{{ title }}</title>
+  <script type="module" src="/scripts/applythemenow.js"></script>
+</head>
+<body class="bg-scheme-1 text-onscheme-1" data-theme="unity-dark">
+  {{ content | safe }}
+</body>
+</html>

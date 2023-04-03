@@ -1,6 +1,3 @@
 node_modules
-/.parcel-cache
-/.yarn/cache
-
-# Built files
+.cache
 /dist/

@@ -1,0 +1,5 @@
+---
+layout: layout.njk
+---
+<blakes-menubar webc:import="./components/blakes-menubar.webc">Fallback</blakes-menubar> <is-land on:interaction="mouseenter,focusin" autoinit="preact" import="/scripts/components/themeswitcher.js"><ThemeSwitcher /></is-land>
+<article class="prose dark:prose-invert m-auto mt-8" @raw="content"></article>

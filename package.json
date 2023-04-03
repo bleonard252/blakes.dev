@@ -1,58 +1,66 @@
 {
   "name": "website",
-  "version": "1.0.0",
-  "repository": "https://github.com/bleonard252/1024256.xyz",
-  "author": "Blake Leonard <blake@1024256.xyz>",
+  "version": "2.0.0",
+  "description": "My personal website",
+  "repository": "https://github.com/bleonard252/blakes.dev",
+  "author": "Blake Leonard <me@blakes.dev>",
   "scripts": {
-    "build": "parcel build 'src/*.html' 'src/nimbus/*.html' && cp -r static/* dist/ && cp -r static/.well-known dist/.well-known",
-    "serve": "parcel serve 'src/*.html' 'src/nimbus/*.html'"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "bundle:icons": "bundle-files src/_includes/icons/*",
+    "build:themes": "theme-generator",
+    "build:pcss": "postcss src/styles/main.pcss -o dist/styles/main.css",
+    "build:11ty": "node --require esbuild-register node_modules/@11ty/eleventy/cmd.js",
+    "build:tsc": "tsc src/scripts/*.ts --outDir dist/ --target es2019 --moduleResolution node --jsx react --jsxFactory h --jsxFragmentFactory Fragment",
+    "build_:vite": "vite build",
+    "build": "npm-run-all -s bundle:icons build:**",
+    "watch:tsc": "tsc src/scripts/*.ts --outDir dist/ --target es2019 --moduleResolution node --jsx react --jsxFactory h --jsxFragmentFactory Fragment --watch",
+    "watch:pcss": "postcss src/styles/main.pcss -o dist/styles/main.css --watch",
+    "watch:11ty": "node --require esbuild-register node_modules/@11ty/eleventy/cmd.js --serve",
+    "watch": "npm-run-all -s bundle:icons -p watch:**",
+    "serve": "npm-run-all -s bundle:icons -p watch:**"
   },
   "license": "PWL",
   "private": true,
-  "alias": {
-    "react": "preact/compat",
-    "react-dom/test-utils": "preact/test-utils",
-    "react-dom": "preact/compat",
-    "react/jsx-runtime": "preact/jsx-runtime"
+  "engines": {
+    "pnpm": "^7.0.0"
   },
   "devDependencies": {
-    "@cloudflare/workers-types": "^4.20221111.1",
-    "@iconify/react": "^3.2.1",
-    "@parcel/transformer-inline-string": "2.5.0",
-    "@parcel/transformer-mdx": "2.5.0",
-    "@private/parcel-transformer-theme-generator": "portal:./tools/parcel/generate_themes",
-    "@tailwindcss/typography": "^0.5.2",
-    "@types/javascript-time-ago": "^2.0.3",
-    "@types/react": "link:preact/compat",
-    "@types/sanitize-html": "^2.6.2",
-    "@types/tailwindcss": "^3.0.10",
-    "parcel": "^2.5.0",
-    "postcss": "^8.4.13",
-    "postcss-nested": "^5.0.6",
-    "preact-cli": "^3.3.5",
-    "tailwindcss": "^3.0.24",
-    "typescript": "^4.6.4"
+    "@11ty/eleventy": "^2.0.0",
+    "@babel/cli": "^7.21.0",
+    "@babel/core": "^7.21.0",
+    "@babel/preset-env": "^7.20.2",
+    "@iconify/react": "^3.2.2",
+    "@private/bundle-files": "link:./tools/bundle-files",
+    "@private/theme-generator": "link:./tools/generate-themes",
+    "@types/node": "^18.14.1",
+    "autoprefixer": "^10.4.13",
+    "cssnano": "^5.1.15",
+    "esbuild-register": "^3.4.2",
+    "npm-run-all": "^4.1.5",
+    "postcss": "^8.4.21",
+    "postcss-cli": "^10.1.0",
+    "postcss-import": "^15.1.0",
+    "postcss-nested": "^6.0.1",
+    "preact-render-to-string": "^5.2.6",
+    "tailwindcss": "^3.2.7",
+    "typescript-require": "^0.3.0",
+    "vite": "^4.1.4",
+    "vite-plugin-babel": "^1.1.3",
+    "vite-plugin-eleventy": "^0.3.1"
   },
   "dependencies": {
-    "@mdx-js/react": "^1",
+    "@11ty/eleventy-plugin-webc": "^0.11.0",
+    "@11ty/is-land": "^3.0.2",
+    "@11ty/webc": "^0.11.1",
+    "@jamshop/eleventy-plugin-mdx": "^0.0.17",
+    "@tailwindcss/typography": "^0.5.9",
     "htm": "^3.1.1",
-    "javascript-time-ago": "^2.3.13",
-    "multi-date": "^1.0.1",
-    "preact": "^10.7.1",
-    "prop-types": "^15.8.1",
-    "react-sanitized-html": "^2.0.0",
-    "sanitize-html": "^2.7.0"
-  },
-  "source": [
-    "src/index.html",
-    "src/mua.html",
-    "src/nimbus/matrix.html",
-    "src/404.html",
-    "src/now.html"
-  ],
-  "rendererConfig": {
-    "renderAfterDocumentEvent": "ready",
-    "headless": false
-  },
-  "packageManager": "yarn@3.2.3"
+    "iconify-icon": "^1.0.7",
+    "nunjucks": "^3.2.3",
+    "preact": "^10.13.0",
+    "react": "npm:@preact/compat@^17.1.2",
+    "react-dom": "npm:@preact/compat@^17.1.2",
+    "sanitize-html": "^2.10.0",
+    "typescript": "^4.9.5"
+  }
 }
