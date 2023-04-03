@@ -1,5 +1,5 @@
 <div class="w-min m-auto mt-4 mb-0 p-2 rounded-md bg-scheme-3 overflow-x-auto overflow-y-visible max-w-[90%] shadow-lg" id="menubar">
-  <div class="flex flex-row gap-2">
+  <div class="flex flex-row gap-2 justify-center">
     <a class="X-MenuBarButton has-tooltip p-2 text-opacity-30 hover:text-opacity-70 text-onscheme-3 hover:bg-scheme-4 inline-block rounded-md transition-colors"
       href="https://github.com/bleonard252" aria-label="GitHub">
       <div class="tooltip rounded-md shadow-lg p-1 bg-scheme-3 mt-8 ml-2 -translate-x-[50%] text-onscheme-3" aria-hidden>GitHub</div>
@@ -12,7 +12,7 @@
       <!--- <InlineIcon icon="simple-icons:codeberg" color="currentColor" /> --->
       <iconify-icon icon="simple-icons:codeberg" color="currentColor" style="display:block"></iconify-icon>
     </a>
-    <a class="X-MenuBarButton has-tooltip p-2 text-opacity-30 hover:text-opacity-70 text-onscheme-3 hover:bg-scheme-4 inline-block rounded-md transition-colors"
+    <a :class="`X-MenuBarButton ${(url == '/now' || url.startsWith('/now/')) ? 'is-active ' : ''}has-tooltip p-2 text-opacity-30 hover:text-opacity-70 text-onscheme-3 hover:bg-scheme-4 inline-block rounded-md transition-colors`"
       href="/now" aria-label="Now page">
       <div class="tooltip rounded-md shadow-lg p-1 bg-scheme-3 mt-8 ml-2 -translate-x-[50%] text-onscheme-3" aria-hidden>Now Page</div>
       <!---<InlineIcon icon="feather:calendar" color="currentColor" /> --->
@@ -50,6 +50,24 @@
       <div class="tooltip rounded-md shadow-lg p-1 bg-scheme-3 mt-8 ml-2 -translate-x-[50%] text-onscheme-3" aria-hidden>dahliaOS</div>
       <!--- <InlineIcon icon="mdi:brightness-5" color="currentColor" /> --->
       <iconify-icon icon="mdi:brightness-5" color="currentColor" style="display:block"></iconify-icon>
+    </a>
+  </div>
+  <div webc:ignore webc:if="url.startsWith('/nimbus/')" class="pt-1 flex flex-row gap-4 justify-center flex-nowrap">
+    <a href="/" class="X-MenuBarButton whitespace-nowrap p-1 px-2 text-opacity-30 hover:text-opacity-70 text-onscheme-3 hover:bg-scheme-4 inline-block rounded-md transition-colors"
+      aria-label="Home">
+      Home
+    </a>
+    <a href="/nimbus/matrix" class="X-MenuBarButton whitespace-nowrap p-1 px-2 text-opacity-30 hover:text-opacity-70 text-onscheme-3 hover:bg-scheme-4 inline-block rounded-md transition-colors"
+      aria-label="Matrix">
+      Matrix
+    </a>
+    <a href="https://nimbus.blakes.dev" class="X-MenuBarButton whitespace-nowrap p-1 px-2 text-opacity-30 hover:text-opacity-70 text-onscheme-3 hover:bg-scheme-4 inline-block rounded-md transition-colors"
+      aria-label="Try Nimbus">
+      Try Nimbus!
+    </a>
+    <a href="https://nimbus.blakes.dev" class="X-MenuBarButton whitespace-nowrap p-1 px-2 text-opacity-30 hover:text-opacity-70 text-onscheme-3 hover:bg-scheme-4 inline-block rounded-md transition-colors"
+      aria-label="Try Nimbus">
+      Try Nimbus!
     </a>
   </div>
 </div>

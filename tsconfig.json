@@ -11,6 +11,9 @@
     "allowSyntheticDefaultImports": true,
     "strict": false
   },
+  "include": [
+    "src/_includes/scripts/**/*", "src/_components",
+  ],
   "exclude": [
     "node_modules",
     "**/node_modules/*",

@@ -3,9 +3,9 @@ layout: layout.njk
 webc:
   components: ~/src/_includes/components/blakes-*.webc
 ---
-<blakes-menubar><a href="/">Click to go home</a></blakes-menubar>
-<is-land on:visible on:idle><template data-island="replace">
-  <blakes-theme-switcher-button></blakes-theme-switcher-button>
+<blakes-menubar :@url="page.url"><a href="/">Click to go home</a></blakes-menubar>
+<is-land on:visible on:idle><blakes-theme-switcher-button disabled></blakes-theme-switcher-button><template data-island="replace">
+  <blakes-theme-switcher-button disabled></blakes-theme-switcher-button>
   <blakes-theme-switcher></blakes-theme-switcher>
 </template></is-land>
 <article class="prose dark:prose-invert m-auto mt-8" @raw="content"></article>

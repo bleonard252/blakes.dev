@@ -5,13 +5,13 @@
   themeBasename = "none",
   name = "Theme",
 --->
-<script>
+<script webc:setup>
   function updateThemeValue(theme) {
     localStorage.setItem('theme', theme);
     window.X_Apply_Theme();
   }
 </script>
-<div :data-theme="themeBasename + '-' + mode" :class='"flex-grow lg:col-span-1 bg-scheme-1 rounded-md "+(active ? "border-primary-3" : "border-scheme-3")+" border-2 m-2 min-w-48 w-full h-36 relative hover:shadow-lg active:shadow-2xl transition-shadow"'>
+<div :data-theme="themeBasename + '-context'" :class='"flex-grow lg:col-span-1 bg-scheme-1 rounded-md "+(active ? "border-primary-3" : "border-scheme-3")+" border-2 m-2 min-w-48 w-full h-36 relative hover:shadow-lg active:shadow-2xl transition-shadow"'>
   <div class="bg-scheme-2 text-onscheme-2 rounded-md absolute top-4 left-4 p-2 select-none" @text="name"></div>
   <div class="rounded-md absolute right-4 bottom-4 select-none flex flex-row gap-0">
     <button

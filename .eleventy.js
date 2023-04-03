@@ -5,7 +5,7 @@ const { EleventyRenderPlugin } = require("@11ty/eleventy");
 
 module.exports = function eleventy(config) {
   config.addPassthroughCopy({'static': '/'});
-  // config.addPassthroughCopy({'node_modules/@11ty/is-land/is-land.js': '/scripts/vendor/is-land.js'});
+  config.addPassthroughCopy({'node_modules/@11ty/is-land/is-land.js': '/scripts/vendor/is-land.js'});
   config.addPassthroughCopy({'node_modules/iconify-icon/dist/iconify-icon.min.js': '/scripts/vendor/iconify-icon.js'});
   config.setUseGitIgnore(false);
   config.addPlugin(mdxPlugin);

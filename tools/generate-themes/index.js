@@ -227,6 +227,9 @@ async function transform(asset) {
   code += "\n";
   for (let themeId in themes) {
     code += `
+    [data-theme^="${themeId}-"] lda-theme-tile[theme-basename="${themeId}"] .bor {
+      @apply border-primary-3;
+    }
     [data-theme="${themeId}-light"] {
       ${themes[themeId].light}
     }
@@ -235,6 +238,12 @@ async function transform(asset) {
     }
     [data-theme="${themeId}-auto"] {
       ${themes[themeId].auto}
+    }
+    [data-theme="${themeId}-context"] {
+      ${themes[themeId].light}
+      :root .dark & {
+        ${themes[themeId].dark}
+      }
     }`;
   }
   // asset.setCode(code);

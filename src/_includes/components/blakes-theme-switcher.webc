@@ -1,7 +1,6 @@
 <script webc:setup>
-  themeValue = localStorage?.getItem('theme');
   function updateThemeValue() {
-    themeValue = localStorage?.getItem('theme');
+    window?.X_Apply_Theme?.call();
   }
   function basenameOf(theme) {
     if (!theme) return "none";
@@ -31,41 +30,40 @@
   <div class="w-full mb-0 pb-0 col-span-full">
     <h1 class="text-2xl text-onscheme-2">Theme Switcher</h1>
   </div>
-  <lda-theme-tile webc:import="theme-switcher/lda-theme-tile.webc"
-    @theme-basename="arc"
-    :@active='basenameOf(themeValue) == "arc"'
-    onClick="updateThemeValue"
-    @name="Arc"
-    :mode='colorModeOf(themeValue)'
-  ></lda-theme-tile>
-  <lda-theme-tile webc:import="theme-switcher/lda-theme-tile.webc"
-    @theme-basename="mint"
-    :@active='basenameOf(themeValue) == "mint"'
-    onClick="updateThemeValue"
-    @name="Mint"
-    :mode='colorModeOf(themeValue)'
-  ></lda-theme-tile>
-  <lda-theme-tile webc:import="theme-switcher/lda-theme-tile.webc"
-    @theme-basename="unity"
-    :@active='basenameOf(themeValue) == "unity"'
-    onClick="updateThemeValue"
-    @name="Unity"
-    :mode='colorModeOf(themeValue)'
-  ></lda-theme-tile>
-  <lda-theme-tile webc:import="theme-switcher/lda-theme-tile.webc"
-    @theme-basename="chaos"
-    :@active='basenameOf(themeValue) == "chaos"'
-    onClick="updateThemeValue"
-    @name="Chaos"
-    :mode='colorModeOf(themeValue)'
-  ></lda-theme-tile>
-  <lda-theme-tile webc:import="theme-switcher/lda-theme-tile.webc"
-    @theme-basename="nimbus"
-    :@active='basenameOf(themeValue) == "nimbus"'
-    onClick="updateThemeValue"
-    @name="Nimbus"
-    :mode='colorModeOf(themeValue)'
-  ></lda-theme-tile>
+  <slot></slot>
+  <slot name="default-themes">
+    <lda-theme-tile webc:import="theme-switcher/lda-theme-tile.webc"
+      theme-basename="arc"
+      :@active='localStorage?.getItem("theme").split("-")[0] == "arc"'
+      onClick="updateThemeValue"
+      @name="Arc"
+    ></lda-theme-tile>
+    <lda-theme-tile webc:import="theme-switcher/lda-theme-tile.webc"
+      theme-basename="mint"
+      :@active='localStorage?.getItem("theme").split("-")[0] == "mint"'
+      onClick="updateThemeValue"
+      @name="Mint"
+    ></lda-theme-tile>
+    <lda-theme-tile webc:import="theme-switcher/lda-theme-tile.webc"
+      theme-basename="unity"
+      :@active='localStorage?.getItem("theme").split("-")[0] == "unity"'
+      onClick="updateThemeValue"
+      @name="Unity"
+    ></lda-theme-tile>
+    <lda-theme-tile webc:import="theme-switcher/lda-theme-tile.webc"
+      theme-basename="chaos"
+      :@active='localStorage?.getItem("theme").split("-")[0] == "chaos"'
+      onClick="updateThemeValue"
+      @name="Chaos"
+    ></lda-theme-tile>
+    <lda-theme-tile webc:import="theme-switcher/lda-theme-tile.webc"
+      theme-basename="nimbus"
+      :@active='localStorage?.getItem("theme").split("-")[0] == "nimbus"'
+      onClick="updateThemeValue"
+      @name="Nimbus"
+    ></lda-theme-tile>
+  </slot>
+  <slot name="extra-themes"></slot>
   <div class="col-span-full mb-0 pb-0">
     <form method="dialog">
       <button
