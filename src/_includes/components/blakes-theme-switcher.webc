@@ -1,0 +1,79 @@
+<script webc:setup>
+  themeValue = localStorage?.getItem('theme');
+  function updateThemeValue() {
+    themeValue = localStorage?.getItem('theme');
+  }
+  function basenameOf(theme) {
+    if (!theme) return "none";
+    if (theme.endsWith("-light")) {
+      return theme.substring(0, theme.length - 6);
+    } else if (theme.endsWith("-dark")) {
+      return theme.substring(0, theme.length - 5);
+    } else if (theme.endsWith("-auto")) {
+      return theme.substring(0, theme.length - 5);
+    }
+  }
+  function colorModeOf(theme) {
+    if (!theme) return "light";
+    if (theme.endsWith("-light")) {
+      return "light";
+    } else if (theme.endsWith("-dark")) {
+      return "dark";
+    } else {
+      return "light";
+    }
+  }
+</script>
+<dialog
+  id="themeSwitcher"
+  class="p-10 m-1 rounded-lg shadow-xl max-w-xs lg:max-w-md xl:max-w-lg w-full max-h-[75vh] flex flex-wrap lg:grid lg:grid-cols-2 lg:gap-4 bg-scheme-2"
+>
+  <div class="w-full mb-0 pb-0 col-span-full">
+    <h1 class="text-2xl text-onscheme-2">Theme Switcher</h1>
+  </div>
+  <lda-theme-tile webc:import="theme-switcher/lda-theme-tile.webc"
+    @theme-basename="arc"
+    :@active='basenameOf(themeValue) == "arc"'
+    onClick="updateThemeValue"
+    @name="Arc"
+    :mode='colorModeOf(themeValue)'
+  ></lda-theme-tile>
+  <lda-theme-tile webc:import="theme-switcher/lda-theme-tile.webc"
+    @theme-basename="mint"
+    :@active='basenameOf(themeValue) == "mint"'
+    onClick="updateThemeValue"
+    @name="Mint"
+    :mode='colorModeOf(themeValue)'
+  ></lda-theme-tile>
+  <lda-theme-tile webc:import="theme-switcher/lda-theme-tile.webc"
+    @theme-basename="unity"
+    :@active='basenameOf(themeValue) == "unity"'
+    onClick="updateThemeValue"
+    @name="Unity"
+    :mode='colorModeOf(themeValue)'
+  ></lda-theme-tile>
+  <lda-theme-tile webc:import="theme-switcher/lda-theme-tile.webc"
+    @theme-basename="chaos"
+    :@active='basenameOf(themeValue) == "chaos"'
+    onClick="updateThemeValue"
+    @name="Chaos"
+    :mode='colorModeOf(themeValue)'
+  ></lda-theme-tile>
+  <lda-theme-tile webc:import="theme-switcher/lda-theme-tile.webc"
+    @theme-basename="nimbus"
+    :@active='basenameOf(themeValue) == "nimbus"'
+    onClick="updateThemeValue"
+    @name="Nimbus"
+    :mode='colorModeOf(themeValue)'
+  ></lda-theme-tile>
+  <div class="col-span-full mb-0 pb-0">
+    <form method="dialog">
+      <button
+        type="submit"
+        class="p-2 m-2 text-primary-3 inline-block bg-opacity-0 hover:bg-opacity-25 bg-primary-1 rounded-md transition-colors"
+      >
+        Exit
+      </button>
+    </form>
+  </div>
+</dialog>

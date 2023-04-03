@@ -39,5 +39,9 @@
 </head>
 <body class="bg-scheme-1 text-onscheme-1" data-theme="unity-dark">
   {{ content | safe }}
+  <script type="module">
+    import { X_Apply_Theme } from '/scripts/applytheme.js';
+    window.X_Apply_Theme = X_Apply_Theme;
+  </script>
 </body>
 </html>

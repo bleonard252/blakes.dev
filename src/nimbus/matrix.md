@@ -1,5 +1,8 @@
 ---
 layout: single.webc
+title: Nimbus ❤️ Matrix - Blake Leonard
+metaTitle: Nimbus ❤️ Matrix
+metaDescription: Nimbus uses Matrix, a federated chat protocol, to build its forums.
 ---
 # Nimbus ❤️ Matrix
 Nimbus uses Matrix, a federated chat protocol, to build its forums. This provides many advantages:

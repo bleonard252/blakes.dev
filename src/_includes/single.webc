@@ -1,5 +1,11 @@
 ---
 layout: layout.njk
+webc:
+  components: ~/src/_includes/components/blakes-*.webc
 ---
-<blakes-menubar webc:import="./components/blakes-menubar.webc">Fallback</blakes-menubar> <is-land on:interaction="mouseenter,focusin" autoinit="preact" import="/scripts/components/themeswitcher.js"><ThemeSwitcher /></is-land>
+<blakes-menubar><a href="/">Click to go home</a></blakes-menubar>
+<is-land on:visible on:idle><template data-island="replace">
+  <blakes-theme-switcher-button></blakes-theme-switcher-button>
+  <blakes-theme-switcher></blakes-theme-switcher>
+</template></is-land>
 <article class="prose dark:prose-invert m-auto mt-8" @raw="content"></article>

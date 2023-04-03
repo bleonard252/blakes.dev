@@ -23,7 +23,7 @@
         <a class="rounded-md X-ListedButton m-0 p-2 px-4 bg-opacity-0 hover:bg-opacity-25 bg-scheme-5 hover:text-onscheme-4h" href="https://gitlab.com/bleonard252">GitLab</a>
         <a class="rounded-md X-ListedButton m-0 p-2 px-4 bg-opacity-0 hover:bg-opacity-25 bg-scheme-5 hover:text-onscheme-4h" href="https://nimbus.blakes.dev">Try Nimbus!</a>
         <button class="block md:hidden rounded-md X-ListedButton m-0 p-2 px-4 bg-opacity-0 hover:bg-opacity-25 bg-scheme-5 hover:text-onscheme-4h"
-          onClick="document.getElementById('themeSwitcher').showModal()" style="display:block">
+          onClick="document.getElementById('themeSwitcher').showModal()">
           Theme Switcher
         </button>
       </div>
