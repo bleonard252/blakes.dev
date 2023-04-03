@@ -1,4 +1,4 @@
-import { X_Apply_Theme, X_Current_Theme } from "../../scripts/applytheme";
+import { X_Apply_Theme, X_Current_Theme } from "../scripts/applytheme";
 import { useState } from "preact/hooks";
 import { h, Fragment } from "preact";
 import { Icon } from "@iconify/react";

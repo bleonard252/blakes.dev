@@ -246,13 +246,13 @@ async function transform(asset) {
 async function generateThemes(inputString, inputPath) {
   if (!(inputPath.endsWith("themes.pl.txt") || inputString.endsWith("themes.pl.txt"))) return;
   const output = await transform({
-    filePath: path.join(process.cwd(), "./src/styles/themes.pl.txt"),
+    filePath: path.join(process.cwd(), "./src/_includes/styles/themes.pl.txt"),
   })
   return postcss.parse(output).toString();
 }
 
 const output = await transform({
-  filePath: path.join(process.cwd(), "./src/styles/themes.pl.txt"),
+  filePath: path.join(process.cwd(), "./src/_includes/styles/themes.pl.txt"),
 })
 const pcss = postcss([
   (await import("postcss-import")).default,
@@ -261,5 +261,5 @@ const pcss = postcss([
   (await import("autoprefixer")).default,
   (await import("cssnano")).default
 ]);
-const final = (await pcss.process(output, {from: path.join(process.cwd(), "./src/styles")})).toString();
+const final = (await pcss.process(output, {from: path.join(process.cwd(), "./src/_includes/styles")})).toString();
 await fs.writeFile(path.join(process.cwd(), "./dist/styles/themes.css"), final);
