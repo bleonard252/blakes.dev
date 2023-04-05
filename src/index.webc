@@ -36,8 +36,8 @@ fields: [{"name":"GitHub","value":"\u003ca href=\"https://github.com/bleonard252
         <h1>LucidLog Dream Journal</h1>
         <p>A dream journal app that grows with you.</p>
         <div class="X-Action-Row text-right mt-auto">
-          <blakes-button primary class="m-2" href="https://play.google.com/store/apps/details?id=xyz.u1024256.ldr.journal">Google Play</blakes-button>
-          <blakes-button primary class="m-2" href="https://resources.dreamstation.one">Learn more</blakes-button>
+          <blakes-button primary class="m-2" href="https://play.google.com/store/apps/details?id=xyz.u1024256.ldr.journal">Google Play</blakes-button><!---
+          ---><blakes-button primary class="m-2" href="https://resources.dreamstation.one">Learn more</blakes-button>
         </div>
       </div>
       <div class="X-Card bg-scheme-2 rounded-md flex flex-col mb-2 col-span-1">
@@ -45,8 +45,8 @@ fields: [{"name":"GitHub","value":"\u003ca href=\"https://github.com/bleonard252
         <h1>Bodacious</h1>
         <p>A pretty mp3 player with some neat features.</p>
         <div class="X-Action-Row text-right mt-auto">
-          <blakes-button primary class="m-2" href="https://play.google.com/store/apps/details?id=xyz.u1024256.bodacious">Google Play</blakes-button>
-          <blakes-button primary class="m-2" href="https://github.com/bleonard252/bodacious">GitHub</blakes-button>
+          <blakes-button primary class="m-2" href="https://play.google.com/store/apps/details?id=xyz.u1024256.bodacious">Google Play</blakes-button><!---
+          ---><blakes-button primary class="m-2" href="https://github.com/bleonard252/bodacious">GitHub</blakes-button>
         </div>
       </div>
       <div class="X-Card bg-scheme-2 rounded-md flex flex-col mb-2 col-span-1">
@@ -67,8 +67,8 @@ fields: [{"name":"GitHub","value":"\u003ca href=\"https://github.com/bleonard252
         <h1 class="inline">Vivid</h1>
         <p class="inline">An abandoned Mastodon/Pleroma frontend.</p>
         <span class="flex-grow"></span>
-        <blakes-button primary class="m-2" href="https://bleonard252.github.io/vivid-fe">Try</blakes-button>
-        <blakes-button primary class="m-2" href="https://github.com/bleonard252/vivid-fe">GitHub</blakes-button>
+        <blakes-button primary class="m-2" href="https://bleonard252.github.io/vivid-fe">Try</blakes-button><!---
+        ---><blakes-button primary class="m-2" href="https://github.com/bleonard252/vivid-fe">GitHub</blakes-button>
       </div>
     </div>
   </div>
