@@ -2,6 +2,7 @@ const mdxPlugin = require("@jamshop/eleventy-plugin-mdx");
 const preactRender = require('preact-render-to-string');
 const webcPlugin = require("@11ty/eleventy-plugin-webc");
 const { EleventyRenderPlugin } = require("@11ty/eleventy");
+const EleventyVitePlugin = require("@11ty/eleventy-plugin-vite");
 
 module.exports = function eleventy(config) {
   config.addPassthroughCopy({'static': '/'});
@@ -10,12 +11,10 @@ module.exports = function eleventy(config) {
   config.setUseGitIgnore(false);
   config.addPlugin(mdxPlugin);
   config.addPlugin(webcPlugin, {
-    components: [
-      "~/src/_includes/components/blakes-*.webc",
-      "npm:@11ty/is-land/*.webc"
-    ]
+    components: "src/_includes/components/{blakes-,**/blakes-,theme-switcher/}*.webc",
   });
   config.addPlugin(EleventyRenderPlugin);
+  config.addPlugin(EleventyVitePlugin);
 
   config.addExtension([ "11ty.jsx", "11ty.ts", "11ty.tsx" ], {
     key: "11ty.js",

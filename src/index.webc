@@ -1,0 +1,75 @@
+---
+layout: layout.njk
+avatar_static: https://cdn.fosstodon.org/accounts/avatars/108/341/459/214/885/420/original/228a02f2de7c6b84.jpg
+header_static: https://cdn.fosstodon.org/accounts/headers/108/341/459/214/885/420/original/d791216e6106d991.png
+display_name: Blake Leonard
+note: |
+  <p>A software developer with a passion for the powers, rights, and freedoms of users. Developer of dahliaOS, LucidLog, Bodacious, and more. Sometimes tries to design and write. 19 M (he/him) from Raleigh, NC. Cool tech enthusiast.<br />I hereby opt in my public posts to tootfinder</p>
+fields: [{"name":"GitHub","value":"\u003ca href=\"https://github.com/bleonard252\" target=\"_blank\" rel=\"nofollow noopener noreferrer me\"\u003e\u003cspan class=\"invisible\"\u003ehttps://\u003c/span\u003e\u003cspan class=\"\"\u003egithub.com/bleonard252\u003c/span\u003e\u003cspan class=\"invisible\"\u003e\u003c/span\u003e\u003c/a\u003e","verified_at":"2023-03-05T18:43:40.048+00:00"},{"name":"Website","value":"\u003ca href=\"https://blakes.dev\" target=\"_blank\" rel=\"nofollow noopener noreferrer me\"\u003e\u003cspan class=\"invisible\"\u003ehttps://\u003c/span\u003e\u003cspan class=\"\"\u003eblakes.dev\u003c/span\u003e\u003cspan class=\"invisible\"\u003e\u003c/span\u003e\u003c/a\u003e","verified_at":"2022-05-22T18:42:49.148+00:00"},{"name":"Email","value":"me@blakes.dev","verified_at":null},{"name":"Codeberg","value":"\u003ca href=\"https://codeberg.org/bleonard252\" target=\"_blank\" rel=\"nofollow noopener noreferrer me\"\u003e\u003cspan class=\"invisible\"\u003ehttps://\u003c/span\u003e\u003cspan class=\"\"\u003ecodeberg.org/bleonard252\u003c/span\u003e\u003cspan class=\"invisible\"\u003e\u003c/span\u003e\u003c/a\u003e","verified_at":null}]
+---
+<div class="group bg-scheme-2 text-onscheme-2 absolute z-100 w-0 h-0 top-0 left-0 print:hidden flex flex-col focus-within:w-auto focus-within:h-auto overflow-hidden">
+  <span class="p-2">Skip to:</span>
+  <a class="focus:bg-primary-3 focus:text-onprimary-3 p-2" href="#profile">Profile</a>
+  <a class="focus:bg-primary-3 focus:text-onprimary-3 p-2" href="#projects">Projects</a>
+  <a class="focus:bg-primary-3 focus:text-onprimary-3 p-2" href="#updates">Updates</a>
+</div>
+<blakes-menubar :@url="page.url"></blakes-menubar>
+<is-land on:visible on:idle><blakes-theme-switcher-button disabled></blakes-theme-switcher-button><template data-island="replace">
+  <blakes-theme-switcher-button disabled></blakes-theme-switcher-button>
+  <blakes-theme-switcher></blakes-theme-switcher>
+</template></is-land>
+<div class="grid m-auto grid-cols-1 lg:grid-cols-3 xl:grid-cols-4 p-6 gap-4">
+  <div class="X-Column col-span-1" id="column-about">
+    <a name="profile" id="profile" aria-hidden></a>
+    <script webc:type="js">
+      const profile = require('./src/_includes/scripts/components/home-profile.ts').default;
+      const { html } = require('htm/preact');
+      const { render } = require('preact-render-to-string');
+      render(html`<${profile} accountResult=${({avatar_static, header_static, display_name, note, fields})}><//>`);
+    </script>
+  </div>
+  <div class="X-Column col-span-1 lg:col-span-2 xl:col-span-3" id="column-posts">
+    <h1 class="text-2xl text-onscheme-2 p-6 pb-0">Projects</h1>
+    <div class="grid m-auto grid-cols-1 md:grid-cols-2 lg:grid-cols-3 2xl:grid-cols-4 md:px-6 py-6 gap-4" id="projects">
+      <div class="X-Card bg-scheme-2 rounded-md flex flex-col mb-2 col-span-1">
+        <img src="/images/lucidlog.png" class=" rounded-t-md" alt="Purple cloud with an inverted pattern on a purple background with a non-inverted pattern"/>
+        <h1>LucidLog Dream Journal</h1>
+        <p>A dream journal app that grows with you.</p>
+        <div class="X-Action-Row text-right mt-auto">
+          <blakes-button primary class="m-2" href="https://play.google.com/store/apps/details?id=xyz.u1024256.ldr.journal">Google Play</blakes-button>
+          <blakes-button primary class="m-2" href="https://resources.dreamstation.one">Learn more</blakes-button>
+        </div>
+      </div>
+      <div class="X-Card bg-scheme-2 rounded-md flex flex-col mb-2 col-span-1">
+        <img src="/images/bodacious.png" class=" rounded-t-md" alt="The guitar pick and play symbol used as the logo, followed by the name, Bodacious!" />
+        <h1>Bodacious</h1>
+        <p>A pretty mp3 player with some neat features.</p>
+        <div class="X-Action-Row text-right mt-auto">
+          <blakes-button primary class="m-2" href="https://play.google.com/store/apps/details?id=xyz.u1024256.bodacious">Google Play</blakes-button>
+          <blakes-button primary class="m-2" href="https://github.com/bleonard252/bodacious">GitHub</blakes-button>
+        </div>
+      </div>
+      <div class="X-Card bg-scheme-2 rounded-md flex flex-col mb-2 col-span-1">
+        <img src="/images/dahliaos.png" class=" rounded-t-md" alt="A screenshot of the dahliaOS desktop, with the calculator, terminal, and notes apps open." />
+        <h1>dahliaOS</h1>
+        <p>A new OS with a Flutter-based DE and an aim to run on multiple kernels.</p>
+        <div class="X-Action-Row text-right mt-auto">
+          <blakes-button primary class="m-2" href="https://github.com/dahliaOS">GitHub</blakes-button>
+        </div>
+      </div>
+      <div class="X-Card bg-scheme-2 rounded-md flex flex-wrap items-center mb-2 col-span-full">
+        <h1 class="inline">Tesseract</h1>
+        <p>An abandoned Flutter-based Matrix client.</p>
+        <span class="flex-grow"></span>
+        <blakes-button primary class="m-2" href="https://gitlab.com/bleonard252/tesseract">GitLab</blakes-button>
+      </div>
+      <div class="X-Card bg-scheme-2 rounded-md flex flex-wrap items-center mb-2 col-span-full">
+        <h1 class="inline">Vivid</h1>
+        <p class="inline">An abandoned Mastodon/Pleroma frontend.</p>
+        <span class="flex-grow"></span>
+        <blakes-button primary class="m-2" href="https://bleonard252.github.io/vivid-fe">Try</blakes-button>
+        <blakes-button primary class="m-2" href="https://github.com/bleonard252/vivid-fe">GitHub</blakes-button>
+      </div>
+    </div>
+  </div>
+</div>

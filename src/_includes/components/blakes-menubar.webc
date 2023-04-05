@@ -12,8 +12,9 @@
       <!--- <InlineIcon icon="simple-icons:codeberg" color="currentColor" /> --->
       <iconify-icon icon="simple-icons:codeberg" color="currentColor" style="display:block"></iconify-icon>
     </a>
-    <a :class="`X-MenuBarButton ${(url == '/now' || url.startsWith('/now/')) ? 'is-active ' : ''}has-tooltip p-2 text-opacity-30 hover:text-opacity-70 text-onscheme-3 hover:bg-scheme-4 inline-block rounded-md transition-colors`"
-      href="/now" aria-label="Now page">
+    <a class="X-MenuBarButton has-tooltip p-2 text-opacity-30 hover:text-opacity-70 text-onscheme-3 hover:bg-scheme-4 inline-block rounded-md transition-colors"
+      href="/now" aria-label="Now page" :aria-current="(url == '/now' || (url?.startsWith && url.startsWith('/now/'))) ? `page` : undefined"
+      :data-current-page="(url == '/now' || (url?.startsWith && url.startsWith('/now/'))) ? `page` : undefined">
       <div class="tooltip rounded-md shadow-lg p-1 bg-scheme-3 mt-8 ml-2 -translate-x-[50%] text-onscheme-3" aria-hidden>Now Page</div>
       <!---<InlineIcon icon="feather:calendar" color="currentColor" /> --->
       <iconify-icon icon="feather:calendar" color="currentColor" style="display:block"></iconify-icon>
