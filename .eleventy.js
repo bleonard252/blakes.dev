@@ -14,7 +14,18 @@ module.exports = function eleventy(config) {
     components: "src/_includes/components/{blakes-,**/blakes-,theme-switcher/}*.webc",
   });
   config.addPlugin(EleventyRenderPlugin);
-  config.addPlugin(EleventyVitePlugin);
+  config.addPlugin(EleventyVitePlugin, {
+    build: {
+      rollupOptions: {
+        output: {
+          preserveModules: true,
+          assetFileNames({ name }) {
+            return name?.replace(/^src\//, '') ?? '';
+          }
+        }
+      }
+    }
+  });
 
   config.addExtension([ "11ty.jsx", "11ty.ts", "11ty.tsx" ], {
     key: "11ty.js",

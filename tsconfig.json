@@ -9,10 +9,11 @@
     "resolveJsonModule": true,
     "esModuleInterop": true,
     "allowSyntheticDefaultImports": true,
-    "strict": false
+    "strict": false,
+    "outDir": "dist",
   },
   "include": [
-    "src/_includes/scripts/**/*", "src/_components",
+    "src/_includes/scripts/**/*", "src/_includes/components/**/*",
   ],
   "exclude": [
     "node_modules",

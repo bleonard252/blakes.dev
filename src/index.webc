@@ -11,7 +11,7 @@ fields: [{"name":"GitHub","value":"\u003ca href=\"https://github.com/bleonard252
   <span class="p-2">Skip to:</span>
   <a class="focus:bg-primary-3 focus:text-onprimary-3 p-2" href="#profile">Profile</a>
   <a class="focus:bg-primary-3 focus:text-onprimary-3 p-2" href="#projects">Projects</a>
-  <a class="focus:bg-primary-3 focus:text-onprimary-3 p-2" href="#updates">Updates</a>
+  <a class="focus:bg-primary-3 focus:text-onprimary-3 p-2" href="#updates">Posts</a>
 </div>
 <blakes-menubar :@url="page.url"></blakes-menubar>
 <is-land on:visible on:idle><blakes-theme-switcher-button disabled></blakes-theme-switcher-button><template data-island="replace">
@@ -71,5 +71,34 @@ fields: [{"name":"GitHub","value":"\u003ca href=\"https://github.com/bleonard252
         ---><blakes-button primary class="m-2" href="https://github.com/bleonard252/vivid-fe">GitHub</blakes-button>
       </div>
     </div>
+    <h1 class="text-2xl text-onscheme-2 p-6 pt-0" id="updates">Recent Posts</h1>
+    <noscript>
+      <div class="X-Card bg-scheme-2 rounded-md flex flex-col mb-2 prose dark:prose-invert m-auto mt-8">
+        <p>To view the list of my recent Fediverse posts on this page, you need to use JavaScript.</p>
+        <p>You can also view them on <a href="https://fosstodon.org/@blake">my Mastodon profile</a>.</p>
+      </div>
+    </noscript>
+    <div class="contents" id="update-container"></div>
+    <script type="module" webc:keep>
+      import { html, h } from 'htm/preact';
+      import { render } from 'preact-render-to-string';
+      import fediStatus from '/scripts/components/fedi-status.js';
+      import dangerouslyWriteHTML from '/scripts/dangerously_set_html.js';
+      const targetElement = document.getElementById("update-container");
+      fetch("https://fosstodon.org/api/v1/accounts/108341459214885420/statuses?").then((primaryStatusListResponse) => {
+        if (primaryStatusListResponse.status != 200) {
+          console.error(primaryStatusListResponse);
+          render(html`<div class="X-Card bg-scheme-2 rounded-md flex flex-col mb-2 prose dark:prose-invert m-auto mt-8">
+            <h3>Error loading posts.</h3>
+            <p>${primaryStatusListResponse.status} ${primaryStatusListResponse.statusText}</p>
+            <p>You can try to view them on <a href="https://fosstodon.org/@blake">my Mastodon profile</a>.</p>`, targetElement);
+        } else {
+          primaryStatusListResponse.json().then((primaryStatusList) => {
+            //render(html`${primaryStatusList.map((v,i,a) => html`${fediStatus(v)}`)}`, targetElement);
+            targetElement.innerHTML = render(primaryStatusList.map((v,i,a) => fediStatus(v)))
+          });
+        }
+      });
+    </script>
   </div>
 </div>
