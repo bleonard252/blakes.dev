@@ -18,6 +18,7 @@ module.exports = function eleventy(config) {
     build: {
       rollupOptions: {
         output: {
+          dir: "vite-dist",
           preserveModules: true,
           assetFileNames({ name }) {
             return name?.replace(/^src\//, '') ?? '';
