@@ -1,0 +1,147 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@font-face {
+  font-family: 'Radio Canada';
+  src: url(../fonts/RadioCanada-Variable.ttf)
+  /* Obtained from Google Fonts */
+}
+
+:root {
+  --scheme-1: 23 23 23;
+  --scheme-2: 41 37 36;
+  --scheme-3: 64 64 64;
+  --scheme-4: 82 82 82;
+  --scheme-5: 115 115 115;
+  --primary-1: 154 52 18;
+  --primary-2: 194 65 12;
+  --primary-3: 234 88 12;
+  --primary-4: 249 115 22;
+  --primary-5: 251 146 60;
+  --onprimary-1: 255 255 255;
+  --onprimary-2: 255 255 255;
+  --onprimary-3: 255 255 255;
+  --onprimary-4: 255 255 255;
+  --onprimary-5: 0 0 0;
+  --onscheme-1: 255 255 255;
+  --onscheme-2: 255 255 255;
+  --onscheme-3: 255 255 255;
+  --onscheme-4: 255 255 255;
+  --onscheme-5: 255 255 255;
+}
+
+body, html {
+  /* @apply bg-gray-50 text-black; */
+  font-family: 'Radio Canada', Arial, Helvetica, sans-serif;
+  height: 100%;
+  width: 100%;
+}
+
+.X-Column {
+  display: inline;
+}
+
+.clip {
+  clip: rect(0px, 0px, 0px, 0px);
+  clip-path: rect(0px, 0px, 0px, 0px);
+}
+.clip-auto {
+  clip: auto !important;
+  clip-path: auto !important;
+}
+
+.X-Card {
+  /* @apply bg-gray-100 rounded-md flex flex-col; */
+  &>h1, &>h2, &>p {
+    @apply p-2 pl-4 pr-4;
+  }
+  h1 {
+    @apply text-xl;
+  }
+}
+
+.X-Profile-Avatar.is-primary {
+  &:first-child {
+    @apply mt-4 !important;
+  }
+}
+/* .X-Profile-Avatar img {
+  border: theme('spacing.1') theme('colors.gray.200') solid;
+} */
+
+.X-KVTable {
+  /* border: 1px theme('colors.gray.300') solid; */
+  width: 100%;
+  display: block;
+  .row {
+    display: flex;
+  }
+  .row>span {
+    width: 50%;
+    /* border: 1px theme('colors.gray.300') solid; */
+    @apply p-1 pl-4 pr-4 text-center whitespace-nowrap overflow-hidden text-ellipsis block;
+  }
+  .row.X-Uneven>:first-child {
+    width: 40%;
+  }
+  .row.X-Uneven>:last-child {
+    width: 60%;
+  }
+}
+
+.tooltip {
+  @apply invisible absolute;
+}
+
+.has-tooltip:hover .tooltip {
+  @apply visible z-50;
+}
+
+.is-verified a {
+  @apply text-green-500 hover:underline !important;
+}
+.is-not-verified a {
+  @apply text-blue-500 hover:underline !important;
+}
+
+.X-Arb {
+  a {
+    @apply text-primary-3 hover:underline;
+  }
+  p:not(:last-child) {
+    @apply mb-4
+  }
+  span.invisible {
+    visibility: hidden;
+    display: none;
+  }
+}
+.X-Hide-Dark, .X-Hide-Light {
+  @apply hidden h-0 w-0 p-0 m-0
+}
+
+.text-onscheme-4h, .text-onscheme-5h {
+  @apply text-red-500
+}
+
+dialog:not([open]) {
+  @apply invisible hidden;
+}
+dialog[open] {
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+dialog::backdrop {
+  @apply bg-black/50;
+}
+
+.X-MenuBarButton:not(#homeButton)[data-current-page] {
+  @apply shadow-onscheme-2 !text-onscheme-2 !text-opacity-100;
+  box-shadow: 0 7px 0 -5px var(--tw-shadow-color);
+}
+
+.flex.flex-row iconify-icon {
+  @apply block;
+}

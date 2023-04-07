@@ -1,0 +1,61 @@
+name: Nimbus
+# The Nimbus theme was made for Nimbus, a web forum system built on top of Matrix.
+scheme_light:
+  1: 0xf5f5f4
+  2: 0xe7e5e4
+  3: 0xd6d3d1
+  4: 0xa8a29e
+  5: 0x78716c
+onscheme_light:
+  1: 0x000000
+  2: 0x000000
+  3: 0x000000
+  4: 0x000000
+  5: 0xffffff
+scheme_dark:
+  1: 0x1c1917
+  2: 0x292524
+  3: 0x44403c
+  4: 0x57534e
+  5: 0x78716c
+onscheme_dark:
+  1: 0xffffff
+  2: 0xffffff
+  3: 0xffffff
+  4: 0xffffff
+  5: 0xffffff
+primary:
+  1: 0xca8a04
+  2: 0xeab308
+  3: 0xfacc15
+  4: 0xfde047
+  5: 0xfef08a
+onprimary:
+  1: 0x000000
+  2: 0x000000
+  3: 0x000000
+  4: 0x000000
+  5: 0xffffff
+extra_postcss: |
+  .X-Arb a {
+    @apply text-yellow-400;
+  }
+  #homeButton {
+    @apply hover:text-yellow-300 hover:outline-yellow-300;
+  }
+  #homeButton[data-current-page] {
+    @apply text-yellow-500 outline-yellow-500 hover:text-yellow-300 hover:outline-yellow-300;
+  }
+  .X-MenuBarButton {
+    @apply text-opacity-100 text-stone-500 hover:text-stone-700;
+  }
+extra_postcss_dark: |
+  #menubar.nimbus--header-bar {
+    @apply !text-white !bg-stone-800;
+  }
+  .X-MenuBarButton {
+    @apply hover:text-stone-300;
+  }
+  #homeButton {
+    @apply hover:text-yellow-300 hover:outline-yellow-300;
+  }

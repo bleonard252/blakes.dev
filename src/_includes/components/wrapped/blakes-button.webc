@@ -1,0 +1,12 @@
+<script webc:type="js">
+  const { Button } = require('./src/_includes/scripts/components/button.ts');
+  const { html } = require('htm/preact');
+  const { render } = require('preact-render-to-string');
+  render(html`<${Button}
+  ...${webc.filterPublicAttributes(webc.attributes)}
+  primary=${webc.attributes.primary !== undefined}
+  filled=${webc.attributes.filled !== undefined}
+  static=${webc.attributes.static !== undefined}
+  flex=${webc.attributes.flex !== undefined}
+  ><slot></slot><//>`);
+</script>

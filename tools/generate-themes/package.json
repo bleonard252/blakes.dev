@@ -1,0 +1,37 @@
+{
+  "name": "@private/theme-generator",
+  "version": "0.0.0",
+  "private": true,
+  "scripts": {
+    "build": "tsc ./index.js --esModuleInterop --resolveJsonModule --allowJs --sourceMap"
+  },
+  "dependencies": {
+    "@types/react": "link:../../node_modules/preact/compat",
+    "@types/react-dom": "link:../../node_modules/preact/compat",
+    "ajv": "^8.12.0",
+    "color": "^4.2.3",
+    "react": "link:../../node_modules/preact/compat",
+    "react-dom": "link:../../node_modules/preact/compat",
+    "typescript": "*",
+    "yaml": "^2.1.1"
+  },
+  "bin": "./index.js",
+  "type": "module",
+  "peerDependencies": {
+    "preact": "*",
+    "postcss": "*"
+  },
+  "devDependencies": {
+    "@types/color": "^3.0.3",
+    "@types/node": "^18.14.1"
+  },
+  "postcss": {
+    "plugins": {
+      "postcss-import": {},
+      "postcss-nested": {},
+      "autoprefixer": {},
+      "tailwindcss": {},
+      "cssnano": {}
+    }
+  }
+}

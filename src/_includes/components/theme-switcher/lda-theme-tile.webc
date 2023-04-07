@@ -1,0 +1,57 @@
+<!---
+  This component expects the following props to be defined:
+  active = false,
+  mode = "light",
+  themeBasename = "none",
+  name = "Theme",
+--->
+<script webc:setup>
+  function updateThemeValue(theme) {
+    localStorage.setItem('theme', theme);
+    window.X_Apply_Theme();
+  }
+</script>
+<div :data-theme="themeBasename + '-context'" :class='"flex-grow lg:col-span-1 bg-scheme-1 rounded-md "+(active ? "border-primary-3" : "border-scheme-3")+" border-2 m-2 min-w-48 w-full h-36 relative hover:shadow-lg active:shadow-2xl transition-shadow"'>
+  <div class="bg-scheme-2 text-onscheme-2 rounded-md absolute top-4 left-4 p-2 select-none" @text="name"></div>
+  <div class="rounded-md absolute right-4 bottom-4 select-none flex flex-row gap-0">
+    <button
+      class='bg-primary-3 hover:bg-primary-4 text-onprimary-3 rounded-md rounded-r-none p-4 m-0 has-tooltip'
+      aria-label="Automatic, from system preference"
+      :onClick="`localStorage.setItem('theme', '${themeBasename}-auto');window.X_Apply_Theme();`"
+    >
+      <div
+        class="tooltip rounded-md shadow-lg p-1 bg-scheme-3 mt-8 ml-2 -translate-x-[50%] text-onscheme-3"
+        aria-hidden
+      >
+        Automatic<br/><small>From system preference</small>
+      </div>
+      <iconify-icon icon="ph:circle-half-fill" color="currentColor" style="display: block" />
+    </button>
+    <button
+      class="bg-primary-3 hover:bg-primary-4 text-onprimary-3 p-4 has-tooltip m-0"
+      aria-label="Light theme"
+      :onClick="`localStorage.setItem('theme', '${themeBasename}-light');window.X_Apply_Theme();`"
+    >
+      <div
+        class="tooltip rounded-md shadow-lg p-1 bg-scheme-3 mt-8 ml-2 -translate-x-[50%] text-onscheme-3"
+        aria-hidden
+      >
+        Light theme
+      </div>
+      <iconify-icon icon="feather:sun" color="currentColor" style="display: block" />
+    </button>
+    <button
+      class="bg-primary-3 hover:bg-primary-4 text-onprimary-3 rounded-md rounded-l-none p-4 has-tooltip m-0"
+      aria-label="Dark theme"
+      :onClick="`localStorage.setItem('theme', '${themeBasename}-dark');window.X_Apply_Theme();`"
+    >
+      <div
+        class="tooltip rounded-md shadow-lg p-1 bg-scheme-3 mt-8 ml-2 -translate-x-[50%] text-onscheme-3"
+        aria-hidden
+      >
+        Dark theme
+      </div>
+      <iconify-icon icon="feather:moon" color="currentColor" style="display: block" />
+    </button>
+  </div>
+</div>
