@@ -1,0 +1,12 @@
+---
+layout: layout.webc
+title: 404 Not Found
+permalink: /404.html
+---
+<link rel="preload" href="index.html">
+<main id="root">
+  <h1 class="m-auto mt-24 text-8xl text-center">404</h1>
+  <p class="m-auto mt-2 text-2xl text-center">Not Found</p>
+  <p class="m-auto mt-2 text-md text-center">The thing you sought could not be brought.</p>
+  <p class="m-auto mt-2 text-md text-center">Maybe try <a class="text-primary-3 hover:underline" href="index.html">this instead</a>.</p>
+</main>

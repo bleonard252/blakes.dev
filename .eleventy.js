@@ -26,18 +26,19 @@ module.exports = function eleventy(config) {
   });
   config.addPlugin(EleventyRenderPlugin);
   config.addPlugin(EleventyVitePlugin, {
-    //tempFolderName: ".11ty-vite",
+    tempFolderName: ".11ty-vite",
     viteOptions: {
       publicDir: "../static",
+      appType: 'mpa',
       build: {
         outDir: "vite-dist",
         copyPublicDir: true,
         rollupOptions: {
           output: {
-            //preserveModules: true,
-            assetFileNames({ name }) {
-              return name?.replace(/^src\//, '') ?? '';
-            }
+            preserveModules: true,
+            // assetFileNames({ name }) {
+            //   return name?.replace(/^src\//, '') ?? '';
+            // }
           },
           preserveEntrySignatures: "strict",
         }
