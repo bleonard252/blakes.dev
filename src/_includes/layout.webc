@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="/styles/main.css" webc:keep>
+  <script type="module" src="/scripts/vendor/is-land.js" webc:keep></script>
+  <script type="module" src="/scripts/vendor/iconify-icon.js" webc:keep></script>
+
+  <meta property="og:site_name" webc:if="metaImage||metaTitle||metaDescription" content="blakes.dev - Blake Leonard">
+  <meta property="og:image" webc:if="metaImage" :content="metaImage">
+  <meta property="twitter:image" webc:if="metaImage" :content="metaImage">
+  <meta property="og:title" webc:if="metaTitle" :content="metaTitle">
+  <meta property="twitter:title" webc:if="metaTitle" :content="metaTitle">
+  <meta name="title" webc:if="metaTitle" :content="metaTitle">
+  <meta property="og:description" webc:if="metaDescription" :content="metaDescription">
+  <meta property="twitter:description" webc:if="metaDescription" :content="metaDescription">
+  <meta name="description" webc:if="metaDescription" :content="metaDescription">
+  <meta property="twitter:card" webc:if="metaImage||metaTitle||metaDescription" content="summary">
+
+  <link rel="shortcut icon" :href="favicon||'/favicon.ico'" type="image/x-icon" webc:keep>
+
+  <link rel="stylesheet" href="/styles/themes.css" id="themeStylesheet" webc:keep>
+  <title @text="title"></title>
+  <script type="module" src="/scripts/applythemenow.js" webc:keep></script>
+</head>
+<body class="bg-scheme-1 text-onscheme-1" data-theme="unity-dark">
+  <template @raw="content" webc:nokeep><!--- if I used @html, it un-kept anything I marked as webc:keep down the line, like the status things... ---></template>
+  <script type="module" webc:keep>
+    import { X_Apply_Theme } from '/scripts/applytheme.js';
+    window.X_Apply_Theme = X_Apply_Theme;
+    // dialog polyfill
+    if (!('showModal' in HTMLDialogElement.prototype)) {
+      import('https://unpkg.com/dialog-polyfill@0.5.6/dist/dialog-polyfill.js').then(() => {
+        dialogPolyfill.registerDialog(document.querySelector('dialog'));
+      });
+      const link = document.createElement('link');
+      link.rel = 'stylesheet';
+      link.href = 'https://unpkg.com/dialog-polyfill@0.5.6/dist/dialog-polyfill.css';
+      document.head.appendChild(link);
+    }
+    // webcomponents polyfill
+    if (!('attachShadow' in Element.prototype && 'getRootNode' in Element.prototype) || (window.ShadyDOM && window.ShadyDOM.force) || !window.customElements || window.forceJSPolyfills || window.customElements.forcePolyfill) {
+      import('https://unpkg.com/@webcomponents/webcomponentsjs@2.8.0/custom-elements-es5-adapter.js').then(() => {
+        import('https://unpkg.com/@webcomponents/webcomponentsjs@2.8.0/webcomponents-loader.js');
+      });
+    }
+  </script>
+</body>
+</html>

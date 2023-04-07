@@ -54,7 +54,6 @@
     "iconify-icon": "^1.0.7",
     "isomorphic-dompurify": "^1.2.0",
     "javascript-time-ago": "^2.5.9",
-    "nunjucks": "^3.2.3",
     "preact": "^10.13.0",
     "react": "npm:@preact/compat@^17.1.2",
     "react-dom": "npm:@preact/compat@^17.1.2",

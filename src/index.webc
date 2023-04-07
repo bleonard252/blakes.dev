@@ -1,13 +1,10 @@
 ---
-layout: layout.njk
+layout: layout.webc
 title: Blake Leonard @ blakes.dev
+metaTitle: Blake Leonard
+metaDescription: A software developer with a passion for the powers, rights, and freedoms of users. Developer of dahliaOS, LucidLog, Bodacious, and more. Sometimes tries to design and write. 19 M (he/him) from Raleigh, NC. Cool tech enthusiast.
+metaImage: https://cdn.fosstodon.org/accounts/avatars/108/341/459/214/885/420/original/228a02f2de7c6b84.jpg
 permalink: /
-avatar_static: https://cdn.fosstodon.org/accounts/avatars/108/341/459/214/885/420/original/228a02f2de7c6b84.jpg
-header_static: https://cdn.fosstodon.org/accounts/headers/108/341/459/214/885/420/original/d791216e6106d991.png
-display_name: Blake Leonard
-note: |
-  <p>A software developer with a passion for the powers, rights, and freedoms of users. Developer of dahliaOS, LucidLog, Bodacious, and more. Sometimes tries to design and write. 19 M (he/him) from Raleigh, NC. Cool tech enthusiast.<br />I hereby opt in my public posts to tootfinder</p>
-fields: [{"name":"GitHub","value":"\u003ca href=\"https://github.com/bleonard252\" target=\"_blank\" rel=\"nofollow noopener noreferrer me\"\u003e\u003cspan class=\"invisible\"\u003ehttps://\u003c/span\u003e\u003cspan class=\"\"\u003egithub.com/bleonard252\u003c/span\u003e\u003cspan class=\"invisible\"\u003e\u003c/span\u003e\u003c/a\u003e","verified_at":"2023-03-05T18:43:40.048+00:00"},{"name":"Website","value":"\u003ca href=\"https://blakes.dev\" target=\"_blank\" rel=\"nofollow noopener noreferrer me\"\u003e\u003cspan class=\"invisible\"\u003ehttps://\u003c/span\u003e\u003cspan class=\"\"\u003eblakes.dev\u003c/span\u003e\u003cspan class=\"invisible\"\u003e\u003c/span\u003e\u003c/a\u003e","verified_at":"2022-05-22T18:42:49.148+00:00"},{"name":"Email","value":"me@blakes.dev","verified_at":null},{"name":"Codeberg","value":"\u003ca href=\"https://codeberg.org/bleonard252\" target=\"_blank\" rel=\"nofollow noopener noreferrer me\"\u003e\u003cspan class=\"invisible\"\u003ehttps://\u003c/span\u003e\u003cspan class=\"\"\u003ecodeberg.org/bleonard252\u003c/span\u003e\u003cspan class=\"invisible\"\u003e\u003c/span\u003e\u003c/a\u003e","verified_at":null}]
 ---
 <div class="group bg-scheme-2 text-onscheme-2 absolute z-100 w-0 h-0 top-0 left-0 print:hidden flex flex-col focus-within:w-auto focus-within:h-auto overflow-hidden">
   <span class="p-2">Skip to:</span>

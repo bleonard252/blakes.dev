@@ -1,5 +1,5 @@
 ---
-layout: layout.njk
+layout: layout.webc
 ---
 <blakes-menubar :@url="page.url"><a href="/">Click to go home</a></blakes-menubar>
 <is-land on:visible on:idle><blakes-theme-switcher-button disabled></blakes-theme-switcher-button><template data-island="replace">
