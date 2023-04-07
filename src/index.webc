@@ -1,6 +1,7 @@
 ---
 layout: layout.njk
 title: Blake Leonard @ blakes.dev
+permalink: /
 avatar_static: https://cdn.fosstodon.org/accounts/avatars/108/341/459/214/885/420/original/228a02f2de7c6b84.jpg
 header_static: https://cdn.fosstodon.org/accounts/headers/108/341/459/214/885/420/original/d791216e6106d991.png
 display_name: Blake Leonard
@@ -26,7 +27,10 @@ fields: [{"name":"GitHub","value":"\u003ca href=\"https://github.com/bleonard252
       const profile = require('./src/_includes/scripts/components/home-profile.ts').default;
       const { html } = require('htm/preact');
       const { render } = require('preact-render-to-string');
-      render(html`<${profile} accountResult=${({avatar_static, header_static, display_name, note, fields})}><//>`);
+      fetch("https://fosstodon.org/api/v1/accounts/108341459214885420").then(async (accountResult) => {
+        const data = await accountResult.json();
+        return render(html`<${profile} accountResult=${({avatar_static, header_static, display_name, note, fields, ...data})}><//>`);
+      });
     </script>
   </div>
   <div class="X-Column col-span-1 lg:col-span-2 xl:col-span-3" id="column-posts">
