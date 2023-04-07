@@ -1,11 +1,9 @@
 /// <reference types="megalodon" />
 
-import { h, html } from "htm/preact";
-import { Fragment } from "preact";
+import { html } from "htm/preact";
 import { dompurifyBody } from "../sanitize";
 import getTailwindConfig from 'tailwindcss/resolveConfig';
 import tailwindConfig from '../../../../tailwind.config.js';
-import dangerouslyWriteHTML from "../dangerously_set_html";
 
 const fullConfig = getTailwindConfig(tailwindConfig);
 
@@ -29,7 +27,6 @@ export default function ({ accountResult }: ({accountResult: Partial<Entity.Acco
       <span class="bg-scheme-3 font-semibold">${field.name}</span>
       <span class=${(field.verified_at ? "is-verified text-green-500" : "is-not-verified")+" X-Arb"}>
         ${field.verified_at ? html`<iconify-icon icon="feather:check" class="inline-block text-green-500 align-[-.2em]" />\xa0` : ``}
-        ${/*<${SanitizedHTML} html=${field.value} allowedTags=${tags} allowedClasses=${classes} className="contents" />*/``}
         <span class="contents" dangerouslySetInnerHTML=${{__html: dompurifyBody(field.value)}}><//>
       </span>
     </div>`)}

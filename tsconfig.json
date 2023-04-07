@@ -10,10 +10,10 @@
     "esModuleInterop": true,
     "allowSyntheticDefaultImports": true,
     "strict": false,
-    "outDir": "dist",
+    "outDir": "dist/scripts",
   },
   "include": [
-    "src/_includes/scripts/**/*", "src/_includes/components/**/*",
+    "src/_includes/scripts/**/*",
   ],
   "exclude": [
     "node_modules",

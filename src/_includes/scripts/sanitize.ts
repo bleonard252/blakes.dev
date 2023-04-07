@@ -1,32 +1,6 @@
 import DOMPurify from 'isomorphic-dompurify';
-import shtml from 'sanitize-html';
 
-/** @deprecated */
-export const attributes = {
-  ...shtml.defaults.allowedAttributes,
-  img: [
-    {
-      name: 'class',
-      values: ['inline-block w-5 h-5']
-    },
-    "src",
-    "title"
-  ]
-  // span: [
-  //   {
-  //     name: 'class',
-  //     multiple: true,
-  //     values: ['hashtag',mention invisible']
-  //   }
-  // ]
-};
-/** @deprecated */
-export const tags = [
-  ...shtml.defaults.allowedTags,
-  "span", "img"
-];
-/** @deprecated */
-export const classes = {
+const classes = {
   "span": ["hashtag", "mention", "invisible"]
 }
 

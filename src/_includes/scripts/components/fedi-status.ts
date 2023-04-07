@@ -1,10 +1,9 @@
 /// <reference types="megalodon" />
-import { Component, html, h, Ref } from "htm/preact";
+import { Component, html, h } from "htm/preact";
 import applyShortcodes from "../applyshortcodes";
 import TimeAgo from 'javascript-time-ago';
 import ta_en from 'javascript-time-ago/locale/en.json';
-import { tags, attributes, classes, dompurifyBody } from "../sanitize";
-import dangerouslyWriteHTML from "../dangerously_set_html";
+import { dompurifyBody } from "../sanitize";
 
 function host(uri) {
   return new URL(uri).hostname;
