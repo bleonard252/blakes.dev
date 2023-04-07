@@ -15,6 +15,7 @@ For this version I'm using the following fundamental technologies:
 * [Eleventy](https://11ty.dev?from=blakes.dev) and its [Vite plugin](https://www.npmjs.com/package/@11ty/eleventy-plugin-vite?from=blakes.dev)
 * [WebC](https://www.11ty.dev/docs/languages/webc/?from=blakes.dev) for the static layouts
 * [HTM](https://npmjs.com/packages/htm?from=blakes.dev) and [Preact](https://preactjs.org?from=blakes.dev) for the dynamic layouts
+* [Tailwind](https://tailwindcss.com) for a lot of the styling
 * [Iconify](https://iconify.design?from=blakes.dev) for the icon framework; I'm using a lot of icons but my preference is Lucide/Feather.
 
 ## Legal/license disclaimer
