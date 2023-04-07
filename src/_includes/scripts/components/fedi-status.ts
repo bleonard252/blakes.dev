@@ -30,20 +30,20 @@ export default function fediStatus(status: Entity.Status): h.JSX.Element {
   <div class="X-Action-Row mt-auto flex flex-row">
     <a href=${"https://"+host(status.uri)+"/interact/"+(status.reblog ?? status).id+"?type=reply"} aria-label="Reply" target="_blank" class="p-2 m-2 text-gray-500 inline-block hover:bg-opacity-25 hover:bg-blue-500 hover:text-blue-500 rounded-full transition-colors has-tooltip">
       <div class="tooltip rounded-md shadow-lg p-1 bg-scheme-3 mt-8 ml-2 -translate-x-[50%] text-onscheme-3" aria-hidden>Reply</div>
-      <iconify-icon icon="carbon:reply" width="16px" class="block" />
+      <iconify-icon icon="carbon:reply" width="16px" />
     </a>
     <a href=${"https://"+host(status.uri)+"/interact/"+(status.reblog ?? status).id+"?type=boost"} aria-label="Boost" target="_blank" class="p-2 m-2 text-gray-500 inline-block hover:bg-opacity-25 hover:bg-green-500 hover:text-green-500 rounded-full transition-colors has-tooltip">
       <div class="tooltip rounded-md shadow-lg p-1 bg-scheme-3 mt-8 ml-2 -translate-x-[50%] text-onscheme-3" aria-hidden>Boost</div>
-      <iconify-icon icon="feather:repeat" width="16px" class="block" />
+      <iconify-icon icon="feather:repeat" width="16px" />
     </a>
     <a href=${"https://"+host(status.uri)+"/interact/"+(status.reblog ?? status).id+"?type=favourite"} aria-label="Favorite" target="_blank" class="p-2 m-2 text-gray-500 inline-block hover:bg-opacity-25 hover:bg-red-500 hover:text-red-500 rounded-full transition-colors has-tooltip">
       <div class="tooltip rounded-md shadow-lg p-1 bg-scheme-3 mt-8 ml-2 -translate-x-[50%] text-onscheme-3" aria-hidden>Favorite</div>
-      <iconify-icon icon="feather:heart" width="16px" class="block" />
+      <iconify-icon icon="feather:heart" width="16px" />
     </a>
     <span class="flex-grow" />
     <a href=${status.url} aria-label="Read More" class="p-2 m-2 text-gray-500 inline-block hover:bg-scheme-3 hover:text-onscheme-3 rounded-full transition-colors has-tooltip">
       <div class="tooltip rounded-md shadow-lg p-1 bg-scheme-3 mt-8 ml-2 -translate-x-[100%] text-onscheme-3" aria-hidden>Read\xa0More</div>
-      <iconify-icon icon="carbon:launch" width="16px" class="block" />
+      <iconify-icon icon="carbon:launch" width="16px" />
     </a>
   </div>
   <dialog id=${"sd"+status.id} class="p-4 m-1 rounded-lg shadow-xl max-w-[90vw] lg:max-w-md xl:max-w-lg w-full max-h-[75vh] flex flex-col bg-scheme-2 text-onscheme-2">
@@ -60,20 +60,20 @@ export default function fediStatus(status: Entity.Status): h.JSX.Element {
     <div class="X-Action-Row mt-auto flex flex-row">
       <a href=${"https://"+host(status.uri)+"/interact/"+(status.reblog ?? status).id+"?type=reply"} aria-label="Reply" target="_blank" class="p-2 m-2 text-gray-500 inline-block hover:bg-opacity-25 hover:bg-blue-500 hover:text-blue-500 rounded-full transition-colors has-tooltip">
         <div class="tooltip rounded-md shadow-lg p-1 bg-scheme-3 mt-8 ml-2 -translate-x-[50%] text-onscheme-3" aria-hidden>Reply</div>
-        <iconify-icon icon="lucide:reply" width="16px" class="block" />
+        <iconify-icon icon="lucide:reply" width="16px" />
       </a>
       <a href=${"https://"+host(status.uri)+"/interact/"+(status.reblog ?? status).id+"?type=boost"} aria-label="Boost" target="_blank" class="p-2 m-2 text-gray-500 inline-block hover:bg-opacity-25 hover:bg-green-500 hover:text-green-500 rounded-full transition-colors has-tooltip">
         <div class="tooltip rounded-md shadow-lg p-1 bg-scheme-3 mt-8 ml-2 -translate-x-[50%] text-onscheme-3" aria-hidden>Boost</div>
-        <iconify-icon icon="lucide:repeat" width="16px" class="block" />
+        <iconify-icon icon="lucide:repeat" width="16px" />
       </a>
       <a href=${"https://"+host(status.uri)+"/interact/"+(status.reblog ?? status).id+"?type=favourite"} aria-label="Favorite" target="_blank" class="p-2 m-2 text-gray-500 inline-block hover:bg-opacity-25 hover:bg-red-500 hover:text-red-500 rounded-full transition-colors has-tooltip">
         <div class="tooltip rounded-md shadow-lg p-1 bg-scheme-3 mt-8 ml-2 -translate-x-[50%] text-onscheme-3" aria-hidden>Favorite</div>
-        <iconify-icon icon="lucide:heart" width="16px" class="block" />
+        <iconify-icon icon="lucide:heart" width="16px" />
       </a>
       <span class="flex-grow" />
       <a href=${status.url} aria-label="Read More" class="p-2 m-2 text-gray-500 inline-block hover:bg-scheme-3 hover:text-onscheme-3 rounded-full transition-colors has-tooltip">
         <div class="tooltip rounded-md shadow-lg p-1 bg-scheme-3 mt-8 ml-2 -translate-x-[100%] text-onscheme-3" aria-hidden>Read&nbsp;More</div>
-        <iconify-icon icon="carbon:launch" width="16px" class="block" />
+        <iconify-icon icon="carbon:launch" width="16px" />
       </a>
     </div>
   </dialog>

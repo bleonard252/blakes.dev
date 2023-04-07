@@ -15,14 +15,18 @@ module.exports = function eleventy(config) {
   });
   config.addPlugin(EleventyRenderPlugin);
   config.addPlugin(EleventyVitePlugin, {
-    build: {
-      rollupOptions: {
-        output: {
-          dir: "vite-dist",
-          preserveModules: true,
-          assetFileNames({ name }) {
-            return name?.replace(/^src\//, '') ?? '';
-          }
+    tempFolderName: ".11ty-vite",
+    viteOptions: {
+      build: {
+        dir: "vite-dist",
+        rollupOptions: {
+          output: {
+            //preserveModules: true,
+            assetFileNames({ name }) {
+              return name?.replace(/^src\//, '') ?? '';
+            }
+          },
+          preserveEntrySignatures: "strict",
         }
       }
     }
