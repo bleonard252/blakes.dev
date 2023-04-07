@@ -1,0 +1,23 @@
+{
+  "subject": "acct:me@blakes.dev",
+  "aliases": [
+    "https://fosstodon.org/@blake",
+    "https://fosstodon.org/users/blake"
+  ],
+  "links": [
+    {
+      "rel": "http://webfinger.net/rel/profile-page",
+      "type": "text/html",
+      "href": "https://fosstodon.org/@blake"
+    },
+    {
+      "rel": "self",
+      "type": "application/activity+json",
+      "href": "https://fosstodon.org/users/blake"
+    },
+    {
+      "rel": "http://ostatus.org/schema/1.0/subscribe",
+      "template": "https://fosstodon.org/authorize_interaction?uri={uri}"
+    }
+  ]
+}
