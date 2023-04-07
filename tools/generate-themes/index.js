@@ -227,7 +227,7 @@ async function transform(asset) {
   code += "\n";
   for (let themeId in themes) {
     code += `
-    [data-theme^="${themeId}-"] lda-theme-tile[theme-basename="${themeId}"] .bor {
+    [data-theme^="${themeId}-"] #themeSwitcher>div[data-theme="${themeId}-context"] {
       @apply border-primary-3;
     }
     [data-theme="${themeId}-light"] {

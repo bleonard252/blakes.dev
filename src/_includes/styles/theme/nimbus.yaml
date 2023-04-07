@@ -41,12 +41,21 @@ extra_postcss: |
     @apply text-yellow-400;
   }
   #homeButton {
+    @apply hover:text-yellow-300 hover:outline-yellow-300;
+  }
+  #homeButton[data-current-page] {
     @apply text-yellow-500 outline-yellow-500 hover:text-yellow-300 hover:outline-yellow-300;
   }
   .X-MenuBarButton {
-    @apply text-opacity-100 text-stone-500 hover:text-stone-400;
+    @apply text-opacity-100 text-stone-500 hover:text-stone-700;
   }
 extra_postcss_dark: |
   #menubar.nimbus--header-bar {
     @apply !text-white !bg-stone-800;
+  }
+  .X-MenuBarButton {
+    @apply hover:text-stone-300;
+  }
+  #homeButton {
+    @apply hover:text-yellow-300 hover:outline-yellow-300;
   }

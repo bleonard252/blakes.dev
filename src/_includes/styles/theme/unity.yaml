@@ -40,12 +40,21 @@ extra_postcss: |
     @apply text-orange-600;
   }
   #homeButton {
-    @apply text-orange-600 outline-orange-600 hover:text-orange-400 hover:outline-orange-400;
+    @apply hover:text-orange-700 hover:outline-orange-700;
+  }
+  #homeButton[data-current-page] {
+    @apply text-orange-600 outline-orange-600 hover:text-orange-700 hover:outline-orange-700;
   }
   .X-MenuBarButton {
-    @apply text-opacity-100 text-neutral-500 hover:text-neutral-400;
+    @apply text-opacity-100 text-neutral-500 hover:text-neutral-700;
   }
 extra_postcss_dark: |
   #menubar.nimbus--header-bar {
     @apply !text-white !bg-neutral-800;
+  }
+  .X-MenuBarButton {
+    @apply hover:text-neutral-300;
+  }
+  #homeButton {
+    @apply hover:text-orange-400 hover:outline-orange-400;
   }

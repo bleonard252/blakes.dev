@@ -41,7 +41,10 @@ extra_postcss: |
     @apply text-green-600;
   }
   #homeButton {
-    @apply text-green-600 outline-green-600 hover:text-green-500 hover:outline-green-500;
+    @apply hover:text-green-700 hover:outline-green-700;
+  }
+  #homeButton[data-current-page] {
+    @apply text-green-600 outline-green-600 hover:text-green-700 hover:outline-green-700;
   }
   .X-MenuBarButton {
     @apply text-opacity-100 text-mint-500 hover:text-mint-700;
@@ -49,4 +52,10 @@ extra_postcss: |
 extra_postcss_dark: |
   #menubar.nimbus--header-bar {
     @apply !text-white !bg-mint-800;
+  }
+  .X-MenuBarButton {
+    @apply hover:text-mint-300;
+  }
+  #homeButton {
+    @apply hover:text-green-500 hover:outline-green-500;
   }

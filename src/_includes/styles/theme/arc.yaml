@@ -41,6 +41,9 @@ extra_postcss: | # This relies on PostCSS and Tailwind
     @apply text-blue-700;
   }
   #homeButton {
+    @apply hover:text-blue-500 hover:outline-blue-500;
+  }
+  #homeButton[data-current-page] {
     @apply text-blue-700 outline-blue-700 hover:text-blue-500 hover:outline-blue-500;
   }
   .X-MenuBarButton {
@@ -49,4 +52,10 @@ extra_postcss: | # This relies on PostCSS and Tailwind
 extra_postcss_dark: |
   #menubar.nimbus--header-bar {
     @apply !text-white !bg-slate-800;
+  }
+  .X-MenuBarButton {
+    @apply hover:text-slate-300;
+  }
+  #homeButton {
+    @apply hover:text-blue-500 hover:outline-blue-500;
   }

@@ -26,8 +26,8 @@ onscheme_dark:
 primary:
   1: 0x9293ff
   2: 0x5e66cc
-  3: 0x5865f2
-  4: 0x5b65f2
+  3: 0x2c50d7
+  4: 0x5865f2
   5: 0x003cbd
 onprimary:
   1: 0xffffff
@@ -41,7 +41,10 @@ extra_postcss: |
     @apply text-[#00aff4];
   }
   .X-MenuBarButton {
-    @apply text-opacity-100 text-slate-500 hover:text-slate-400;
+    @apply text-opacity-100 text-slate-500 hover:text-slate-700;
+  }
+  #homeButton[data-current-page] {
+    @apply outline-slate-700;
   }
   .X-Hide-Light {
     @apply inline h-4 w-4;
@@ -49,4 +52,10 @@ extra_postcss: |
 extra_postcss_dark: |
   #menubar.nimbus--header-bar {
     @apply !text-white !bg-[rgb(32,34,37)];
+  }
+  .X-MenuBarButton {
+    @apply hover:text-slate-300;
+  }
+  #homeButton[data-current-page] {
+    @apply outline-slate-300;
   }

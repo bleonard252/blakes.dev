@@ -32,6 +32,7 @@
     "@babel/preset-env": "^7.20.2",
     "@jamshop/eleventy-plugin-mdx": "^0.0.17",
     "@private/theme-generator": "link:./tools/generate-themes",
+    "@tailwindcss/typography": "^0.5.9",
     "@types/node": "^18.14.1",
     "autoprefixer": "^10.4.13",
     "cssnano": "^5.1.15",
@@ -48,7 +49,6 @@
   },
   "dependencies": {
     "@11ty/is-land": "^3.0.2",
-    "@tailwindcss/typography": "^0.5.9",
     "@types/dompurify": "^3.0.1",
     "htm": "^3.1.1",
     "iconify-icon": "^1.0.7",
