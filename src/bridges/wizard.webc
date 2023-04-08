@@ -1,0 +1,41 @@
+---
+layout: layout.webc
+permalink: /bridges/index.html
+title: Bridge Finder @ blakes.dev
+metaTitle: Bridge Finder
+metaDescription: Find and use public bridges and gateways for decentralized/federated web protocols, like ActivityPub, Matrix, and more.
+---
+<link rel="preload" href="/bridges/list.webc">
+<div class="group bg-scheme-2 text-onscheme-2 absolute z-100 w-0 h-0 top-0 left-0 print:hidden flex flex-col focus-within:w-auto focus-within:h-auto overflow-hidden">
+  <a class="focus:bg-primary-3 focus:text-onprimary-3 p-2" href="#contents">Skip to content</a>
+</div>
+<blakes-menubar :@url="page.url"></blakes-menubar>
+<is-land on:visible on:idle><blakes-theme-switcher-button disabled></blakes-theme-switcher-button><template data-island="replace">
+  <blakes-theme-switcher-button disabled></blakes-theme-switcher-button>
+  <blakes-theme-switcher></blakes-theme-switcher>
+</template></is-land>
+<article class="prose dark:prose-invert m-auto mt-8" id="contents">
+  <center><h1>Bridge Tool</h1></center>
+  <p>This tool is intended to help you find and use public gateways and bridges between different services and protocols.</p>
+  <noscript>
+    <p class="text-red-500 dark:text-red-400"></p>Since JavaScript is disabled, the wizard won't work. You can instead look at the <a href="/bridges/list/">list of all known bridges</a>.</p>
+  </noscript>
+  <p>Select the service or app <em>YOU</em> use to get started.</p>
+  <div class="grid grid-cols-2 gap-4">
+    <h2 class="col-span-full">Social</h2>
+    <a class="X-Card rounded-md p-4 bg-amber-300 dark:bg-yellow-700" href="#from=activitypub"><h3>ActivityPub</h3>Mastodon, Misskey, Pixelfed, Peertube...</a>
+    <a class="X-Card rounded-md p-4 bg-purple-300 dark:bg-purple-900" href="#from=nostr">Nostr</a>
+    <!-- TODO: no bridges exist for this yet
+      <a class="X-Card rounded-md p-4 bg-sky-300 dark:bg-sky-700" href="#from=bluesky">BlueSky or another ATProto service</a> -->
+    <h2 class="col-span-full">Messaging</h2>
+    <a class="X-Card rounded-md p-4 bg-green-300 dark:bg-green-700" href="#from=matrix"><h3>Matrix</h3>Element</a>
+    <a class="X-Card rounded-md p-4 bg-orange-300 dark:bg-orange-900" href="#from=xmpp">XMPP</a>
+    <!-- TODO: this would have to be a client gateway, right?
+      <a class="X-Card rounded-md p-4 bg-blue-300 dark:bg-blue-900" href="#from=irc">IRC</a> -->
+    <!-- TODO: Session? SimpleX Chat? -->
+    <!-- <h2 class="col-span-full">Other</h2>
+    <a class="X-Card rounded-md p-4 bg-red-300 dark:bg-red-900" href="#from=email">Email</a>
+    <a class="X-Card rounded-md p-4 bg-orange-300 dark:bg-orange-900" href="#from=rss">RSS</a> -->
+  </div>
+
+</article>

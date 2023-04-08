@@ -16,12 +16,12 @@ module.exports = {
   darkMode: 'class',
   content: [
     './src/scripts/components/*.{html,tsx,ts,js,11ty.jsx,11ty.ts,11ty.tsx,mdx,webc,njk}',
-    './src/views/*.{html,tsx,ts,js,11ty.jsx,11ty.ts,11ty.tsx,mdx,webc,njk}',
     './src/_includes/scripts/*.{html,tsx,ts,js,11ty.jsx,11ty.ts,11ty.tsx,mdx,webc,njk}',
     './src/_includes/*.{html,11ty.jsx,11ty.ts,11ty.tsx,mdx,webc,njk}',
     './src/_includes/components/*.{html,11ty.jsx,11ty.ts,11ty.tsx,mdx,webc,njk,ts}',
     './src/_includes/scripts/components/*.{html,11ty.jsx,11ty.ts,11ty.tsx,mdx,webc,njk,ts}',
     './src/*.{html,11ty.jsx,11ty.ts,11ty.tsx,mdx,webc,njk}',
+    './src/bridges/*.{html,11ty.jsx,11ty.ts,11ty.tsx,mdx,webc,njk}',
     './src/_includes/components/theme-switcher/lda-theme-tile.webc',
   ],
   theme: {

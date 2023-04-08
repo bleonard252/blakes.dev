@@ -1,0 +1,91 @@
+---
+layout: layout.webc
+permalink: /bridges/list/index.html
+title: Full list of bridges @ blakes.dev
+metaTitle: Full list of bridges
+metaDescription: Find and use public bridges and gateways for decentralized/federated web protocols, like ActivityPub, Matrix, and more.
+---
+<div class="group bg-scheme-2 text-onscheme-2 absolute z-100 w-0 h-0 top-0 left-0 print:hidden flex flex-col focus-within:w-auto focus-within:h-auto overflow-hidden">
+  <a class="focus:bg-primary-3 focus:text-onprimary-3 p-2" href="#contents">Skip to content</a>
+</div>
+<blakes-menubar :@url="page.url"></blakes-menubar>
+<is-land on:visible on:idle><blakes-theme-switcher-button disabled></blakes-theme-switcher-button><template data-island="replace">
+  <blakes-theme-switcher-button disabled></blakes-theme-switcher-button>
+  <blakes-theme-switcher></blakes-theme-switcher>
+</template></is-land>
+<main class="max-w-3xl flex flex-col m-auto mt-8">
+  <article class="prose dark:prose-invert max-w-none" id="contents">
+    <h2>Full list of bridges</h2>
+    <p>This is a large, static list of all bridges and gateways known to this site. It is automatically generated from the <a href="/bridges/data.json">bridges data file</a>.</p>
+    <details><summary>Legend for template replacements</summary><p>
+      <code>{FROM_USER}</code> should be replaced with the username part (i.e. "johnmastodon" in "@johnmastodon@mastodon.social").<br />
+      <code>{FROM_DOMAIN}</code> should be replaced with the domain part (i.e. "matrix.org" in "#matrix-hq:matrix.org").<br />
+      <code>{FROM_PUBKEY}</code> should be replaced with the public key, for services that use them. If you don't know what this is, you don't need it.<br />
+      <code>{FROM}</code> should be replaced with the full ID. In some services, this is identical to {FROM_USER} or {FROM_PUBKEY} and this should be preferred.<br />
+    </p></details>
+    <p>You can use this directly, which might still be helpful, but you probably want to use the <a href="/bridges/">wizard</a> if you can use JavaScript. The wizard will transform the given account ID for you.</p>
+  </article>
+  <div class="mt-4 grid w-full border-b-[1px] border-scheme-4 bg-scheme-2 text-onscheme-2" style="grid-template-columns: 5ch 5ch 16ch auto;">
+    <span><strong>From</strong></span>
+    <span><strong>To</strong></span>
+    <span><strong>Homepage</strong></span>
+    <span><strong>Format/Template</strong></span>
+  </div>
+  <details webc:for="bridge of bridges" class="open:bg-scheme-2 group">
+    <summary class="grid cursor-pointer hover:bg-opacity-30 hover:bg-scheme-2 group-open:my-4 transition-[margin] items-center" style="grid-template-columns: 5ch 5ch 16ch auto;">
+      <div webc:nokeep>
+        <span webc:if="bridge.from == 'activitypub'" aria-label="From ActivityPub" title="ActivityPub" class="text-yellow-400 m-1">
+          <template width="18" height="18" webc:import="./fediverse.svg.webc" webc:nokeep></template>
+        </span>
+        <span webc:elseif="bridge.from == 'nostr'" aria-label="From Nostr" title="Nostr" class="text-purple-500 m-1">
+          <iconify-icon icon="game-icons:ostrich" class="block"></iconify-icon>
+        </span>
+        <span webc:elseif="bridge.from == 'matrix' && bridge['matrix:type'] == 'user'" aria-label="From Matrix" title="Matrix User" class="text-green-500 m-1">
+          <iconify-icon icon="simple-icons:matrix" class="inline-block align-[-.2em]"></iconify-icon>@
+        </span>
+        <span webc:elseif="bridge.from == 'matrix' && bridge['matrix:type'] == 'room'" aria-label="From Matrix" title="Matrix Room" class="text-green-500 m-1">
+          <iconify-icon icon="simple-icons:matrix" class="inline-block align-[-.2em]"></iconify-icon>#
+        </span>
+        <span webc:elseif="bridge.from == 'xmpp'" aria-label="From XMPP" title="XMPP" class="text-orange-500 m-1">
+          <iconify-icon icon="simple-icons:xmpp" class="block"></iconify-icon>
+        </span>
+        <span webc:else :aria-label="'From '+bridge.from" :title="bridge.from+' (Unknown service)'" class="m-1">
+          <iconify-icon icon="mdi:help" class="block"></iconify-icon>
+        </span>
+      </div><div webc:nokeep>
+        <span webc:if="bridge.to == 'activitypub'" aria-label="To ActivityPub" title="ActivityPub" class="text-yellow-400 m-1">
+          <template width="18" height="18" webc:import="./fediverse.svg.webc" webc:nokeep></template>
+        </span>
+        <span webc:elseif="bridge.to == 'nostr'" aria-label="To Nostr" title="Nostr" class="text-purple-500 m-1">
+          <iconify-icon icon="game-icons:ostrich" class="block"></iconify-icon>
+        </span>
+        <span webc:elseif="bridge.to == 'matrix' && bridge['matrix:type'] == 'user'" aria-label="To Matrix" title="Matrix User" class="text-green-500 m-1">
+          <iconify-icon icon="simple-icons:matrix" class="inline-block align-[-.2em]"></iconify-icon>@
+        </span>
+        <span webc:elseif="bridge.to == 'matrix' && bridge['matrix:type'] == 'room'" aria-label="To Matrix" title="Matrix Room" class="text-green-500 m-1">
+          <iconify-icon icon="simple-icons:matrix" class="inline-block align-[-.2em]"></iconify-icon>#
+        </span>
+        <span webc:elseif="bridge.to == 'xmpp'" aria-label="To XMPP" title="XMPP" class="text-orange-500 m-1">
+          <iconify-icon icon="simple-icons:xmpp" class="block"></iconify-icon>
+        </span>
+        <span webc:else :aria-label="'To '+bridge.to" :title="bridge.to+' (Unknown service)'" class="m-1">
+          <iconify-icon icon="mdi:help" class="block"></iconify-icon>
+        </span>
+      </div>
+      <a webc:if="bridge.homepage" :href="bridge.homepage" @text="(new URL(bridge.homepage)).hostname" class="hover:text-primary-3 underline decoration-dashed hover:decoration-solid m-1"></a>
+      <span webc:else class="italic m-1 text-opacity-50 text-onscheme-2">No homepage</span>
+      <span @text="bridge.template" class="font-mono m-1"></span>
+    </summary>
+    <div class="p-4 flex flex-col transition-[max-height] overflow-y-hidden max-h-[0] group-open:max-h-[200vh]" webc:if="bridge.description||bridge.notes||bridge.warnings">
+      <div webc:nokeep><span webc:if="bridge.description" class="block mb-2 p-2 max-w-none prose dark:prose-invert text-onscheme-2" @html="renderTemplate(bridge.description, 'md')" webc:keep></span></div>
+      <div webc:nokeep><span webc:if="bridge.notes" webc:nokeep><span webc:for="note of bridge.notes" class="block mb-2 p-2 max-w-none prose dark:prose-invert bg-blue-500 bg-opacity-10" webc:keep>
+        <iconify-icon icon="lucide:info" class="inline-block text-blue-500"></iconify-icon> <span class="text-blue-500 font-bold">Note:</span>
+        <span webc:nokeep @html="renderTemplate(note, 'md')"></span>
+      </span></span></div>
+      <div webc:nokeep><span webc:if="bridge.warnings" webc:nokeep><span webc:for="warning of bridge.warnings" class="block mb-2 p-2 max-w-none prose dark:prose-invert bg-yellow-500 bg-opacity-10" webc:keep>
+        <iconify-icon icon="lucide:alert-triangle" class="inline-block text-yellow-500"></iconify-icon> <span class="text-yellow-500 font-bold">Warning:</span>
+        <span webc:nokeep @html="renderTemplate(warning, 'md')"></span>
+      </span></span></div>
+    </div>
+  </details>
+</main>

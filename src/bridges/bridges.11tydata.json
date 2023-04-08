@@ -1,0 +1,62 @@
+{
+  "__bridges_license": "This file may be useful to other people. It's hereby licensed under GNU AGPL v3.0 or Later.",
+  "bridges": [
+    {
+      "from": "activitypub",
+      "to": "nostr",
+      "homepage": "https://mostr.pub",
+      "template": "{FROM_USER}_at_{FROM_DOMAIN}@mostr.pub",
+      "nostr:uses_pubkey": false,
+      "notes": [
+        "You might need to add the `wss://relay.mostr.pub` relay into your Nostr app."
+      ],
+      "warnings": [
+        "Some Fediverse servers may have this bridge blocked."
+      ]
+    },
+    {
+      "from": "nostr",
+      "to": "activitypub",
+      "homepage": "https://mostr.pub",
+      "template": "https://mostr.pub/users/{FROM}",
+      "nostr:uses_pubkey": false,
+      "warnings": [
+        "Some Fediverse servers may have this bridge blocked."
+      ]
+    },
+    {
+      "from": "matrix",
+      "to": "xmpp",
+      "homepage": "https://aria-net.org/SitePages/Portal/Bridges.aspx",
+      "template": "{FROM_USER}_{FROM_DOMAIN}@aria-net.org",
+      "matrix:type": "user"
+    },
+    {
+      "from": "matrix",
+      "to": "xmpp",
+      "homepage": "https://aria-net.org/SitePages/Portal/Bridges.aspx",
+      "template": "#{FROM_USER}#{FROM_DOMAIN}@aria-net.org",
+      "matrix:type": "room",
+      "notes": [
+        "Some rooms might not support this, or it may need to be enabled manually."
+      ]
+    },
+    {
+      "from": "xmpp",
+      "to": "matrix",
+      "homepage": "https://aria-net.org/SitePages/Portal/Bridges.aspx",
+      "template": "@_bifrost_{FROM_USER}=40{FROM_DOMAIN}:aria-net.org",
+      "matrix:type": "user"
+    },
+    {
+      "from": "xmpp",
+      "to": "matrix",
+      "homepage": "https://aria-net.org/SitePages/Portal/Bridges.aspx",
+      "template": "#_bifrost_{FROM_USER}=40{FROM_DOMAIN}:aria-net.org",
+      "matrix:type": "room",
+      "notes": [
+        "Some rooms might not support this, or it may need to be enabled manually."
+      ]
+    }
+  ]
+}

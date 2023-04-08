@@ -74,6 +74,20 @@
       Try Nimbus!
     </a>
   </div>
+  <div webc:if="url.startsWith('/bridges/')" class="pt-1 flex flex-row gap-4 justify-center flex-nowrap">
+    <a href="/bridges/" class="X-MenuBarButton whitespace-nowrap p-1 px-2 text-opacity-30 hover:text-opacity-70 text-onscheme-3 hover:bg-scheme-4 inline-block rounded-md transition-colors"
+      aria-label="Wizard"
+      :aria-current="(url == '/bridges/' || url == '/bridges/index.html') ? `page` : undefined"
+      :data-current-page="(url == '/bridges/' || url == '/bridges/index.html') ? `page` : undefined">
+      Wizard
+    </a>
+    <a href="/bridges/list/" class="X-MenuBarButton whitespace-nowrap p-1 px-2 text-opacity-30 hover:text-opacity-70 text-onscheme-3 hover:bg-scheme-4 inline-block rounded-md transition-colors"
+      aria-label="Full list"
+      :aria-current="(url == '/bridges/list/' || url == '/bridges/list/index.html') ? `page` : undefined"
+      :data-current-page="(url == '/bridges/list/' || url == '/bridges/list/index.html') ? `page` : undefined">
+      Full list
+    </a>
+  </div>
 </div>
 <script type="module">
   import iconify from 'iconify-icon';
