@@ -7,6 +7,7 @@
       "homepage": "https://mostr.pub",
       "template": "{FROM_USER}_at_{FROM_DOMAIN}@mostr.pub",
       "nostr:uses_pubkey": false,
+      "nostr:relay": "wss://relay.mostr.pub",
       "notes": [
         "You might need to add the `wss://relay.mostr.pub` relay into your Nostr app."
       ],
@@ -19,6 +20,7 @@
       "to": "activitypub",
       "homepage": "https://mostr.pub",
       "template": "https://mostr.pub/users/{FROM}",
+      "nostr:relay": "wss://relay.mostr.pub",
       "nostr:uses_pubkey": false,
       "warnings": [
         "Some Fediverse servers may have this bridge blocked."
@@ -56,6 +58,36 @@
       "matrix:type": "room",
       "notes": [
         "Some rooms might not support this, or it may need to be enabled manually."
+      ]
+    },
+    {
+      "from": "xmpp",
+      "to": "activitypub",
+      "template": "https://linkmauve.fr/_ap/actor/{FROM}",
+      "homepage": "https://libervia.pub",
+      "disabled": true,
+      "xmpp:social": true,
+      "notes": [
+        "For list maintainers: This isn't a public gateway yet, but this is what the Libervia bridge probably will look like."
+      ],
+      "warnings": [
+        "If the address you're converting doesn't belong to a Libervia or Movim user, you may not see posts from that account."
+      ]
+    },
+    {
+      "from": "activitypub",
+      "to": "xmpp",
+      "template": "{FROM}@linkmauve.fr",
+      "homepage": "https://libervia.pub",
+      "disabled": true,
+      "xmpp:social": true,
+      "transform:from": "jid-escaped",
+      "notes": [
+        "The {FROM} field should be JID escaped (i.e. @ becomes \\40). See [XEP-0106](https://xmpp.org/extensions/xep-0106.html#escaping) for more details.",
+        "For list maintainers: This isn't a public gateway yet, but this is an example/placeholder for what it might look like when it's public."
+      ],
+      "warnings": [
+        "If you don't use Libervia or Movim, you may not be able to see any social posts."
       ]
     }
   ]

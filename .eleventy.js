@@ -10,7 +10,7 @@ module.exports = function eleventy(config) {
   config.watchIgnores.add("src/_includes/styles/theme/*.yaml"); // this doesn't update anything unless you run `pnpm build:themes`
   //config.addPlugin(mdxPlugin);
   config.addPlugin(webcPlugin, {
-    components: "src/_includes/components/{blakes-,**/blakes-,theme-switcher/}*.webc",
+    components: "src/_includes/components/{blakes-,**/blakes-,theme-switcher/,wrapped/}*.webc",
   });
   config.addPlugin(EleventyRenderPlugin);
   config.addPlugin(EleventyVitePlugin, {

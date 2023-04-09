@@ -10,7 +10,8 @@
     "esModuleInterop": true,
     "allowSyntheticDefaultImports": true,
     "strict": false,
-    "outDir": "dist/scripts",
+    "outDir": "dist/",
+    "rootDir": "src/_includes/",
   },
   "include": [
     "src/_includes/scripts/**/*",

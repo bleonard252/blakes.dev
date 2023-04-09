@@ -7,7 +7,7 @@ module.exports = class {
   }
 
   render(data) {
-    return JSON.stringify({bridges: bridges.bridges, __bridges_license: bridges.__bridges_license});
+    return JSON.stringify({bridges: bridges.bridges.filter((v) => !v.disabled), __bridges_license: bridges.__bridges_license});
   }
 }
 /*
