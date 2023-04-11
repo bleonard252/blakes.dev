@@ -58,7 +58,8 @@ metaDescription: Find and use public bridges and gateways for decentralized/fede
         // TODO: render the third page of the wizard, depending on what bridge it is
         // if (toService == 'matrix' && fromService == 'xmpp') {/* ask for ID and whether it's a room or user */}
         // else {/* ask for ID, then run conversion */}
-        render(wizard3.wizardAskIdPage(toService, fromService, bridges.filter((v) => v.to == toService && v.from == fromService), {rerenderTarget: d}), d);
+        //render(wizard3.wizardAskIdPage(toService, fromService, bridges.filter((v) => v.to == toService && v.from == fromService), {rerenderTarget: d}), d);
+        render(html`<${wizard3.askIdPage} to=${toService} from=${fromService} bridges=${bridges.filter((v) => v.to == toService && v.from == fromService)} rerenderTarget=${d}><//>`, d);
         // wizardAskIDPage runs the conversion and renders the result
       }));
     }));

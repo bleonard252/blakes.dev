@@ -8,7 +8,6 @@
     "jsxFragmentFactory": "Fragment",
     "resolveJsonModule": true,
     "esModuleInterop": true,
-    "allowSyntheticDefaultImports": true,
     "strict": false,
     "outDir": "dist/",
     "rootDir": "src/_includes/",

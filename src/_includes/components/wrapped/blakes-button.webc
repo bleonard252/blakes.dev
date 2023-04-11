@@ -4,9 +4,10 @@
   const { render } = require('preact-render-to-string');
   render(html`<${Button}
   ...${webc.filterPublicAttributes(webc.attributes)}
-  primary=${webc.attributes.primary !== undefined}
-  filled=${webc.attributes.filled !== undefined}
-  static=${webc.attributes.static !== undefined}
-  flex=${webc.attributes.flex !== undefined}
+  primary=${webc.attributes.primary !== undefined && webc.attributes.primary}
+  filled=${webc.attributes.filled !== undefined && webc.attributes.filled}
+  static=${webc.attributes.static !== undefined && webc.attributes.static}
+  flex=${webc.attributes.flex !== undefined && webc.attributes.flex}
+  flex=${webc.attributes.disabled !== undefined && webc.attributes.disabled}
   ><slot></slot><//>`);
 </script>

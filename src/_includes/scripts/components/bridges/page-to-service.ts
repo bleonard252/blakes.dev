@@ -4,6 +4,13 @@ import { BridgeSupportedPlatform, WizardCard, categorizePlatform } from "./wizar
 export const ReusableStrings = {
   social_step2: "Select the service of the account you want to follow. You'll need to know their full username for the next step.",
   chat_step2: "Select the service of the person you want to chat with, or the group you want to join. You'll need to know their full username for the next step.",
+  platform: {
+    activitypub: "ActivityPub",
+    nostr: "Nostr",
+    atproto: "AT Protocol",
+    matrix: "Matrix",
+    xmpp: "XMPP",
+  } as Record<BridgeSupportedPlatform, string>,
 };
 
 export function wizardToServicePage(to: BridgeSupportedPlatform, bridges: Array<Record<string, any>>) {
