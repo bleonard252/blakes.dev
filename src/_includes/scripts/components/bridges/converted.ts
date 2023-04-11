@@ -26,7 +26,7 @@ export class convertedPage extends Component<h.JSX.HTMLAttributes & {from: Bridg
         <summary>You might need to use a relay to follow this user. Tap or click here to show it.</summary>
         <p>Add the relay address below to your Nostr client's relay list. Then, you can follow this account.</p>
         <span class="flex flex-row w-full my-2">
-          <input readonly type="text" class="flex-grow p-4 enabled:focus:outline-2 enabled:focus:outline-offset-2 enabled:focus:outline-primary-3 rounded-md bg-scheme-3 text-center font-bold" value=${this.props.address} />
+          <input readonly type="text" class="flex-grow p-4 enabled:focus:outline-2 enabled:focus:outline-offset-2 enabled:focus:outline-primary-3 rounded-md bg-scheme-3 text-center font-bold" value=${this.props.bridge['nostr:relay']} />
           <${Button} primary filled flex class="aspect-square p-4 ml-2 my-0 has-tooltip" aria-label="Copy to clipboard" onclick=${() => navigator.clipboard.writeText(this.props.bridge['nostr:relay'])}>
             <div class="tooltip rounded-md shadow-lg p-1 bg-scheme-3 mt-12 -translate-x-[80%] text-onscheme-3">Copy to clipboard</div>
             <iconify-icon icon="lucide:clipboard-copy"></iconify-icon>
