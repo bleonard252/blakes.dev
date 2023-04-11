@@ -19,9 +19,9 @@
       "from": "nostr",
       "to": "activitypub",
       "homepage": "https://mostr.pub",
-      "template": "https://mostr.pub/users/{FROM}",
+      "template": "https://mostr.pub/users/{FROM_PUBKEY}",
       "nostr:relay": "wss://relay.mostr.pub",
-      "nostr:uses_pubkey": false,
+      "nostr:uses_pubkey": true,
       "warnings": [
         "Some Fediverse servers may have this bridge blocked."
       ]
