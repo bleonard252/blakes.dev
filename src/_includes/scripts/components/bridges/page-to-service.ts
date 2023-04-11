@@ -11,12 +11,10 @@ export function wizardToServicePage(to: BridgeSupportedPlatform, bridges: Array<
   return html`<center><h1>Bridge Tool</h1></center>
   <p>${category == 'social' ? ReusableStrings.social_step2 : category == 'chat' ? ReusableStrings.chat_step2 : 'Select the target platform.'}</p>
   <div class="grid grid-cols-2 gap-4">
-    <h2 class="col-span-full">Social</h2>
-    ${bridges.filter((v) => v.from == 'activitypub' && v.to == to).length > 0 && html`<${WizardCard} platform="activitypub" href="#from=activitypub"><//>`}
-    ${bridges.filter((v) => v.from == 'nostr' && v.to == to).length > 0 && html`<${WizardCard} platform="nostr" href="#from=nostr"><//>`}
-    ${bridges.filter((v) => v.from == 'bluesky' && v.to == to).length > 0 && html`<${WizardCard} platform="bluesky" href="#from=bluesky"><//>`}
-    <h2 class="col-span-full">Messaging</h2>
-    ${bridges.filter((v) => v.from == 'matrix' && v.to == to).length > 0 && html`<${WizardCard} platform="matrix" href="#from=matrix"><//>`}
-    ${bridges.filter((v) => v.from == 'xmpp' && v.to == to).length > 0 && html`<${WizardCard} platform="xmpp" href="#from=xmpp"><//>`}
+    ${bridges.filter((v) => v.from == 'activitypub' && v.to == to).length > 0 && html`<${WizardCard} platform="activitypub" category=${category} href="#from=activitypub"><//>`}
+    ${bridges.filter((v) => v.from == 'nostr' && v.to == to).length > 0 && html`<${WizardCard} platform="nostr" category=${category} href="#from=nostr"><//>`}
+    ${bridges.filter((v) => v.from == 'atproto' && v.to == to).length > 0 && html`<${WizardCard} platform="atproto" category=${category} href="#from=atproto"><//>`}
+    ${bridges.filter((v) => v.from == 'matrix' && v.to == to).length > 0 && html`<${WizardCard} platform="matrix" category=${category} href="#from=matrix"><//>`}
+    ${bridges.filter((v) => v.from == 'xmpp' && v.to == to).length > 0 && html`<${WizardCard} platform="xmpp" category=${category} href="#from=xmpp"><//>`}
   </div>`;
 }

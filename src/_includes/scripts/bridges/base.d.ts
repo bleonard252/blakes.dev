@@ -1,4 +1,4 @@
-declare interface BridgesFromUser {
+export abstract class BridgesFromUser {
   /** Corresponds to the substitution string {FROM_DOMAIN}. */
   domain: string;
   /** Corresponds to the substitution string {FROM_USER}. */

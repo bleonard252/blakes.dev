@@ -1,12 +1,14 @@
+import { BridgesFromUser } from "./base";
+
 export class ActivityPubAddress implements Partial<BridgesFromUser> {
   public static fromString(str: string): ActivityPubAddress {
-    if (str.includes('/@') || str.match(/^https?:\/\//).length > 0) {
+    if (str.includes('/@') || str.match(/^https?:\/\//)?.length) {
       const url = new URL(str);
       const username = url.pathname.split('/').pop();
       return new ActivityPubAddress(url.hostname, username);
     } else {
       if (str.startsWith('@')) str = str.slice(1);
-      const [domain, username] = str.split('@');
+      const [username, domain] = str.split('@');
       return new ActivityPubAddress(domain, username);
     }
   }

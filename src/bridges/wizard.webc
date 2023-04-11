@@ -25,14 +25,10 @@ metaDescription: Find and use public bridges and gateways for decentralized/fede
     <h2 class="col-span-full">Social</h2>
     <bridge-wizard-card @platform="activitypub" webc:if="bridges.filter((v) => v.to == 'activitypub').length > 0" href="#to=activitypub"></bridge-wizard-card>
     <bridge-wizard-card @platform="nostr" webc:if="bridges.filter((v) => v.to == 'nostr').length > 0" href="#to=nostr"></bridge-wizard-card>
-    <!-- TODO: no bridges exist for this yet
-      <a class="X-Card rounded-md p-4 bg-sky-300 dark:bg-sky-700" href="#from=bluesky">BlueSky or another ATProto service</a> -->
+    <bridge-wizard-card @platform="atproto" webc:if="bridges.filter((v) => v.to == 'atproto').length > 0" href="#to=atproto"></bridge-wizard-card>
     <h2 class="col-span-full">Messaging</h2>
     <bridge-wizard-card @platform="matrix" webc:if="bridges.filter((v) => v.to == 'matrix').length > 0" href="#to=matrix"></bridge-wizard-card>
     <bridge-wizard-card @platform="xmpp" webc:if="bridges.filter((v) => v.to == 'xmpp').length > 0" href="#to=xmpp"></bridge-wizard-card>
-    <!-- TODO: this would have to be a client gateway, right?
-      <a class="X-Card rounded-md p-4 bg-blue-300 dark:bg-blue-900" href="#from=irc">IRC</a> -->
-    <!-- TODO: Session? SimpleX Chat? -->
     <!-- <h2 class="col-span-full">Other</h2>
     <a class="X-Card rounded-md p-4 bg-red-300 dark:bg-red-900" href="#from=email">Email</a>
     <a class="X-Card rounded-md p-4 bg-orange-300 dark:bg-orange-900" href="#from=rss">RSS</a> -->
@@ -43,15 +39,28 @@ metaDescription: Find and use public bridges and gateways for decentralized/fede
   import { bridges } from './data.json';
   import { WizardCard } from '../scripts/components/bridges/wizard-card';
   import * as wizard2 from '../scripts/components/bridges/page-to-service';
+  import * as wizard3 from '../scripts/components/bridges/ask-id';
   import { html, render } from 'htm/preact';
   document.addEventListener('DOMContentLoaded', () => {
     document.querySelectorAll("[href^='#to=']").forEach((e) => e.addEventListener('click', (e) => {
       e.preventDefault();
-      const href = new URL(e.currentTarget.href).hash.split('=')[1];
-      console.warn(href);
+      const toService = new URL(e.currentTarget.href).hash.split('=')[1];
+      //console.warn(href);
       const d = document.querySelector('#contents');
       d.innerHTML = '';
-      render(wizard2.wizardToServicePage(href, bridges), d);
+      render(wizard2.wizardToServicePage(toService, bridges), d);
+      document.querySelectorAll("[href^='#from=']").forEach((e) => e.addEventListener('click', (e) => {
+        e.preventDefault();
+        const fromService = new URL(e.currentTarget.href).hash.split('=')[1];
+        //console.warn(href);
+        d.innerHTML = '';
+        //render(wizard2.wizardFromServicePage(href, bridges), d);
+        // TODO: render the third page of the wizard, depending on what bridge it is
+        // if (toService == 'matrix' && fromService == 'xmpp') {/* ask for ID and whether it's a room or user */}
+        // else {/* ask for ID, then run conversion */}
+        render(wizard3.wizardAskIdPage(toService, fromService, bridges.filter((v) => v.to == toService && v.from == fromService), {rerenderTarget: d}), d);
+        // wizardAskIDPage runs the conversion and renders the result
+      }));
     }));
   }, false);
 </script>
