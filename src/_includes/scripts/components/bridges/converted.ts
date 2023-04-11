@@ -23,8 +23,9 @@ export class convertedPage extends Component<h.JSX.HTMLAttributes & {from: Bridg
       ${this.props.bridge.homepage && html`<p class="text-center mb-0">This bridge is provided by <a href=${this.props.bridge.homepage}>${new URL(this.props.bridge.homepage).hostname}</a>.</p>`}
       ${this.props.to == 'nostr' && html`<p class="text-center italic mb-0">You can use this <a href=${`nostr:${this.props.address}`}>Nostr address link</a> to follow this account from any supporting Nostr client.</p>`}
       ${this.props.bridge['nostr:relay'] && html`<details class=" hover:bg-scheme-2 open:bg-scheme-3 p-2 open:py-4 transition-[padding]">
-        <summary>You might need to use a relay to follow this user. Tap or click here to show it.</summary>
-        <p>Add the relay address below to your Nostr client's relay list. Then, you can follow this account.</p>
+        <summary>${this.props.to == 'nostr' ? 'You might need to use a specific relay to follow this user.' : "The account you're following might need to be publishing to a specific relay."} Tap or click here to show it.</summary>
+        <p>${this.props.to == 'nostr' ? "Add the relay address below to your Nostr client's relay list." : "Have the other person add the relay address below to their Nostr client's relay list."} Then, you can follow this account.</p>
+        ${this.props.bridge.homepage && html`<p>Other relays might be supported; see the homepage for more details.</p>`}
         <span class="flex flex-row w-full my-2">
           <input readonly type="text" class="flex-grow p-4 enabled:focus:outline-2 enabled:focus:outline-offset-2 enabled:focus:outline-primary-3 rounded-md bg-scheme-3 text-center font-bold" value=${this.props.bridge['nostr:relay']} />
           <${Button} primary filled flex class="aspect-square p-4 ml-2 my-0 has-tooltip" aria-label="Copy to clipboard" onclick=${() => navigator.clipboard.writeText(this.props.bridge['nostr:relay'])}>
