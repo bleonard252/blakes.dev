@@ -5,7 +5,7 @@ export class ActivityPubAddress implements Partial<BridgesFromUser> {
     if (str.includes('/@') || str.match(/^https?:\/\//)?.length) {
       const url = new URL(str);
       const username = url.pathname.split('/').pop();
-      return new ActivityPubAddress(url.hostname, username);
+      return new ActivityPubAddress(url.hostname, username.replace(/^@/, ''));
     } else {
       if (str.startsWith('@')) str = str.slice(1);
       const [username, domain] = str.split('@');

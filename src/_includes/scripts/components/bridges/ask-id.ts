@@ -7,6 +7,7 @@ import { BridgesFromUser } from "../../bridges/base";
 import { NostrAddress } from "../../bridges/convert-nostr";
 import { XMPPAddress } from "../../bridges/convert-xmpp";
 import { ReusableStrings } from "./page-to-service";
+import { convertedPage } from "./converted";
 
 export class askIdPage extends Component<h.JSX.HTMLAttributes & {from: BridgeSupportedPlatform, to: BridgeSupportedPlatform, bridges: Array<Record<string, any>>, rerenderTarget?: HTMLElement}> {
   render() {
@@ -129,11 +130,9 @@ export class askIdPage extends Component<h.JSX.HTMLAttributes & {from: BridgeSup
 
           setIsLoading(false);
           window.location.hash = `from=${encodeURIComponent(from)}&to=${encodeURIComponent(to)}&username=${encodeURIComponent(username.value)}`;
-          // someday, I'd like to have it so the wizard skips all this and just goes straight to the page if the above hash is set.
+          // TODO: someday, I'd like to have it so the wizard skips all this and just goes straight to the page if the above hash is set.
           // That way, someone can share parts of the bridge data in the hash and it'll skip those steps, making it easier to follow someone.
-          // TODO: the final page, with info about the selected bridge and the ability to copy the converted address.
-          // Until then:
-          render(html`${template}`, rerenderTarget || document.getElementById('contents'));
+          render(html`<${convertedPage} from=${from} to=${to} bridge=${bridge} address=${template} alternatesAvailable=${alternativesAvailable}><//>`, rerenderTarget || document.getElementById('contents'));
         }
       }}>Convert<//>
     </form>`

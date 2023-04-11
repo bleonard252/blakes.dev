@@ -8,9 +8,6 @@
       "template": "{FROM_USER}_at_{FROM_DOMAIN}@mostr.pub",
       "nostr:uses_pubkey": false,
       "nostr:relay": "wss://relay.mostr.pub",
-      "notes": [
-        "You might need to add the `wss://relay.mostr.pub` relay into your Nostr app."
-      ],
       "warnings": [
         "Some Fediverse servers may have this bridge blocked."
       ]
