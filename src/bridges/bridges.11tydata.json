@@ -1,5 +1,6 @@
 {
   "__bridges_license": "This file may be useful to other people. It's hereby licensed under GNU AGPL v3.0 or Later.",
+  "__contribution_guidelines": "Add new entries to the end of the list, UNLESS completing a pair/set of directions for the same bridge. Please match the patterns found throughout the file already, and ONLY add bridges that are public, working, permanent, and useful. Feel free to add notes asking for donations to the bridge's maintainer.",
   "bridges": [
     {
       "from": "activitypub",
@@ -55,6 +56,29 @@
       "matrix:type": "room",
       "notes": [
         "Some rooms might not support this, or it may need to be enabled manually."
+      ],
+      "warnings": [
+        "Some rooms have been disabled due to spam and overload. These rooms will not be bridged."
+      ]
+    },
+    {
+      "from": "xmpp",
+      "to": "matrix",
+      "homepage": "https://github.com/matrix-org/matrix-bifrost/wiki/Address-syntax",
+      "template": "@_xmpp_{FROM_USER}=40{FROM_DOMAIN}:matrix.org",
+      "matrix:type": "user",
+      "warnings": [
+        "This bridge is not maintained anymore, and may be unreliable."
+      ]
+    },
+    {
+      "from": "matrix",
+      "to": "xmpp",
+      "homepage": "https://github.com/matrix-org/matrix-bifrost/wiki/Address-syntax",
+      "template": "{FROM_USER}_{FROM_DOMAIN}@matrix.org",
+      "matrix:type": "user",
+      "warnings": [
+        "This bridge is not maintained anymore, and may be unreliable."
       ]
     },
     {

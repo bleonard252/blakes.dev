@@ -3,7 +3,7 @@ import { BridgesFromUser } from "./base";
 export class XMPPAddress implements Partial<BridgesFromUser> {
   public static fromString(str: string): XMPPAddress {
     if (str.includes('@')) {
-      const [domain, username] = str.split('@');
+      const [username, domain] = str.split('@');
       if (domain.includes('/')) {
         const [domain2, xmpp_resource] = domain.split('/');
         return new XMPPAddress(domain2, username, xmpp_resource);
