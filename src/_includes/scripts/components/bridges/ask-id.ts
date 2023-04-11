@@ -19,7 +19,7 @@ export function wizardAskIdPage(to: BridgeSupportedPlatform, from: BridgeSupport
   ${from == 'xmpp' && html`<p>For an XMPP account, this probably looks like <u><strong>username@domain.tld</strong></u>, but it could also look like <u><strong>domain.tld</strong></u>.</p>`}
   ${errors && errors?.map((error) => html`<p class="text-red-500 bg-red-50 dark:bg-red-900 p-4 my-4"><iconify-icon icon="lucide:alert-octagon"></iconify-icon> ${error}</p>`)}
   <input type="text" class="w-full p-4 focus:outline-2 outline-offset-2 outline-primary-3 rounded-md bg-scheme-3 focus:bg-scheme-2 hover:bg-scheme-2 mt-4 invalid:border-red-500" placeholder="Full handle, ID, or URL" id="remote-username" required />
-  <${Button} primary filled class="w-full mt-4" onclick=${() => {
+  <${Button} primary filled class="w-full mt-4" onclick=${async () => {
     const username = document.getElementById('remote-username') as HTMLInputElement;
     console.warn("Clicked!")
     if (username.value) {
@@ -40,28 +40,63 @@ export function wizardAskIdPage(to: BridgeSupportedPlatform, from: BridgeSupport
       /** Which template substitutions are supported.
        * This is used to filter out bridges that require a template substitution that isn't supported.
        */
-      var supportedTemplates = [];
-      if (Object.keys(fromAddr).includes("toString")) supportedTemplates.push("FROM");
-      if (Object.keys(fromAddr).includes("domain")) supportedTemplates.push("FROM_DOMAIN");
-      if (Object.keys(fromAddr).includes("username")) supportedTemplates.push("FROM_USER");
-      //if (Object.keys(fromAddr).includes("xmpp_resource")) supportedTemplates.push("FROM_RESOURCE");
-      if (Object.keys(fromAddr).includes("pubkey")) supportedTemplates.push("FROM_PUBKEY");
-      var supportedBridges = bridges.filter((bridge) => {
-        if (bridge.from != from) return false;
-        if (bridge.to != to) return false;
+      function setSupportedBridges(): [string[], typeof bridges[0][]] {
+        var supportedTemplates = [];
+        if (Object.keys(fromAddr).includes("toString")) supportedTemplates.push("FROM");
+        if (Object.keys(fromAddr).includes("domain") && fromAddr.domain) supportedTemplates.push("FROM_DOMAIN");
+        if (Object.keys(fromAddr).includes("username") && fromAddr.username) supportedTemplates.push("FROM_USER");
+        //if (Object.keys(fromAddr).includes("xmpp_resource")) supportedTemplates.push("FROM_RESOURCE");
+        if (Object.keys(fromAddr).includes("pubkey") && fromAddr.pubkey) supportedTemplates.push("FROM_PUBKEY");
+        const supportedBridges = bridges.filter((bridge) => {
+          if (bridge.from != from) return false;
+          if (bridge.to != to) return false;
 
-        // Check if the bridge supports the template substitutions we need
-        if (!supportedTemplates.includes("FROM") && bridge.template.includes("{FROM}")) return false;
-        if (!supportedTemplates.includes("FROM_DOMAIN") && bridge.template.includes("{FROM_DOMAIN}")) return false;
-        if (!supportedTemplates.includes("FROM_USER") && bridge.template.includes("{FROM_USER}")) return false;
-        //if (!supportedTemplates.includes("FROM_RESOURCE") && bridge.template.includes("{FROM_RESOURCE}")) return false;
-        if (!supportedTemplates.includes("FROM_PUBKEY") && bridge.template.includes("{FROM_PUBKEY}")) return false;
-        return true;
-      });
+          // Check if the bridge supports the template substitutions we need
+          if (!supportedTemplates.includes("FROM") && bridge.template.includes("{FROM}")) return false;
+          if (!supportedTemplates.includes("FROM_DOMAIN") && bridge.template.includes("{FROM_DOMAIN}")) return false;
+          if (!supportedTemplates.includes("FROM_USER") && bridge.template.includes("{FROM_USER}")) return false;
+          //if (!supportedTemplates.includes("FROM_RESOURCE") && bridge.template.includes("{FROM_RESOURCE}")) return false;
+          if (!supportedTemplates.includes("FROM_PUBKEY") && bridge.template.includes("{FROM_PUBKEY}")) return false;
+          return true;
+        });
+        return [supportedTemplates, supportedBridges];
+      };
+      var [_, supportedBridges] = setSupportedBridges();
       if (supportedBridges.length == 0) {
-        rerenderWithErrors(['No compatible bridges found. Try a different version of the ID.']);
-        console.error("No compatible bridges found.");
-        return;
+        if (from == 'nostr' && username.value.includes("@")) {
+          // if you need a pubkey but didn't provide one, try looking up the pubkey
+          const res = await fetch(`https://${fromAddr.domain}/.well-known/nostr.json?user=${encodeURIComponent(fromAddr.username)}`);
+          if (res.status == 200) {
+            try {
+              var data = await res.json();
+            } catch (e) {
+              rerenderWithErrors(['No compatible bridges found. Try using a public key instead of an NIP-05 ID.']);
+              console.error("No compatible bridges found.");
+              return;
+            }
+            if (data.names[fromAddr.username]) {
+              fromAddr = NostrAddress.fromString(data.names[fromAddr.username]);
+              [_, supportedBridges] = setSupportedBridges();
+              if (supportedBridges.length == 0) {
+                rerenderWithErrors(['How did we get here? Try using a public key instead of an NIP-05 ID.']);
+                console.error("No compatible bridges found. How did we get here?");
+                return;
+              }
+            } else {
+              rerenderWithErrors(['User not found. Try using a public key instead of an NIP-05 ID.']);
+              console.error("User not found: " + `${fromAddr.username}@${fromAddr.domain}`);
+              return;
+            }
+          } else {
+            rerenderWithErrors(['User not found. Try using a public key instead of an NIP-05 ID.']);
+            console.error("Domain not found: " + `${fromAddr.username}@${fromAddr.domain}`);
+            return;
+          }
+        } else {
+          rerenderWithErrors(['No compatible bridges found. Try a different version of the ID.']);
+          console.error("No compatible bridges found.");
+          return;
+        }
       }
       var index = 0, alternativesAvailable = false;
       if (supportedBridges.length > 1) {
