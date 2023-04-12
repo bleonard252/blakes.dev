@@ -15,7 +15,10 @@ metaDescription: Find and use public bridges and gateways for decentralized/fede
 </template></is-land>
 <article class="prose dark:prose-invert m-auto mt-8" id="contents">
   <center><h1>Bridge Tool</h1></center>
-  <p>This tool is intended to help you find and use public gateways and bridges between different services and protocols.</p>
+  <p>This tool is intended to help you find and use public gateways and bridges between different services and protocols.
+    To learn more about the motivation for the project and some decisions made, <a href="/bridges/why/">see this page</a>.
+    For other information, see the <a href="/bridges/about/">about page</a>.
+  </p>
   <noscript>
     <p class="text-red-500 dark:text-red-400"></p>Since JavaScript is disabled, the wizard won't work. You can instead look at the <a href="/bridges/list/">list of all known bridges</a>.</p>
   </noscript>
@@ -35,11 +38,12 @@ metaDescription: Find and use public bridges and gateways for decentralized/fede
 </article>
 <div class="m-8"></div>
 <script type="module" webc:keep>
-  import { bridges } from './data.json';
+  import bridgeDataString from './data.json?raw&inline';
   import { WizardCard } from '../scripts/components/bridges/wizard-card';
   import * as wizard2 from '../scripts/components/bridges/page-to-service';
   import * as wizard3 from '../scripts/components/bridges/ask-id';
   import { html, render } from 'htm/preact';
+  const { bridges } = JSON.parse(bridgeDataString);
   document.addEventListener('DOMContentLoaded', () => {
     document.querySelectorAll("[href^='#to=']").forEach((e) => e.addEventListener('click', (e) => {
       e.preventDefault();

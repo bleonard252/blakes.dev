@@ -18,6 +18,7 @@ module.exports = function eleventy(config) {
     viteOptions: {
       publicDir: "../static",
       appType: 'mpa',
+      assetsInclude: ['/bridges/data.json'],
       build: {
         outDir: "vite-dist",
         copyPublicDir: true,

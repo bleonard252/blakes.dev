@@ -10,7 +10,8 @@
       "nostr:uses_pubkey": false,
       "nostr:relay": "wss://relay.mostr.pub",
       "warnings": [
-        "Some Fediverse servers may have this bridge blocked."
+        "Some Fediverse servers may have this bridge blocked. [Learn more](/bridges/about/#nostr-blocked)",
+        "At this time, these features ARE known to work between the two networks, for bridges using the Mostr software (the only one listed right now does).\n* Following accounts. ActivityPub accounts do receive follow notifications.\n* Replying to posts.\n* Seeing profile information (this may take some time, and images may not load).\n* Seeing and sending images.\n\nThese features are known NOT to work:\n* Favoriting. You can do it, but it won't carry over to the other network.\n* Boosting\/repeating. You can do it, but like favoriting, it won't carry over to the other network.\n* Zapping. I'm not exactly sure what this is but ActivityPub doesn't support this at all.\n* Direct messages. While Nostr's DMs appear to be end-to-end encrypted, most Fediverse DM systems are not, and are not received in any form on the Fediverse end."
       ]
     },
     {
@@ -21,7 +22,8 @@
       "nostr:relay": "wss://relay.mostr.pub",
       "nostr:uses_pubkey": true,
       "warnings": [
-        "Some Fediverse servers may have this bridge blocked."
+        "Some Fediverse servers may have this bridge blocked. [Learn more](/bridges/about/#nostr-blocked)",
+        "At this time, these features ARE known to work between the two networks, for bridges using the Mostr software (the only one listed right now does).\n* Following accounts. ActivityPub accounts do receive follow notifications.\n* Replying to posts.\n* Seeing profile information (this may take some time, and images may not load).\n* Seeing and sending images.\n\nThese features are known NOT to work:\n* Favoriting. You can do it, but it won't carry over to the other network.\n* Boosting\/repeating. You can do it, but like favoriting, it won't carry over to the other network.\n* Zapping. I'm not exactly sure what this is but ActivityPub doesn't support this at all.\n* Direct messages. While Nostr's DMs appear to be end-to-end encrypted, most Fediverse DM systems are not, and are not received in any form on the Fediverse end."
       ]
     },
     {
