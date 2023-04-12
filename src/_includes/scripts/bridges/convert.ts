@@ -113,12 +113,27 @@ export default async function runConversion({ from, to, originalAddress, bridges
   var bridge = supportedBridges[index];
   var template = bridge.template;
 
+  // Apply transformations
+  const substitutionTransformNames =  ["from",              "from_domain",   "from_user",       "from_pubkey"  ];
+  var substitutions =                 [fromAddr.toString(), fromAddr.domain, fromAddr.username, fromAddr.pubkey];
+  substitutions = substitutions.map((sub, i) => {
+    const transformation = bridge['transform'+substitutionTransformNames[i]];
+    if (typeof transformation !== 'string') return sub;
+    if (transformation == 'lowercase') return sub.toLowerCase();
+    if (transformation == 'uppercase') return sub.toUpperCase();
+    // Technically the below shouldn't even be needed, since XEP-0106 says the CLIENTS are supposed to escape JIDs.
+    if (transformation == 'jid-escape') return XMPPAddress.escapeString(sub);
+    if (transformation == 'jid-unescape') return XMPPAddress.unescapeString(sub);
+    return sub;
+  });
+  const [subFrom, subFromDomain, subFromUser, subFromPubkey] = substitutions;
+
   // Apply template substitutions
-  if (template.includes("{FROM}")) template = template.replace("{FROM}", fromAddr.toString());
-  if (template.includes("{FROM_DOMAIN}")) template = template.replace("{FROM_DOMAIN}", fromAddr.domain);
-  if (template.includes("{FROM_USER}")) template = template.replace("{FROM_USER}", fromAddr.username);
+  if (template.includes("{FROM}")) template = template.replace("{FROM}", subFrom);
+  if (template.includes("{FROM_DOMAIN}")) template = template.replace("{FROM_DOMAIN}", subFromDomain);
+  if (template.includes("{FROM_USER}")) template = template.replace("{FROM_USER}", subFromUser);
   //if (template.includes("{FROM_RESOURCE}")) template = template.replace("{FROM_RESOURCE}", fromAddr.xmpp_resource);
-  if (template.includes("{FROM_PUBKEY}")) template = template.replace("{FROM_PUBKEY}", fromAddr.pubkey);
+  if (template.includes("{FROM_PUBKEY}")) template = template.replace("{FROM_PUBKEY}", subFromPubkey);
 
   return { address: template, alternativesAvailable, bridge };
 }

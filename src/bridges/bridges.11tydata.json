@@ -29,6 +29,7 @@
       "to": "xmpp",
       "homepage": "https://aria-net.org/SitePages/Portal/Bridges.aspx",
       "template": "{FROM_USER}_{FROM_DOMAIN}@aria-net.org",
+      "transform:from_user": "jid-escaped",
       "matrix:type": "user"
     },
     {
