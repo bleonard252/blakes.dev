@@ -20,13 +20,13 @@ metaDescription: Find and use public bridges and gateways for decentralized/fede
   <noscript>
     <p class="text-red-500 dark:text-red-400"></p>Since JavaScript is disabled, the wizard won't work. You can instead look at the <a href="/bridges/list/">list of all known bridges</a>.</p>
   </noscript>
-  <p>Select the service or app <em>YOU</em> use to get started.</p>
+  <p class="mb-4">Select the service or app <em>YOU</em> use to get started.</p>
   <div class="grid grid-cols-2 gap-4">
-    <h2 class="col-span-full">Social</h2>
+    <h2 class="col-span-full mt-1 mb-1">Social</h2>
     <bridge-wizard-card @platform="activitypub" webc:if="bridges.filter((v) => v.to == 'activitypub').length > 0" href="#to=activitypub"></bridge-wizard-card>
     <bridge-wizard-card @platform="nostr" webc:if="bridges.filter((v) => v.to == 'nostr').length > 0" href="#to=nostr"></bridge-wizard-card>
     <bridge-wizard-card @platform="atproto" webc:if="bridges.filter((v) => v.to == 'atproto').length > 0" href="#to=atproto"></bridge-wizard-card>
-    <h2 class="col-span-full">Messaging</h2>
+    <h2 class="col-span-full mt-0 mb-1">Messaging</h2>
     <bridge-wizard-card @platform="matrix" webc:if="bridges.filter((v) => v.to == 'matrix').length > 0" href="#to=matrix"></bridge-wizard-card>
     <bridge-wizard-card @platform="xmpp" webc:if="bridges.filter((v) => v.to == 'xmpp').length > 0" href="#to=xmpp"></bridge-wizard-card>
     <!-- <h2 class="col-span-full">Other</h2>
