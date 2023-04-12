@@ -2,8 +2,8 @@
   <div class="flex flex-row gap-2">
     <button class="X-MenuBarButton p-2 text-opacity-30 hover:text-opacity-70 text-onscheme-3 hover:bg-scheme-4 inline-block rounded-md transition-colors has-tooltip"
       onClick="document.getElementById('themeSwitcher').showModal()" aria-label="Theme Switcher">
-      <div class="tooltip fixed rounded-md shadow-lg p-1 bg-scheme-3 mt-8 ml-2 -translate-x-[100%] text-onscheme-3" aria-hidden>Theme&nbsp;Switcher</div>
-      <iconify-icon icon="bi:palette" color="currentColor" style="display: block" />
+      <div class="tooltip fixed rounded-md shadow-lg p-1 bg-scheme-3 mt-8 ml-2 -translate-x-[100%] text-onscheme-3" aria-hidden="true">Theme&nbsp;Switcher</div>
+      <iconify-icon aria-hidden="true" icon="bi:palette" color="currentColor" style="display: block" />
     </button>
   </div>
 </div>

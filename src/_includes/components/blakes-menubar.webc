@@ -2,22 +2,22 @@
   <div class="flex flex-row gap-2 justify-center">
     <a class="X-MenuBarButton has-tooltip p-2 text-opacity-30 hover:text-opacity-70 text-onscheme-3 hover:bg-scheme-4 inline-block rounded-md transition-colors"
       href="https://github.com/bleonard252" aria-label="GitHub">
-      <div class="tooltip rounded-md shadow-lg p-1 bg-scheme-3 mt-8 ml-2 -translate-x-[50%] text-onscheme-3" aria-hidden>GitHub</div>
+      <div class="tooltip rounded-md shadow-lg p-1 bg-scheme-3 mt-8 ml-2 -translate-x-[50%] text-onscheme-3" aria-hidden="true">GitHub</div>
       <!--- <InlineIcon icon="simple-icons:github" color="currentColor" />--->
-      <iconify-icon icon="simple-icons:github" color="currentColor"></iconify-icon>
+      <iconify-icon aria-hidden="true" icon="simple-icons:github" color="currentColor"></iconify-icon>
     </a>
     <a class="X-MenuBarButton has-tooltip p-2 text-opacity-30 hover:text-opacity-70 text-onscheme-3 hover:bg-scheme-4 inline-block rounded-md transition-colors"
       href="https://codeberg.org/bleonard252" aria-label="Codeberg">
-      <div class="tooltip rounded-md shadow-lg p-1 bg-scheme-3 mt-8 ml-2 -translate-x-[50%] text-onscheme-3" aria-hidden>Codeberg</div>
+      <div class="tooltip rounded-md shadow-lg p-1 bg-scheme-3 mt-8 ml-2 -translate-x-[50%] text-onscheme-3" aria-hidden="true">Codeberg</div>
       <!--- <InlineIcon icon="simple-icons:codeberg" color="currentColor" /> --->
-      <iconify-icon icon="simple-icons:codeberg" color="currentColor"></iconify-icon>
+      <iconify-icon aria-hidden="true" icon="simple-icons:codeberg" color="currentColor"></iconify-icon>
     </a>
     <a class="X-MenuBarButton has-tooltip p-2 text-opacity-30 hover:text-opacity-70 text-onscheme-3 hover:bg-scheme-4 inline-block rounded-md transition-colors"
       href="/now" aria-label="Now page" :aria-current="(url == '/now' || (url?.startsWith && url.startsWith('/now/'))) ? `page` : undefined"
       :data-current-page="(url == '/now' || (url?.startsWith && url.startsWith('/now/'))) ? `page` : undefined">
-      <div class="tooltip rounded-md shadow-lg p-1 bg-scheme-3 mt-8 ml-2 -translate-x-[50%] text-onscheme-3" aria-hidden>Now Page</div>
+      <div class="tooltip rounded-md shadow-lg p-1 bg-scheme-3 mt-8 ml-2 -translate-x-[50%] text-onscheme-3" aria-hidden="true">Now Page</div>
       <!---<InlineIcon icon="feather:calendar" color="currentColor" /> --->
-      <iconify-icon icon="feather:calendar" color="currentColor"></iconify-icon>
+      <iconify-icon aria-hidden="true" icon="feather:calendar" color="currentColor"></iconify-icon>
     </a>
     <div class="has-tooltip h-6">
       <div class="tooltip rounded-md shadow-lg bg-scheme-4 mt-7 ml-4 -translate-x-[50%] text-onscheme-4 flex flex-col text-center">
@@ -34,26 +34,26 @@
         :aria-current="(url == '/' || url == '/index.html') ? `page` : undefined"
         :data-current-page="(url == '/' || url == '/index.html') ? `page` : undefined">
         <!--- <InlineIcon icon={{ body: theSquares, width: 24, height: 24 }} color="currentColor" /> --->
-        <iconify-icon webc:import="./the_squares_icon.webc" color="currentColor"></iconify-icon>
+        <iconify-icon aria-hidden="true" webc:import="./the_squares_icon.webc" color="currentColor"></iconify-icon>
       </a>
     </div>
     <a class="X-MenuBarButton has-tooltip p-2 text-opacity-30 hover:text-opacity-70 text-onscheme-3 hover:bg-scheme-4 inline-block rounded-md transition-colors"
       href="https://fosstodon.org/@blake" rel="me" aria-label="Mastodon">
-      <div class="tooltip rounded-md shadow-lg p-1 bg-scheme-3 mt-8 ml-2 -translate-x-[50%] text-onscheme-3" aria-hidden>Mastodon</div>
+      <div class="tooltip rounded-md shadow-lg p-1 bg-scheme-3 mt-8 ml-2 -translate-x-[50%] text-onscheme-3" aria-hidden="true">Mastodon</div>
       <!--- <InlineIcon icon="simple-icons:mastodon" color="currentColor" /> --->
-      <iconify-icon icon="simple-icons:mastodon" color="currentColor"></iconify-icon>
+      <iconify-icon aria-hidden="true" icon="simple-icons:mastodon" color="currentColor"></iconify-icon>
     </a>
     <a class="X-MenuBarButton has-tooltip p-2 text-opacity-30 hover:text-opacity-70 text-onscheme-3 hover:bg-scheme-4 inline-block rounded-md transition-colors"
       href="https://misintelligence.xyz" aria-label="Misintelligence">
-      <div class="tooltip rounded-md shadow-lg p-1 bg-scheme-3 mt-8 ml-2 -translate-x-[50%] text-onscheme-3" aria-hidden>Misintelligence</div>
+      <div class="tooltip rounded-md shadow-lg p-1 bg-scheme-3 mt-8 ml-2 -translate-x-[50%] text-onscheme-3" aria-hidden="true">Misintelligence</div>
       <!--- <InlineIcon icon="mdi:triangle-outline" color="currentColor" />--->
-      <iconify-icon icon="mdi:triangle-outline" color="currentColor"></iconify-icon>
+      <iconify-icon aria-hidden="true" icon="mdi:triangle-outline" color="currentColor"></iconify-icon>
     </a>
     <a class="X-MenuBarButton has-tooltip p-2 text-opacity-30 hover:text-opacity-70 text-onscheme-3 hover:bg-scheme-4 inline-block rounded-md transition-colors"
       href="https://dahliaos.io" aria-label="dahliaOS">
-      <div class="tooltip rounded-md shadow-lg p-1 bg-scheme-3 mt-8 ml-2 -translate-x-[50%] text-onscheme-3" aria-hidden>dahliaOS</div>
+      <div class="tooltip rounded-md shadow-lg p-1 bg-scheme-3 mt-8 ml-2 -translate-x-[50%] text-onscheme-3" aria-hidden="true">dahliaOS</div>
       <!--- <InlineIcon icon="mdi:brightness-5" color="currentColor" /> --->
-      <iconify-icon icon="mdi:brightness-5" color="currentColor"></iconify-icon>
+      <iconify-icon aria-hidden="true" icon="mdi:brightness-5" color="currentColor"></iconify-icon>
     </a>
   </div>
   <div webc:ignore webc:if="url.startsWith('/nimbus/')" class="pt-1 flex flex-row gap-4 justify-center flex-nowrap">

@@ -37,11 +37,11 @@ export class convertedPage extends Component<h.JSX.HTMLAttributes & {from: Bridg
       })();
     }
     const toCategory = categorizePlatform(this.props.to);
-    return html`<center><h1>Here's the address to follow:</h1></center>
+    return html`<center><label for="converted-username"><h1 id="converted-header">Here's the address to follow:</h1></label></center>
     <p>Copy and paste this address into your app's search bar or contact adding screen.</p>
     <!-- I need a read-only copyable text input here. -->
     <span class="flex flex-row w-full my-4">
-      <input readonly type="text" class="flex-grow p-4 enabled:focus:outline-2 enabled:focus:outline-offset-2 enabled:focus:outline-primary-3 rounded-md bg-scheme-3 text-center font-bold" value=${this.props.address} />
+      <input readonly type="text" id="converted-username" aria-labelledby="converted-header" class="flex-grow p-4 enabled:focus:outline-2 enabled:focus:outline-offset-2 enabled:focus:outline-primary-3 rounded-md bg-scheme-3 text-center font-bold" value=${this.props.address} />
       <${Button} primary filled flex class="aspect-square p-4 ml-2 my-0 has-tooltip" aria-label="Copy to clipboard" onclick=${() => navigator.clipboard.writeText(this.props.address)}>
         <div class="tooltip rounded-md shadow-lg p-1 bg-scheme-3 mt-12 -translate-x-[80%] text-onscheme-3">Copy to clipboard</div>
         <iconify-icon icon="lucide:clipboard-copy"></iconify-icon>
@@ -57,8 +57,8 @@ export class convertedPage extends Component<h.JSX.HTMLAttributes & {from: Bridg
         <span class="flex flex-row w-full my-2">
           <input readonly type="text" class="flex-grow p-4 enabled:focus:outline-2 enabled:focus:outline-offset-2 enabled:focus:outline-primary-3 rounded-md bg-scheme-3 text-center font-bold" value=${this.props.bridge['nostr:relay']} />
           <${Button} primary filled flex class="aspect-square p-4 ml-2 my-0 has-tooltip" aria-label="Copy to clipboard" onclick=${() => navigator.clipboard.writeText(this.props.bridge['nostr:relay'])}>
-            <div class="tooltip rounded-md shadow-lg p-1 bg-scheme-3 mt-12 -translate-x-[80%] text-onscheme-3">Copy to clipboard</div>
-            <iconify-icon icon="lucide:clipboard-copy"></iconify-icon>
+            <div class="tooltip rounded-md shadow-lg p-1 bg-scheme-3 mt-12 -translate-x-[80%] text-onscheme-3" aria-hidden="true">Copy to clipboard</div>
+            <iconify-icon icon="lucide:clipboard-copy" aria-hidden="true"></iconify-icon>
           <//>
         </span>
       </details>`}
@@ -77,11 +77,11 @@ export class convertedPage extends Component<h.JSX.HTMLAttributes & {from: Bridg
       ${this.props.to == 'xmpp' && html`<p class="text-center italic">You can use this <a href=${`xmpp:${this.props.address}`}>XMPP address link</a> to ${toCategory == 'social' ? "follow" : toCategory == 'chat' ? "chat with" : 'connect with'} this account from any supporting XMPP client.</p>`}
       ${this.props.bridge.description && html`<article class="prose dark:prose-invert mx-auto" dangerouslySetInnerHTML=${({__html: md.render(this.props.bridge.description)})}>${this.props.bridge.description}</article>`}
       ${this.props.bridge.notes && this.props.bridge.notes.map((note) => html`<span class="block p-2 max-w-none prose dark:prose-invert bg-blue-500 bg-opacity-10">
-        <p class="-mb-4"><iconify-icon icon="lucide:info" class="inline-block text-blue-500"></iconify-icon> <span class="text-blue-500 font-bold">Note:</span></p>
+        <p class="-mb-4"><iconify-icon icon="lucide:info" aria-hidden class="inline-block text-blue-700 dark:text-blue-400"></iconify-icon> <span class="text-blue-700 dark:text-blue-400 font-bold">Note:</span></p>
         ${dangerouslyWriteHTML(md.render(note))}
       </span>`)}
       ${this.props.bridge.warnings && this.props.bridge.warnings.map((warning) => html`<span class="block p-2 max-w-none prose dark:prose-invert bg-yellow-500 bg-opacity-10">
-        <p class="-mb-4"><iconify-icon icon="lucide:alert-triangle" class="inline-block text-yellow-500"></iconify-icon> <span class="text-yellow-500 font-bold">Warning:</span></p>
+        <p class="-mb-4"><iconify-icon icon="lucide:alert-triangle" aria-hidden class="inline-block text-yellow-700 dark:text-yellow-400"></iconify-icon> <span class="text-yellow-700 dark:text-yellow-400 font-bold">Warning:</span></p>
         ${dangerouslyWriteHTML(md.render(warning))}
       </span>`)}
     </div>`;

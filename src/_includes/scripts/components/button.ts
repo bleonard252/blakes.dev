@@ -31,6 +31,7 @@ export class Button extends Component<h.JSX.HTMLAttributes & {
 
   render() {
     return h(this.props.href ? 'a' : 'button', {
+      role: "button",
       ...this.props,
       class: baseClasses + (this.props.flex ? flexClasses : "") + (this.props.primary ? this.props.filled ? this.primaryFilledClasses : this.primaryUnfilledClasses : this.secondaryUnfilledClasses)+" "+(this.props.class??""),
     }, this.props.children);

@@ -29,8 +29,9 @@ export class askIdPage extends Component<h.JSX.HTMLAttributes & {from: BridgeSup
       ${to == 'matrix' && html`<p class="mb-0"><iconify-icon icon="lucide:help-circle" class="-align-[.2em] inline-block text-blue-500"></iconify-icon> Since you're using Matrix, we need a little more information.</p>
       <label for="matrix-user" class="block"><input type="radio" required id="matrix-user" name="matrix-type" value="user" /> <strong>User</strong>: ${toCategory == "social" ? `DM this user.` : `Chat with this user.`}</label>
       <label for="matrix-room" class="block"><input type="radio" required id="matrix-room" name="matrix-type" value="room" /> <strong>Room</strong>: ${toCategory == "social" ? `Follow this account, room, group, or user.` : `Join this chatroom.`}</label>`}
-      <input disabled=${isLoading} type="text" class="w-full p-4 enabled:focus:outline-2 enabled:focus:outline-offset-2 enabled:focus:outline-primary-3 rounded-md bg-scheme-3 enabled:focus:bg-scheme-2 enabled:hover:bg-scheme-2 mt-4 invalid:border-red-500 invalid:border disabled:bg-scheme-1 disabled:text-onscheme-1/50" placeholder="Full handle, ID, or URL" id="remote-username" required />
-      <${Button} disabled=${isLoading} type="submit" accesskey="enter" primary filled class="w-full mt-4" onclick=${async () => {
+      <label for="remote-username" class="block text-sm mb-0">Full ID, handle, key, or username</label>
+      <input disabled=${isLoading} type="text" class="w-full p-4 enabled:focus:outline-2 enabled:focus:outline-offset-2 enabled:focus:outline-primary-3 rounded-md bg-scheme-3 enabled:focus:bg-scheme-2 enabled:hover:bg-scheme-2 mt-2 invalid:border-red-500 invalid:border disabled:bg-scheme-1 disabled:text-onscheme-1/50" placeholder="Full handle, ID, or URL" id="remote-username" required />
+      <${Button} disabled=${isLoading} type="submit" accesskey="enter" aria-label="Convert" primary filled class="w-full mt-4" onclick=${async () => {
         const username = document.getElementById('remote-username') as HTMLInputElement;
         const matrix_type_user = document.getElementById('matrix-user') as HTMLInputElement;
         const matrix_type_room = document.getElementById('matrix-room') as HTMLInputElement;
