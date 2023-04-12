@@ -5,7 +5,6 @@ title: Bridge Finder @ blakes.dev
 metaTitle: Bridge Finder
 metaDescription: Find and use public bridges and gateways for decentralized/federated web protocols, like ActivityPub, Matrix, and more.
 ---
-<link rel="preload" href="/bridges/list/" as="document">
 <div class="group bg-scheme-2 text-onscheme-2 absolute z-100 w-0 h-0 top-0 left-0 print:hidden flex flex-col focus-within:w-auto focus-within:h-auto overflow-hidden">
   <a class="focus:bg-primary-3 focus:text-onprimary-3 p-2" href="#contents">Skip to content</a>
 </div>
