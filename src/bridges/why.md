@@ -8,3 +8,6 @@ Bridges are important to a growing ecosystem, and to the Fediverse's very design
 
 ## Why are centralized platforms not included?
 These bridges don't work well and don't have the easy, automatic setup this service relies on. <!-- You can find these bridges listed here. -->
+
+## Why are blockchain-based platforms not included?
+Blockchains are nothing short of scam technology. [Read the Dogecoin creator's thread about it here](https://archive.ph/d1jOO) and [watch scams unfold here](https://web3isgoinggreat.com/).
