@@ -145,3 +145,16 @@ dialog::backdrop {
 .flex.flex-row iconify-icon {
   @apply block;
 }
+
+.X-BridgeWizardCard {
+  @apply rounded-md p-4 flex flex-col align-bottom no-underline;
+  &>*:first-child {
+    @apply mt-auto;
+  }
+  &>h3 {
+    @apply underline;
+    &:last-child {
+      @apply mb-0;
+    }
+  }
+}

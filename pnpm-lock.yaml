@@ -12,6 +12,7 @@ specifiers:
   '@private/theme-generator': link:./tools/generate-themes
   '@tailwindcss/typography': ^0.5.9
   '@types/dompurify': ^3.0.1
+  '@types/markdown-it': ^12.2.3
   '@types/node': ^18.14.1
   autoprefixer: ^10.4.13
   cssnano: ^5.1.15
@@ -21,6 +22,7 @@ specifiers:
   iconify-icon: ^1.0.7
   isomorphic-dompurify: ^1.2.0
   javascript-time-ago: ^2.5.9
+  markdown-it: ^13.0.1
   megalodon: ^5.4.2
   npm-run-all: ^4.1.5
   postcss: ^8.4.21
@@ -41,6 +43,7 @@ dependencies:
   iconify-icon: 1.0.7
   isomorphic-dompurify: 1.2.0
   javascript-time-ago: 2.5.9
+  markdown-it: 13.0.1
   preact: 10.13.0
   react: /@preact/compat/17.1.2_preact@10.13.0
   react-dom: /@preact/compat/17.1.2_preact@10.13.0
@@ -56,6 +59,7 @@ devDependencies:
   '@jamshop/eleventy-plugin-mdx': 0.0.17_ive3jjn476xyi3ikfsqwmh5x74
   '@private/theme-generator': link:tools/generate-themes
   '@tailwindcss/typography': 0.5.9_tailwindcss@3.2.7
+  '@types/markdown-it': 12.2.3
   '@types/node': 18.14.1
   autoprefixer: 10.4.13_postcss@8.4.21
   cssnano: 5.1.15_postcss@8.4.21
@@ -1815,10 +1819,25 @@ packages:
       parse5: 7.1.2
     dev: false
 
+  /@types/linkify-it/3.0.2:
+    resolution: {integrity: sha512-HZQYqbiFVWufzCwexrvh694SOim8z2d+xJl5UNamcvQFejLY/2YUtzXHYi3cHdI7PMlS8ejH2slRAOJQ32aNbA==}
+    dev: true
+
+  /@types/markdown-it/12.2.3:
+    resolution: {integrity: sha512-GKMHFfv3458yYy+v/N8gjufHO6MSZKCOXpZc5GXIWWy8uldwfmPn98vp81gZ5f9SVw8YYBctgfJ22a2d7AOMeQ==}
+    dependencies:
+      '@types/linkify-it': 3.0.2
+      '@types/mdurl': 1.0.2
+    dev: true
+
   /@types/mdast/3.0.10:
     resolution: {integrity: sha512-W864tg/Osz1+9f4lrGTZpCSO5/z4608eUp19tbozkq2HJK6i3z1kT0H9tlADXuYIb1YYOBByU4Jsqkk75q48qA==}
     dependencies:
       '@types/unist': 2.0.6
+    dev: true
+
+  /@types/mdurl/1.0.2:
+    resolution: {integrity: sha512-eC4U9MlIcu2q0KQmXszyn5Akca/0jrQmwDRgpAMJai7qBWq4amIQhZyNau4VYGtCeALvW1/NtjzJJ567aZxfKA==}
     dev: true
 
   /@types/mdx/2.0.3:
@@ -2016,7 +2035,6 @@ packages:
 
   /argparse/2.0.1:
     resolution: {integrity: sha512-8+9WqebbFzpX9OR+Wa6O29asIogeRMzcGtAINdpMHHyAg10f05aSFVBbcEqGf/PXw1EjAZ+q2/bEBg3DvurK3Q==}
-    dev: true
 
   /arr-diff/4.0.0:
     resolution: {integrity: sha512-YVIQ82gZPGBebQV/a8dar4AitzCQs0jjXwMPZllpXMaGjXPYVUawSxQrRsjhjupyVxEvbHgUmIhKVlND+j02kA==}
@@ -3154,7 +3172,6 @@ packages:
   /entities/3.0.1:
     resolution: {integrity: sha512-WiyBqoomrwMdFG1e0kqvASYfnlb0lp8M5o5Fw2OFq1hNZxxcNk8Ik0Xm7LxzBhuidnZB/UtBqVCgUz3kBOP51Q==}
     engines: {node: '>=0.12'}
-    dev: true
 
   /entities/4.4.0:
     resolution: {integrity: sha512-oYp7156SP8LkeGD0GF85ad1X9Ai79WtRsZ2gxJqtBuzH+98YUV6jkHEKlZkMbcrjJjIVJNIDP/3WL9wQkoPbWA==}
@@ -4993,7 +5010,6 @@ packages:
     resolution: {integrity: sha512-C7bfi1UZmoj8+PQx22XyeXCuBlokoyWQL5pWSP+EI6nzRylyThouddufc2c1NDIcP9k5agmN9fLpA7VNJfIiqw==}
     dependencies:
       uc.micro: 1.0.6
-    dev: true
 
   /liquidjs/10.6.0:
     resolution: {integrity: sha512-FyC0mJdS5B/tOd27LjGm+qX5TLQmXsnL2VnD5mnEZfTmNoAKx85YM+odke2lU/vME5R6r5Ef4Sig36Fb+umUhQ==}
@@ -5147,7 +5163,6 @@ packages:
       linkify-it: 4.0.1
       mdurl: 1.0.1
       uc.micro: 1.0.6
-    dev: true
 
   /matchdep/2.0.0:
     resolution: {integrity: sha512-LFgVbaHIHMqCRuCZyfCtUOq9/Lnzhi7Z0KFUE2fhD54+JN2jLh3hC02RLkqauJ3U4soU6H1J3tfj/Byk7GoEjA==}
@@ -5302,7 +5317,6 @@ packages:
 
   /mdurl/1.0.1:
     resolution: {integrity: sha512-/sKlQJCBYVY9Ers9hqzKou4H6V5UWc/M59TH2dvkt+84itfnq7uFOMLpOiOS4ujvHP4etln18fmIxA5R5fll0g==}
-    dev: true
 
   /megalodon/5.4.2:
     resolution: {integrity: sha512-jj8w38xtEwKXxxixb+i4x/VRiBuFNP0O6sKoJtgCXUJHWpixq2PRAwA7iOlprmxEq8GKAi+Lq8qEL0889klITg==}
@@ -7856,7 +7870,6 @@ packages:
 
   /uc.micro/1.0.6:
     resolution: {integrity: sha512-8Y75pvTYkLJW2hWQHXxoqRgV7qb9B+9vFEtidML+7koHUFapnVJAZ6cKs+Qjz5Aw3aZWHMC6u0wJE3At+nSGwA==}
-    dev: true
 
   /uglify-js/3.17.4:
     resolution: {integrity: sha512-T9q82TJI9e/C1TAxYvfb16xO120tMVFZrGA3f9/P4424DNu6ypK103y0GPFVa17yotwSyZW5iYXgjYHkGrJW/g==}

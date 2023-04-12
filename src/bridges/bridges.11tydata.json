@@ -1,0 +1,116 @@
+{
+  "__bridges_license": "This file may be useful to other people. It's hereby licensed under GNU AGPL v3.0 or Later.",
+  "__contribution_guidelines": "Add new entries to the end of the list, UNLESS completing a pair/set of directions for the same bridge. Please match the patterns found throughout the file already, and ONLY add bridges that are public, working, permanent, and useful. Feel free to add notes asking for donations to the bridge's maintainer.",
+  "bridges": [
+    {
+      "from": "activitypub",
+      "to": "nostr",
+      "homepage": "https://mostr.pub",
+      "template": "{FROM_USER}_at_{FROM_DOMAIN}@mostr.pub",
+      "nostr:uses_pubkey": false,
+      "nostr:relay": "wss://relay.mostr.pub",
+      "warnings": [
+        "Some Fediverse servers may have this bridge blocked."
+      ]
+    },
+    {
+      "from": "nostr",
+      "to": "activitypub",
+      "homepage": "https://mostr.pub",
+      "template": "https://mostr.pub/users/{FROM_PUBKEY}",
+      "nostr:relay": "wss://relay.mostr.pub",
+      "nostr:uses_pubkey": true,
+      "warnings": [
+        "Some Fediverse servers may have this bridge blocked."
+      ]
+    },
+    {
+      "from": "matrix",
+      "to": "xmpp",
+      "homepage": "https://aria-net.org/SitePages/Portal/Bridges.aspx",
+      "template": "{FROM_USER}_{FROM_DOMAIN}@aria-net.org",
+      "transform:from_user": "jid-escaped",
+      "matrix:type": "user"
+    },
+    {
+      "from": "matrix",
+      "to": "xmpp",
+      "homepage": "https://aria-net.org/SitePages/Portal/Bridges.aspx",
+      "template": "#{FROM_USER}#{FROM_DOMAIN}@aria-net.org",
+      "matrix:type": "room",
+      "notes": [
+        "Some rooms might not support this, or it may need to be enabled manually."
+      ]
+    },
+    {
+      "from": "xmpp",
+      "to": "matrix",
+      "homepage": "https://aria-net.org/SitePages/Portal/Bridges.aspx",
+      "template": "@_bifrost_{FROM_USER}=40{FROM_DOMAIN}:aria-net.org",
+      "matrix:type": "user"
+    },
+    {
+      "from": "xmpp",
+      "to": "matrix",
+      "homepage": "https://aria-net.org/SitePages/Portal/Bridges.aspx",
+      "template": "#_bifrost_{FROM_USER}=40{FROM_DOMAIN}:aria-net.org",
+      "matrix:type": "room",
+      "notes": [
+        "Some rooms might not support this, or it may need to be enabled manually."
+      ],
+      "warnings": [
+        "Some rooms have been disabled due to spam and overload. These rooms will not be bridged."
+      ]
+    },
+    {
+      "from": "xmpp",
+      "to": "matrix",
+      "homepage": "https://github.com/matrix-org/matrix-bifrost/wiki/Address-syntax",
+      "template": "@_xmpp_{FROM_USER}=40{FROM_DOMAIN}:matrix.org",
+      "matrix:type": "user",
+      "warnings": [
+        "This bridge is not maintained anymore, and may be unreliable."
+      ]
+    },
+    {
+      "from": "matrix",
+      "to": "xmpp",
+      "homepage": "https://github.com/matrix-org/matrix-bifrost/wiki/Address-syntax",
+      "template": "{FROM_USER}_{FROM_DOMAIN}@matrix.org",
+      "matrix:type": "user",
+      "warnings": [
+        "This bridge is not maintained anymore, and may be unreliable."
+      ]
+    },
+    {
+      "from": "xmpp",
+      "to": "activitypub",
+      "template": "https://linkmauve.fr/_ap/actor/{FROM}",
+      "homepage": "https://libervia.pub",
+      "disabled": true,
+      "xmpp:social": true,
+      "notes": [
+        "For list maintainers: This isn't a public gateway yet, but this is what the Libervia bridge probably will look like."
+      ],
+      "warnings": [
+        "If the address you're converting doesn't belong to a Libervia or Movim user, you may not see posts from that account."
+      ]
+    },
+    {
+      "from": "activitypub",
+      "to": "xmpp",
+      "template": "{FROM}@linkmauve.fr",
+      "homepage": "https://libervia.pub",
+      "disabled": true,
+      "xmpp:social": true,
+      "transform:from": "jid-escaped",
+      "notes": [
+        "The {FROM} field should be JID escaped (i.e. @ becomes \\40). See [XEP-0106](https://xmpp.org/extensions/xep-0106.html#escaping) for more details.",
+        "For list maintainers: This isn't a public gateway yet, but this is an example/placeholder for what it might look like when it's public."
+      ],
+      "warnings": [
+        "If you don't use Libervia or Movim, you may not be able to see any social posts."
+      ]
+    }
+  ]
+}

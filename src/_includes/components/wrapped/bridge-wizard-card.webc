@@ -1,0 +1,9 @@
+<script webc:type="js">
+  const { WizardCard } = require('./src/_includes/scripts/components/bridges/wizard-card.ts');
+  const { html } = require('htm/preact');
+  const { render } = require('preact-render-to-string');
+  render(html`<${WizardCard}
+  ...${webc.filterPublicAttributes(webc.attributes)}
+  platform=${webc.attributes.platform}
+  ><slot></slot><//>`);
+</script>

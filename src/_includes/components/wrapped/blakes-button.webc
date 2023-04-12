@@ -8,5 +8,6 @@
   filled=${webc.attributes.filled !== undefined}
   static=${webc.attributes.static !== undefined}
   flex=${webc.attributes.flex !== undefined}
+  disabled=${webc.attributes.disabled !== undefined}
   ><slot></slot><//>`);
 </script>
