@@ -57,6 +57,12 @@
       @name="Chaos"
     ></lda-theme-tile>
     <lda-theme-tile webc:import="theme-switcher/lda-theme-tile.webc"
+      theme-basename="vulcan"
+      :@active='localStorage?.getItem("theme").split("-")[0] == "vulcan"'
+      onClick="updateThemeValue"
+      @name="Vulcan"
+    ></lda-theme-tile>
+    <lda-theme-tile webc:import="theme-switcher/lda-theme-tile.webc"
       theme-basename="nimbus"
       :@active='localStorage?.getItem("theme").split("-")[0] == "nimbus"'
       onClick="updateThemeValue"

@@ -1,0 +1,61 @@
+$schema: https://blakes.dev/theme-schema.json
+name: Vulcan
+scheme_light:
+  1: 0xfaeaec
+  2: 0xe0c7ca
+  3: 0xc6a4a8
+  4: 0xac8186
+  5: 0x915e64
+onscheme_light:
+  1: 0x000000
+  2: 0x000000
+  3: 0x000000
+  4: 0x000000
+  5: 0x000000
+scheme_dark:
+  1: 0x120a0a
+  2: 0x261012
+  3: 0x3a1519
+  4: 0x612128
+  5: 0x892d38
+onscheme_dark:
+  1: 0xFFFFFF
+  2: 0xFFFFFF
+  3: 0xFFFFFF
+  4: 0xFFFFFF
+  5: 0xFFFFFF
+primary:
+  1: 0x991B1B
+  2: 0xB91C1C
+  3: 0xDC2626
+  4: 0xEF4444
+  5: 0xF87171
+onprimary:
+  1: 0xFFFFFF
+  2: 0xFFFFFF
+  3: 0xFFFFFF
+  4: 0x000000
+  5: 0x000000
+extra_postcss: | # This relies on PostCSS and Tailwind
+  .X-Arb a {
+    @apply text-red-700;
+  }
+  #homeButton {
+    @apply hover:text-red-500 hover:outline-red-500;
+  }
+  #homeButton[data-current-page] {
+    @apply text-red-700 outline-red-700 hover:text-red-500 hover:outline-red-500;
+  }
+  .X-MenuBarButton {
+    @apply text-opacity-100 text-[#8D6363] hover:text-[#8a4547];
+  }
+extra_postcss_dark: |
+  #menubar.nimbus--header-bar {
+    @apply !text-white !bg-[#FFDCDC];
+  }
+  .X-MenuBarButton {
+    @apply hover:text-[#d8adae];
+  }
+  #homeButton {
+    @apply hover:text-red-500 hover:outline-red-500;
+  }

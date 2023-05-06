@@ -3,7 +3,8 @@
   "yaml.schemas": {
     "https://blakes.dev/theme-schema.json": [
       "src/styles/theme/*.yaml",
-      "file:///src/bleonard252/blakes.dev.2/src/_includes/styles/theme/arc.yaml"
+      "file:///src/bleonard252/blakes.dev.2/src/_includes/styles/theme/arc.yaml",
+      "file:///src/bleonard252/blakes.dev.2/src/_includes/styles/theme/vulcan.yaml"
     ]
   }
 }
