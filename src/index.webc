@@ -87,7 +87,7 @@ permalink: /
       import fediStatus from '/scripts/components/fedi-status.js';
       import dangerouslyWriteHTML from '/scripts/dangerously_set_html.js';
       const targetElement = document.getElementById("update-container");
-      fetch("https://fosstodon.org/api/v1/accounts/108341459214885420/statuses?").then((primaryStatusListResponse) => {
+      fetch("https://fosstodon.org/api/v1/accounts/108341459214885420/statuses?exclude_replies=true&exclude_reblogs=true&limit=30").then((primaryStatusListResponse) => {
         if (primaryStatusListResponse.status != 200) {
           console.error(primaryStatusListResponse);
           render(html`<div class="X-Card bg-scheme-2 rounded-md flex flex-col mb-2 prose dark:prose-invert m-auto mt-8">
@@ -97,7 +97,22 @@ permalink: /
         } else {
           primaryStatusListResponse.json().then((primaryStatusList) => {
             //render(html`${primaryStatusList.map((v,i,a) => html`${fediStatus(v)}`)}`, targetElement);
-            targetElement.innerHTML = render(primaryStatusList.map((v,i,a) => fediStatus(v)))
+            const filteredPrimaryStatusList = primaryStatusList.filter((v) => v['visibility'] == "public");
+            targetElement.innerHTML = render(filteredPrimaryStatusList.map((v,i,a) => fediStatus(v)));
+            fetch(`https://fosstodon.org/api/v1/accounts/108341459214885420/statuses?exclude_replies=true&exclude_reblogs=true&limit=${Math.min(20,Math.max(0,30-filteredPrimaryStatusList.length))}&max_id=${filteredPrimaryStatusList[filteredPrimaryStatusList.length-1]['id']}`).then((primaryStatusListResponse) => {
+              if (primaryStatusListResponse.status != 200) {
+                console.error(primaryStatusListResponse);
+                render(html`<div class="X-Card bg-scheme-2 rounded-md flex flex-col mb-2 prose dark:prose-invert m-auto mt-8">
+                  <h3>Error loading posts.</h3>
+                  <p>${primaryStatusListResponse.status} ${primaryStatusListResponse.statusText}</p>
+                  <p>You can try to view them on <a href="https://fosstodon.org/@blake">my Mastodon profile</a>.</p>`, targetElement);
+              } else {
+                primaryStatusListResponse.json().then((primaryStatusList) => {
+                  //render(html`${primaryStatusList.map((v,i,a) => html`${fediStatus(v)}`)}`, targetElement);
+                  targetElement.innerHTML = targetElement.innerHTML + render(primaryStatusList.filter((v) => v['visibility'] == "public").map((v,i,a) => fediStatus(v)))
+                });
+              }
+            });
           });
         }
       });
