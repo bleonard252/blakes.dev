@@ -7,49 +7,15 @@ metaDescription: The Now page shows you what I'm doing right now, in a bigger-pi
 # "Now" Page
 The Now page was [invented by Derek Sivers](https://sive.rs/nowff) and shows you [what I'm doing right now](https://nownownow.com/about), in a bigger-picture sort of way.
 
-## 👨🏻‍💻 Working on
-
-**Bodacious** &dash; [GitHub][gh/bo], [Google Play Store][play/bo], [F-Droid][fd/bo]
-
-[gh/bo]: https://github.com/bleonard252/bodacious
-[play/bo]: https://play.google.com/store/apps/details?id=xyz.u1024256.bodacious
-[fd/bo]: https://f-droid.org/en/packages/xyz.u1024256.bodacious/
-
-The tasks I'm most focused on for Bodacious are, in rough order of priority:
-* Bug-hunting. This app is littered with bugs and I've GOT to hunt them down.
-* The F-Droid release. (On hold, for now.)
-* Finishing Search. It's been a few months since I touched this so I don't know why it hasn't been merged yet.
-* Playlists. I'm thinking of going the standards-compliant route for this, but maybe the way to go is to store the playlist data in the database then later offer to export them into XML playlists.
-* ~~Migrate id3 package to another one, which should make it faster~~ Done
-* Put something on the home screen.
-
-Later, larger priorities, which may come after some kind of break:
-* Lyrics (.lrc) support.
-* Dismissible queue items (swiping left or right).
-* Reorderable queue items (drag and drop).
-* Bodacious 1.0.
-
-**Zenit UI for the Web** &dash; [GitHub][gh/z]
-
-[gh/z]: https://github.com/dahliaOS/zenit_ui/tree/storybook
-
-**Project Fuchsiafication** &dash; [Website][web/d]
-
-[web/d]: https://dahliaos.io/#fuchsia
+<!-- I'm not working on anything at the moment. -->
 
 ## 💿 Listening to
 
-* Project Vela
-  * September: released a new EP, Elsewhere
-  * Finally got to listen to it in late October or early November (do not remember exactly when), and you can [read my thoughts here](https://misintelligence.xyz/album-review-elsewhere/).
-* Trans-Siberian Orchestra &dash; as of late November, for 'tis the season
-* STARSET
-  * Recently (October?) released Waiting on the Sky to Change featuring Breaking Benjamin, which has got to be the best, most powerful crossover of all time.
-* Shinedown
-  * Planet Zero. 'Nuff said.
-* Breaking Benjamin
+* Metallica
+  * I got some CDs for Christmas that I finally got around to ripping: Death Magnetic, Master of Puppets, and Hardwired...to Self Destruct (in addition to the Black Album, which I've had for a while).
+* Project Vela, STARSET, Shinedown, and Breaking Benjamin, as usual
 
-... wanna introduce me to some more indie rock bands? The good ones. I've found some pretty bad indie acts.
+... wanna introduce me to some more indie rock bands? Good ones, like Project Vela.
 
 ## 📚 Learning
 
@@ -62,8 +28,11 @@ Why am I learning German, you ask? Several reasons.
 
 ## 🎮 Playing
 
-* Team Fortress 2.
-* Halo campaigns, thanks to the Master Chief Collection.
-* Halo Infinite (a little less recently).
-* Stardew Valley, the only way I'll ever get anything remotely similar to a date.
-* Terraria. I'm preparing to fight the Wall of Flesh. It's probably going to take a couple attempts.
+* Dead Cells. It's easy to pick up and put down which is great because I have a short attention span.
+* Fortnite, for the same reason.
+* Halo Infinite multiplayer, also for that reason (I don't have Xbox Live Gold so I can't play the other ones multiplayer).
+* Minecraft, in theory...
+
+## 💵 Supporting
+
+* Fosstodon.org - €2 a month.
