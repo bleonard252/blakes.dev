@@ -2,6 +2,7 @@ lockfileVersion: 5.4
 
 specifiers:
   '@11ty/eleventy': ^2.0.0
+  '@11ty/eleventy-plugin-rss': ^1.2.0
   '@11ty/eleventy-plugin-vite': ^4.0.0
   '@11ty/eleventy-plugin-webc': ^0.11.0
   '@11ty/is-land': ^3.0.2
@@ -25,6 +26,7 @@ specifiers:
   markdown-it: ^13.0.1
   megalodon: ^5.4.2
   npm-run-all: ^4.1.5
+  nunjucks: ^3.2.4
   postcss: ^8.4.21
   postcss-cli: ^10.1.0
   postcss-import: ^15.1.0
@@ -51,6 +53,7 @@ dependencies:
 
 devDependencies:
   '@11ty/eleventy': 2.0.0
+  '@11ty/eleventy-plugin-rss': 1.2.0
   '@11ty/eleventy-plugin-vite': 4.0.0_@types+node@18.14.1
   '@11ty/eleventy-plugin-webc': 0.11.0
   '@babel/cli': 7.21.0_@babel+core@7.21.0
@@ -67,6 +70,7 @@ devDependencies:
   esbuild-register: 3.4.2
   megalodon: 5.4.2
   npm-run-all: 4.1.5
+  nunjucks: 3.2.4
   postcss: 8.4.21
   postcss-cli: 10.1.0_postcss@8.4.21
   postcss-import: 15.1.0_postcss@8.4.21
@@ -107,6 +111,16 @@ packages:
     engines: {node: '>=14'}
     dependencies:
       debug: 4.3.4
+    transitivePeerDependencies:
+      - supports-color
+    dev: true
+
+  /@11ty/eleventy-plugin-rss/1.2.0:
+    resolution: {integrity: sha512-YzFnSH/5pObcFnqZ2sAQ782WmpOZHj1+xB9ydY/0j7BZ2jUNahn53VmwCB/sBRwXA/Fbwwj90q1MLo01Ru0UaQ==}
+    dependencies:
+      debug: 4.3.4
+      posthtml: 0.16.6
+      posthtml-urls: 1.0.0
     transitivePeerDependencies:
       - supports-color
     dev: true
@@ -182,7 +196,7 @@ packages:
       multimatch: 5.0.0
       mustache: 4.2.0
       normalize-path: 3.0.0
-      nunjucks: 3.2.3_chokidar@3.5.3
+      nunjucks: 3.2.4_chokidar@3.5.3
       path-to-regexp: 6.2.1
       please-upgrade-node: 3.2.0
       posthtml: 0.16.6
@@ -3855,7 +3869,7 @@ packages:
     resolution: {integrity: sha512-oWb1Z6mkHIskLzEJ/XWX0srkpkTQ7vaopMQkyaEIoq0fmtFVxOthb8cCxeT+p3ynTdkk/RZwbgG4brR5BeWECw==}
     engines: {node: '>= 4.0'}
     os: [darwin]
-    deprecated: fsevents 1 will break on node v14+ and could be using insecure binaries. Upgrade to fsevents 2.
+    deprecated: The v1 package contains DANGEROUS / INSECURE binaries. Upgrade to safe fsevents v2
     requiresBuild: true
     dependencies:
       bindings: 1.5.0
@@ -5878,8 +5892,23 @@ packages:
     engines: {node: '>=0.10.0'}
     dev: true
 
-  /nunjucks/3.2.3_chokidar@3.5.3:
-    resolution: {integrity: sha512-psb6xjLj47+fE76JdZwskvwG4MYsQKXUtMsPh6U0YMvmyjRtKRFcxnlXGWglNybtNTNVmGdp94K62/+NjF5FDQ==}
+  /nunjucks/3.2.4:
+    resolution: {integrity: sha512-26XRV6BhkgK0VOxfbU5cQI+ICFUtMLixv1noZn1tGU38kQH5A5nmmbk/O45xdyBhD1esk47nKrY0mvQpZIhRjQ==}
+    engines: {node: '>= 6.9.0'}
+    hasBin: true
+    peerDependencies:
+      chokidar: ^3.3.0
+    peerDependenciesMeta:
+      chokidar:
+        optional: true
+    dependencies:
+      a-sync-waterfall: 1.0.1
+      asap: 2.0.6
+      commander: 5.1.0
+    dev: true
+
+  /nunjucks/3.2.4_chokidar@3.5.3:
+    resolution: {integrity: sha512-26XRV6BhkgK0VOxfbU5cQI+ICFUtMLixv1noZn1tGU38kQH5A5nmmbk/O45xdyBhD1esk47nKrY0mvQpZIhRjQ==}
     engines: {node: '>= 6.9.0'}
     hasBin: true
     peerDependencies:

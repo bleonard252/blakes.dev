@@ -1,6 +1,7 @@
 const webcPlugin = require("@11ty/eleventy-plugin-webc");
 const { EleventyRenderPlugin } = require("@11ty/eleventy");
 const EleventyVitePlugin = require("@11ty/eleventy-plugin-vite");
+const pluginRSS = require("@11ty/eleventy-plugin-rss");
 
 module.exports = function eleventy(config) {
   config.addPassthroughCopy({'static': '/'});
@@ -34,8 +35,7 @@ module.exports = function eleventy(config) {
       }
     }
   });
-
-
+  config.addPlugin(pluginRSS);
 
   config.addExtension([ "11ty.jsx", "11ty.ts", "11ty.tsx" ], {
     key: "11ty.js",
