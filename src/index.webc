@@ -6,6 +6,7 @@ metaDescription: A software developer with a passion for the powers, rights, and
 metaImage: https://cdn.fosstodon.org/accounts/avatars/108/341/459/214/885/420/original/228a02f2de7c6b84.jpg
 permalink: /
 ---
+<link rel="me" href="https://keyoxide.org/B2B909B0C0B439683A1125813B1965C22D07D9F6" />
 <div class="group bg-scheme-2 text-onscheme-2 absolute z-100 w-0 h-0 top-0 left-0 print:hidden flex flex-col focus-within:w-auto focus-within:h-auto overflow-hidden">
   <span class="p-2">Skip to:</span>
   <a class="focus:bg-primary-3 focus:text-onprimary-3 p-2" href="#profile">Profile</a>
