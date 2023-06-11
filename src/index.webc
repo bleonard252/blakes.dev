@@ -19,7 +19,7 @@ permalink: /
   <blakes-theme-switcher></blakes-theme-switcher>
 </template></is-land>
 <div class="grid m-auto grid-cols-1 lg:grid-cols-3 xl:grid-cols-4 p-6 gap-4">
-  <div class="X-Column col-span-1" id="column-about">
+  <div class="X-Column col-span-1 gap-4" id="column-about">
     <a name="profile" id="profile" aria-hidden></a>
     <script webc:type="js">
       const profile = require('./src/_includes/scripts/components/home-profile.ts').default;
@@ -34,6 +34,13 @@ permalink: /
   <div class="X-Column col-span-1 lg:col-span-2 xl:col-span-3" id="column-posts">
     <h1 class="text-2xl text-onscheme-2 p-6 pb-0">Projects</h1>
     <div class="grid m-auto grid-cols-1 md:grid-cols-2 lg:grid-cols-3 2xl:grid-cols-4 md:px-6 py-6 gap-4" id="projects">
+      <div class="X-Card bg-scheme-2 rounded-md flex flex-wrap items-center mb-2 col-span-full">
+        <h1 class="inline">Nimbus</h1>
+        <p>An experimental Matrix web app for forums.</p>
+        <span class="flex-grow"></span>
+        <blakes-button primary class="m-2" href="https://nimbus.blakes.dev">Try</blakes-button>
+        <blakes-button primary class="m-2" href="https://codeberg.org/bleonard252/nimbus">Codeberg</blakes-button>
+      </div>
       <div class="X-Card bg-scheme-2 rounded-md flex flex-col mb-2 col-span-1">
         <img src="/images/lucidlog.png" class=" rounded-t-md" alt="Purple cloud with an inverted pattern on a purple background with a non-inverted pattern"/>
         <h1>LucidLog Dream Journal</h1>
