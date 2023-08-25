@@ -3,7 +3,7 @@ layout: layout.webc
 title: Blake Leonard @ blakes.dev
 metaTitle: Blake Leonard
 metaDescription: A software developer with a passion for the powers, rights, and freedoms of users. Developer of dahliaOS, LucidLog, Bodacious, and more. Sometimes tries to design and write. 19 M (he/him) from Raleigh, NC. Cool tech enthusiast.
-metaImage: https://cdn.fosstodon.org/accounts/avatars/108/341/459/214/885/420/original/228a02f2de7c6b84.jpg
+metaImage: https://media.infosec.town/media/03d5d60f-a5c7-4e52-b07b-d7de9a0c71bc.png
 permalink: /
 ---
 <link rel="me" href="https://keyoxide.org/B2B909B0C0B439683A1125813B1965C22D07D9F6" />
@@ -25,11 +25,40 @@ permalink: /
       const profile = require('./src/_includes/scripts/components/home-profile.ts').default;
       const { html } = require('htm/preact');
       const { render } = require('preact-render-to-string');
-      fetch("https://fosstodon.org/api/v1/accounts/108341459214885420").then(async (accountResult) => {
+      fetch("https://infosec.town/api/v1/accounts/2105159833029454782469994").then(async (accountResult) => {
         const data = await accountResult.json();
         return render(html`<${profile} accountResult=${({avatar_static, header_static, display_name, note, fields, ...data})}><//>`);
       });
     </script>
+    <div class="X-Card mt-4 bg-scheme-2 rounded-md flex flex-col text-onscheme-2">
+      <h2 class="text-lg font-semibold text-center">Contact Me</h2>
+      <div class="X-KVTable last:rounded-b-md overflow-clip">
+        <div class="row X-Uneven -last:border-b-2 -first:border-t-2 border-b-scheme-3">
+          <span class="bg-scheme-3 font-semibold">XMPP</span>
+          <span class="is-not-verified X-Arb"}>
+            <span class="contents"><a href="xmpp:blake@federation.quest">blake@federation.quest</a></span>
+          </span>
+        </div>
+        <div class="row X-Uneven -last:border-b-2 -first:border-t-2 border-b-scheme-3">
+          <span class="bg-scheme-3 font-semibold">Matrix</span>
+          <span class="is-not-verified X-Arb"}>
+            <span class="contents"><a href="matrix://u/blake:kde.org">@blake:kde.org</a></span>
+          </span>
+        </div>
+        <div class="row X-Uneven -last:border-b-2 -first:border-t-2 border-b-scheme-3">
+          <span class="bg-scheme-3 font-semibold">DeltaChat</span>
+          <span class="is-not-verified X-Arb"}>
+            <span class="contents"><a href="mailto:me+chat@blakes.dev">me+chat@blakes.dev</a></span>
+          </span>
+        </div>
+        <div class="row X-Uneven -last:border-b-2 -first:border-t-2 border-b-scheme-3">
+          <span class="bg-scheme-3 font-semibold">Email</span>
+          <span class="is-not-verified X-Arb"}>
+            <span class="contents"><a href="mailto:me@blakes.dev">me@blakes.dev</a></span>
+          </span>
+        </div>
+      </div>
+    </div>
   </div>
   <div class="X-Column col-span-1 lg:col-span-2 xl:col-span-3" id="column-posts">
     <h1 class="text-2xl text-onscheme-2 p-6 pb-0">Projects</h1>
@@ -82,14 +111,15 @@ permalink: /
       </div>
     </div>
     <h1 class="text-2xl text-onscheme-2 p-6 pt-0" id="updates">Recent Posts</h1>
-    <noscript>
-      <div class="X-Card bg-scheme-2 rounded-md flex flex-col mb-2 prose dark:prose-invert m-auto mt-8">
-        <p>To view the list of my recent Fediverse posts on this page, you need to use JavaScript.</p>
-        <p>You can also view them on <a href="https://fosstodon.org/@blake">my Mastodon profile</a>.</p>
+    <!-- noscript -->
+      <div class="X-Card bg-scheme-2 rounded-md mb-2 prose dark:prose-invert m-auto mt-8 gap-none">
+        <!-- p>To view the list of my recent Fediverse posts on this page, you need to use JavaScript.</p -->
+        <p>My new home on the Fediverse does not have (good) support for reading unauthenticated posts at this time.</p>
+        <p>Instead, you can view them on <a href="https://infosec.town/@blake">my Firefish profile at Infosec.Town</a>.</p>
       </div>
-    </noscript>
+    <!-- /noscript -->
     <div class="contents" id="update-container"></div>
-    <script type="module" webc:keep>
+    <script type="module" undo-webc:keep webc:ignore>
       import { html, h } from 'htm/preact';
       import { render } from 'preact-render-to-string';
       import fediStatus from '/scripts/components/fedi-status.js';

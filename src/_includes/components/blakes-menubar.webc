@@ -51,7 +51,7 @@
       </a>
     </div>
     <a class="X-MenuBarButton has-tooltip p-2 text-opacity-30 hover:text-opacity-70 text-onscheme-3 hover:bg-scheme-4 inline-block rounded-md transition-colors"
-      href="https://fosstodon.org/@blake" rel="me" aria-label="Mastodon">
+      href="https://infosec.town/@blake" rel="me" aria-label="Mastodon">
       <div class="tooltip rounded-md shadow-lg p-1 bg-scheme-3 mt-8 ml-2 -translate-x-[50%] text-onscheme-3" aria-hidden="true">Mastodon</div>
       <!--- <InlineIcon icon="simple-icons:mastodon" color="currentColor" /> --->
       <iconify-icon aria-hidden="true" icon="simple-icons:mastodon" color="currentColor"></iconify-icon>
