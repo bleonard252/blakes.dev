@@ -6,3 +6,6 @@ Disallow: /
 
 User-Agent: Google-Extended
 Disallow: /
+
+User-agent: CCBot
+Disallow: /
