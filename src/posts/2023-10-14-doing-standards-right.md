@@ -3,7 +3,7 @@ layout: single # TODO: use a blog post layout that shows similar blog posts
 tags: posts
 title: Doing standards right - Blake Leonard
 metaTitle: Doing standards right
-# metaDescription: Considering Web Intents and a custom web+activity protocol handler to solve the Fediverse's second-biggest pain point.
+metaDescription: This World Standards Day, let's work on making standards, and making them well. They should be small yet complete and they should be extensible out of the box.
 ---
 # Doing standards right
 <small><time datetime="2023-10-14">2023/10/14</time></small>
