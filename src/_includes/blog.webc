@@ -1,0 +1,13 @@
+---
+layout: layout.webc
+---
+<link rel="rss" href="/posts/atom.xml" />
+<div class="group bg-scheme-2 text-onscheme-2 absolute z-100 w-0 h-0 top-0 left-0 print:hidden flex flex-col focus-within:w-auto focus-within:h-auto overflow-hidden">
+  <a class="focus:bg-primary-3 focus:text-onprimary-3 p-2" href="#content">Skip to content</a>
+</div>
+<blakes-menubar :@url="page.url"><a href="/">Click to go home</a></blakes-menubar>
+<is-land on:visible on:idle><blakes-theme-switcher-button disabled></blakes-theme-switcher-button><template data-island="replace">
+  <blakes-theme-switcher-button disabled></blakes-theme-switcher-button>
+  <blakes-theme-switcher></blakes-theme-switcher>
+</template></is-land>
+<article class="prose dark:prose-invert m-auto mt-8" @raw="content" id="content"></article>

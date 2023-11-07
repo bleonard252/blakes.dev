@@ -1,5 +1,5 @@
 ---
-layout: single # TODO: use a blog post layout that shows similar blog posts
+layout: blog # TODO: use a blog post layout that shows similar blog posts
 tags: posts
 title: Thoughts on federated actions - Blake Leonard
 metaTitle: Thoughts on federated actions

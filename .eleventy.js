@@ -14,12 +14,12 @@ module.exports = function eleventy(config) {
     components: "src/_includes/components/{blakes-,**/blakes-,theme-switcher/,wrapped/}*.webc",
   });
   config.addPlugin(EleventyRenderPlugin);
-  config.addPlugin(EleventyVitePlugin, {
+  /*config.addPlugin(EleventyVitePlugin, {
     tempFolderName: ".11ty-vite",
     viteOptions: {
       publicDir: "../static",
       appType: 'mpa',
-      assetsInclude: ['/bridges/data.json'],
+      assetsInclude: ['/bridges/data.json', '/posts/atom.xml'],
       build: {
         outDir: "vite-dist",
         copyPublicDir: true,
@@ -34,7 +34,7 @@ module.exports = function eleventy(config) {
         }
       }
     }
-  });
+  });*/
   config.addPlugin(pluginRSS);
 
   config.addExtension([ "11ty.jsx", "11ty.ts", "11ty.tsx" ], {
