@@ -25,11 +25,14 @@ permalink: /
       const profile = require('./src/_includes/scripts/components/home-profile.ts').default;
       const { html } = require('htm/preact');
       const { render } = require('preact-render-to-string');
-      fetch("https://infosec.town/api/v1/accounts/2105159833029454782469994").then(async (accountResult) => {
+      fetch("https://infosec.town/api/v1/accounts/9it29hk7ks4izre2").then(async (accountResult) => {
         const data = await accountResult.json();
         return render(html`<${profile} accountResult=${({avatar_static, header_static, display_name, note, fields, ...data})}><//>`);
       });
     </script>
+    <div class="X-Card mt-4 bg-scheme-2 rounded-md flex flex-row text-onscheme-2">
+      <blakes-button primary class="m-2 flex-grow text-center" href="/resume.pdf">Résumé/CV</blakes-button>
+    </div>
     <div class="X-Card mt-4 bg-scheme-2 rounded-md flex flex-col text-onscheme-2">
       <h2 class="text-lg font-semibold text-center">Contact Me</h2>
       <div class="X-KVTable last:rounded-b-md overflow-clip">
@@ -63,13 +66,6 @@ permalink: /
   <div class="X-Column col-span-1 lg:col-span-2 xl:col-span-3" id="column-posts">
     <h1 class="text-2xl text-onscheme-2 p-6 pb-0">Projects</h1>
     <div class="grid m-auto grid-cols-1 md:grid-cols-2 lg:grid-cols-3 2xl:grid-cols-4 md:px-6 py-6 gap-4" id="projects">
-      <div class="X-Card bg-scheme-2 rounded-md flex flex-wrap items-center mb-2 col-span-full">
-        <h1 class="inline">Nimbus</h1>
-        <p>An experimental Matrix web app for forums.</p>
-        <span class="flex-grow"></span>
-        <blakes-button primary class="m-2" href="https://nimbus.blakes.dev">Try</blakes-button>
-        <blakes-button primary class="m-2" href="https://codeberg.org/bleonard252/nimbus">Codeberg</blakes-button>
-      </div>
       <div class="X-Card bg-scheme-2 rounded-md flex flex-col mb-2 col-span-1">
         <img src="/images/lucidlog.png" class=" rounded-t-md" alt="Purple cloud with an inverted pattern on a purple background with a non-inverted pattern"/>
         <h1>LucidLog Dream Journal</h1>
@@ -88,6 +84,7 @@ permalink: /
           ---><blakes-button primary class="m-2" href="https://github.com/bleonard252/bodacious">GitHub</blakes-button>
         </div>
       </div>
+      <!-- TODO: Spades, if I ever get that done -->
       <div class="X-Card bg-scheme-2 rounded-md flex flex-col mb-2 col-span-1">
         <img src="/images/dahliaos.png" class=" rounded-t-md" alt="A screenshot of the dahliaOS desktop, with the calculator, terminal, and notes apps open." />
         <h1>dahliaOS</h1>
@@ -97,9 +94,17 @@ permalink: /
         </div>
       </div>
       <div class="X-Card bg-scheme-2 rounded-md flex flex-wrap items-center mb-2 col-span-full">
+        <h1 class="inline">Nimbus</h1>
+        <p>A proof-of-concept forum web app built on Matrix.</p>
+        <span class="flex-grow"></span>
+        <blakes-button primary class="m-2" href="https://nimbus.blakes.dev">Try</blakes-button>
+        <blakes-button primary class="m-2" href="https://codeberg.org/bleonard252/nimbus">Codeberg</blakes-button>
+      </div>
+      <div class="X-Card bg-scheme-2 rounded-md flex flex-wrap items-center mb-2 col-span-full">
         <h1 class="inline">Tesseract</h1>
         <p>An abandoned Flutter-based Matrix client.</p>
         <span class="flex-grow"></span>
+        <blakes-button primary class="m-2" href="https://bleonard252.gitlab.io/tesseract/">Try</blakes-button>
         <blakes-button primary class="m-2" href="https://gitlab.com/bleonard252/tesseract">GitLab</blakes-button>
       </div>
       <div class="X-Card bg-scheme-2 rounded-md flex flex-wrap items-center mb-2 col-span-full">
