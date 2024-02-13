@@ -1,10 +1,10 @@
 import { Component, h, html, render } from "htm/preact";
 import { useState } from "preact/hooks";
-import { BridgeSupportedPlatform, categorizePlatform } from "./wizard-card";
-import { Button } from "../button";
-import { convertedPage } from "./converted";
-import runConversion from "../../bridges/convert";
-import { ReusableStrings } from "./page-to-service";
+import { BridgeSupportedPlatform, categorizePlatform } from "./wizard-card.js";
+import { Button } from "../button.js";
+import { convertedPage } from "./converted.js";
+import runConversion from "../../bridges/convert.js";
+import { ReusableStrings } from "./page-to-service.js";
 
 export class askIdPage extends Component<h.JSX.HTMLAttributes & {from: BridgeSupportedPlatform, to: BridgeSupportedPlatform, bridges: Array<Record<string, any>>, rerenderTarget?: HTMLElement}> {
   render() {

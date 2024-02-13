@@ -1,9 +1,9 @@
-import { BridgeSupportedPlatform } from "../components/bridges/wizard-card";
+import { BridgeSupportedPlatform } from "../components/bridges/wizard-card.js";
 import { BridgesFromUser } from "./base";
-import { ActivityPubAddress } from "./convert-activitypub";
-import { MatrixAddress } from "./convert-matrix";
-import { NostrAddress } from "./convert-nostr";
-import { XMPPAddress } from "./convert-xmpp";
+import { ActivityPubAddress } from "./convert-activitypub.js";
+import { MatrixAddress } from "./convert-matrix.js";
+import { NostrAddress } from "./convert-nostr.js";
+import { XMPPAddress } from "./convert-xmpp.js";
 
 interface ConversionOptions {
   from: BridgeSupportedPlatform;

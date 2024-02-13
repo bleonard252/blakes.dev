@@ -1,5 +1,5 @@
 import { Component, h, html } from "htm/preact";
-import { BridgeSupportedPlatform, WizardCard, categorizePlatform } from "./wizard-card";
+import { BridgeSupportedPlatform, WizardCard, categorizePlatform } from "./wizard-card.js";
 
 export const ReusableStrings = {
   social_step2: "Select the service of the account you want to follow. You'll need to know their full username for the next step.",

@@ -1,9 +1,9 @@
 import { Component, h, html, render } from "htm/preact";
 import { useState } from 'preact/hooks';
-import { BridgeSupportedPlatform, WizardCard, categorizePlatform } from "./wizard-card";
-import { Button } from "../button";
+import { BridgeSupportedPlatform, WizardCard, categorizePlatform } from "./wizard-card.js";
+import { Button } from "../button.js";
 import MarkdownIt from "markdown-it";
-import dangerouslyWriteHTML from "../../dangerously_set_html";
+import dangerouslyWriteHTML from "../../dangerously_set_html.js";
 
 const md = new MarkdownIt();
 
