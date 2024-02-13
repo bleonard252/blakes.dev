@@ -9,6 +9,11 @@ This tool is intended to help you discover and use bridges and gateways. This al
 ## FAQ
 ### How do I use this tool?
 1. The first page of [the Wizard](/bridges/) asks what platform **YOU** are on. You should make an educated guess if you don't know for sure which platform you're on. The most likely service names you'll have familiarity with, such as "Mastodon," are listed below the official protocol or platform names.
+2. The second page looks like the first, but it is for the platform **YOUR FRIEND** is on. Handles with two at-signs are typically ActivityPub handles, handles with one at-sign at the beginning and a domain name after it are typically Bluesky handles, and handles with an at-sign in the middle are sometimes Nostr handles. If the username begins with "npub", it is a Nostr handle.
+3. You'll put in **YOUR FRIEND**'s username on the next page.
+Then, the tool will select a bridge and give you the bridged username to use. That's all there is to it.
+
+If you can't use the Wizard, you'll need to select a bridge and perform the handle conversion yourself. This is only intended for people who already know what they're doing, 
 
 ### The platform my friend is using is listed on the first page, but not on the second page! Where did it go?
 If their ID has the same or a similar format as yours, i.e. @username@domain.tld or `npub1...`, then you should try using that ID directly and adding it into your app by searching for it or using the "add contact", "find by username", or similar feature.
@@ -25,6 +30,12 @@ In the future, I may find and advertise a curated list of bridged Nostr accounts
 
 ### Does this bridge let me use a Mastodon app to connect to Nostr?
 Not exactly. You can't sign in to a Nostr account with a Mastodon app. However, users on Nostr can follow your Fediverse/ActivityPub account by using this tool to discover your address.
+
+### I can't follow a Bluesky account from my Fediverse account (or vice versa). Can you help me?
+
+Like with Nostr, some Fediverse servers block Bluesky bridges. Bluesky has known moderation shortcomings, so many servers block it to protect their members. You can get around this by signing up for a different server, or by using Bluesky or another AT Protocol service directly.
+
+(At the time of writing, the Bluesky bridge is not yet online.)
 
 ### What features work between ActivityPub and Nostr?
 At this time, these features ARE known to work between the two networks, for bridges using the Mostr software (the only one listed right now does).

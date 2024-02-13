@@ -11,3 +11,9 @@ These bridges don't work well and don't have the easy, automatic setup this serv
 
 ## Why are blockchain-based platforms not included?
 Blockchains are nothing short of scam technology. [Read the Dogecoin creator's thread about it here](https://archive.ph/d1jOO) and [watch scams unfold here](https://web3isgoinggreat.com/).
+
+## Why do you include platforms with known moderation problems?
+
+While I don't recommend against it and I'll aggressively warn about it, I still think that it's important to have these bridges available, for the few holdouts who won't move to a better platform for whatever reason.
+
+I will, however, remove unmoderated bridges if I find an instance that is moderated with care. I won't do the same for bridges that only bridge a few users, or where that is the effect.
