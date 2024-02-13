@@ -2,6 +2,10 @@ const webcPlugin = require("@11ty/eleventy-plugin-webc");
 const { EleventyRenderPlugin } = require("@11ty/eleventy");
 const EleventyVitePlugin = require("@11ty/eleventy-plugin-vite");
 const pluginRSS = require("@11ty/eleventy-plugin-rss");
+const pluginTOC = require("eleventy-plugin-toc");
+const markdownIt = require('markdown-it');
+const markdownItAnchor = require('markdown-it-anchor');
+//const markdownItAttrs = require('markdown-it-attrs');
 
 module.exports = function eleventy(config) {
   config.addPassthroughCopy({'static': '/'});
@@ -13,6 +17,16 @@ module.exports = function eleventy(config) {
   config.addPlugin(webcPlugin, {
     components: "src/_includes/components/{blakes-,**/blakes-,theme-switcher/,wrapped/}*.webc",
   });
+  config.setLibrary(
+    'md',
+    markdownIt({
+      html: true,
+      linkify: true,
+      typographer: true,
+    }).use(markdownItAnchor)
+  );
+  config.addPlugin(pluginTOC);
+  
   config.addPlugin(EleventyRenderPlugin);
   /*config.addPlugin(EleventyVitePlugin, {
     tempFolderName: ".11ty-vite",

@@ -1,0 +1,34 @@
+---
+layout: layout.webc
+eleventyExcludeFromCollections: true
+title: Posts - Blake Leonard
+metaTitle: Posts - Blake Leonard
+metaDescription: A collection of posts by Blake Leonard
+pagination:
+  data: "collections.posts"
+  reverse: true
+  size: 20 # 2
+---
+<link rel="alternate" type="application/atom+xml" href="/posts/atom.xml" />
+<link rel="alternate" type="application/rss+xml" href="/posts/atom.xml" />
+<div class="group bg-scheme-2 text-onscheme-2 absolute z-100 w-0 h-0 top-0 left-0 print:hidden flex flex-col focus-within:w-auto focus-within:h-auto overflow-hidden">
+  <a class="focus:bg-primary-3 focus:text-onprimary-3 p-2" href="#contents">Skip to content</a>
+</div>
+<blakes-menubar :@url="page.url"></blakes-menubar>
+<is-land on:visible on:idle><blakes-theme-switcher-button disabled></blakes-theme-switcher-button><template data-island="replace">
+  <blakes-theme-switcher-button disabled></blakes-theme-switcher-button>
+  <blakes-theme-switcher></blakes-theme-switcher>
+</template></is-land>
+<main class="m-auto max-w-prose no-prose">
+  <h1 class="text-3xl font-bold mt-6 mb-2">Posts</h1>
+  <p class="mb-2 text-onscheme-1">You can also follow this feed via RSS. If putting in this webpage's URL into your feed reader doesn't work, try <a href="/posts/atom.xml" class="underline hover:text-primary-3">adding /atom.xml to the URL</a>.</p>
+  <div class="my-4 gap-4 flex flex-col">
+    <div webc:for="post of pagination.items">
+      <a :href="post.url" class="no-underline rounded-md p-4 bg-scheme-2 block group">
+        <h2 class="text-2xl font-semibold underline my-2 group-hover:text-primary-3" @text="post?.data?.metaTitle || post?.data?.title || 'Untitled'"></h2>
+        <small><time :datetime="post?.date" @text="[post?.date.getFullYear(), (post?.date.getMonth()+1).toString().padStart(2, '0'), post?.date.getDate().toString().padStart(2, '0')].join('/')"></time></small>
+        <p class="my-2 no-underline" @text="post?.data?.metaDescription" webc:if="post?.data?.metaDescription"></p>
+      </a>
+    </div>
+  </div>
+</main>

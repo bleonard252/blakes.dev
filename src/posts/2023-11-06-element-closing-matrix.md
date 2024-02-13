@@ -1,5 +1,5 @@
 ---
-layout: single # TODO: use a blog post layout that shows similar blog posts
+layout: blog # TODO: use a blog post layout that shows similar blog posts
 tags: posts
 title: Element's licensing changes endanger Matrix - Blake Leonard
 metaTitle: Element's licensing changes endanger Matrix.

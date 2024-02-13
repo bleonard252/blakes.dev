@@ -23,6 +23,7 @@ module.exports = {
     './src/*.{html,11ty.jsx,11ty.ts,11ty.tsx,mdx,md,webc,njk}',
     './src/bridges/*.{html,11ty.jsx,11ty.ts,11ty.tsx,mdx,md,webc,njk}',
     './src/_includes/components/theme-switcher/lda-theme-tile.webc',
+    './src/posts/{*,**/*}.{html,11ty.jsx,11ty.ts,11ty.tsx,mdx,md,webc,njk,ts}'
   ],
   theme: {
     extend: {
