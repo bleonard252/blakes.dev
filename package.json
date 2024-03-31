@@ -40,7 +40,10 @@
     "autoprefixer": "^10.4.13",
     "cssnano": "^5.1.15",
     "eleventy-plugin-babel": "^1.0.1",
+    "eleventy-plugin-toc": "^1.1.5",
     "esbuild-register": "^3.4.2",
+    "markdown-it": "^13.0.1",
+    "markdown-it-anchor": "^8.6.7",
     "megalodon": "^5.4.2",
     "npm-run-all": "^4.1.5",
     "nunjucks": "^3.2.4",
@@ -49,9 +52,6 @@
     "postcss-import": "^15.1.0",
     "preact-render-to-string": "^5.2.6",
     "tailwindcss": "^3.4.1",
-    "eleventy-plugin-toc": "^1.1.5",
-    "markdown-it": "^13.0.1",
-    "markdown-it-anchor": "^8.6.7",
     "typescript-require": "^0.3.0"
   },
   "dependencies": {
@@ -61,6 +61,7 @@
     "iconify-icon": "^1.0.7",
     "isomorphic-dompurify": "^1.2.0",
     "javascript-time-ago": "^2.5.9",
+    "markdown-it-footnote": "^4.0.0",
     "preact": "^10.13.0",
     "react": "npm:@preact/compat@^17.1.2",
     "react-dom": "npm:@preact/compat@^17.1.2",

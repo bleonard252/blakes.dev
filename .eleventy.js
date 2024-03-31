@@ -5,6 +5,7 @@ const pluginRSS = require("@11ty/eleventy-plugin-rss");
 const pluginTOC = require("eleventy-plugin-toc");
 const markdownIt = require('markdown-it');
 const markdownItAnchor = require('markdown-it-anchor');
+const markdownItFootnote = require('markdown-it-footnote');
 //const markdownItAttrs = require('markdown-it-attrs');
 
 module.exports = function eleventy(config) {
@@ -23,10 +24,12 @@ module.exports = function eleventy(config) {
       html: true,
       linkify: true,
       typographer: true,
-    }).use(markdownItAnchor)
+    })
+      .use(markdownItAnchor)
+      .use(markdownItFootnote)
   );
   config.addPlugin(pluginTOC);
-  
+
   config.addPlugin(EleventyRenderPlugin);
   /*config.addPlugin(EleventyVitePlugin, {
     tempFolderName: ".11ty-vite",
