@@ -97,11 +97,11 @@ article.X-Blog-Post {
 .X-TOC {
   position: sticky;
   top: 8px;
-  &>ol>li {
+  :is(&, &>nav)>ol>li {
     padding: 0;
     margin: 0;
   }
-  &>ol>li>a {
+  :is(&, &>nav)>ol>li>a {
     @apply p-2 m-2 text-onscheme-1 hover:bg-onscheme-3/25 rounded-md w-full block;
     &.active {
       @apply bg-primary-3 hover:bg-primary-3 text-onprimary-3;

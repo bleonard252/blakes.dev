@@ -8,13 +8,13 @@
     </a>
     <div class="has-tooltip h-6">
       <div class="tooltip rounded-md shadow-lg bg-scheme-4 mt-7 ml-4 -translate-x-[50%] text-onscheme-4 flex flex-col text-center">
-        <a class="rounded-md X-ListedButton flex flex-row gap-2 items-center justify-center m-0 p-2 px-4 bg-opacity-0 hover:bg-opacity-25 bg-scheme-5 hover:text-onscheme-4h" href="https://source.blakes.dev/me/"><iconify-icon aria-hidden="true" icon="simple-icons:git" color="currentColor"></iconify-icon> Forgejo</a>
-        <a class="rounded-md X-ListedButton flex flex-row gap-2 items-center justify-center m-0 p-2 px-4 bg-opacity-0 hover:bg-opacity-25 bg-scheme-5 hover:text-onscheme-4h" href="https://codeberg.com/bleonard252"><iconify-icon aria-hidden="true" icon="simple-icons:codeberg" color="currentColor"></iconify-icon> Codeberg</a>
-        <a class="rounded-md X-ListedButton flex flex-row gap-2 items-center justify-center m-0 p-2 px-4 bg-opacity-0 hover:bg-opacity-25 bg-scheme-5 hover:text-onscheme-4h" href="https://github.com/bleonard252/"><iconify-icon aria-hidden="true" icon="simple-icons:github" color="currentColor"></iconify-icon> GitHub</a>
-        <a class="rounded-md X-ListedButton flex flex-row gap-2 items-center justify-center m-0 p-2 px-4 bg-opacity-0 hover:bg-opacity-25 bg-scheme-5 hover:text-onscheme-4h" href="https://gitlab.com/bleonard252"><iconify-icon aria-hidden="true" icon="simple-icons:gitlab" color="currentColor"></iconify-icon> GitLab</a>
+        <a disabled class="rounded-md X-ListedButton flex flex-row gap-2 items-center justify-center m-0 p-2 px-4 bg-opacity-0 hover:bg-opacity-25 bg-scheme-5 hover:text-onscheme-4h" href="#"><iconify-icon aria-hidden="true" icon="simple-icons:git" color="currentColor"></iconify-icon> Forgejo</a>
+        <a disabled class="rounded-md X-ListedButton flex flex-row gap-2 items-center justify-center m-0 p-2 px-4 bg-opacity-0 hover:bg-opacity-25 bg-scheme-5 hover:text-onscheme-4h" href="#"><iconify-icon aria-hidden="true" icon="simple-icons:codeberg" color="currentColor"></iconify-icon> Codeberg</a>
+        <a disabled class="rounded-md X-ListedButton flex flex-row gap-2 items-center justify-center m-0 p-2 px-4 bg-opacity-0 hover:bg-opacity-25 bg-scheme-5 hover:text-onscheme-4h" href="#"><iconify-icon aria-hidden="true" icon="simple-icons:github" color="currentColor"></iconify-icon> GitHub</a>
+        <a disabled class="rounded-md X-ListedButton flex flex-row gap-2 items-center justify-center m-0 p-2 px-4 bg-opacity-0 hover:bg-opacity-25 bg-scheme-5 hover:text-onscheme-4h" href="#"><iconify-icon aria-hidden="true" icon="simple-icons:gitlab" color="currentColor"></iconify-icon> GitLab</a>
       </div>
-      <a class="X-MenuBarButton has-tooltip p-2 text-opacity-30 hover:text-opacity-70 text-onscheme-3 hover:bg-scheme-4 inline-block rounded-md transition-colors"
-        href="https://source.blakes.dev/me" id="codeforgesButton" onContextMenu="event.preventDefault()" aria-label="Public Code">
+      <a disabled class="X-MenuBarButton has-tooltip p-2 text-opacity-30 hover:text-opacity-70 text-onscheme-3 hover:bg-scheme-4 inline-block rounded-md transition-colors"
+        href="#" id="codeforgesButton" onContextMenu="event.preventDefault()" aria-label="Public Code">
         <!--- <InlineIcon icon={{ body: theSquares, width: 24, height: 24 }} color="currentColor" /> --->
         <iconify-icon aria-hidden="true" icon="simple-icons:git" color="currentColor"></iconify-icon>
       </a>
@@ -35,7 +35,6 @@
     <div class="has-tooltip h-6">
       <div class="tooltip rounded-md shadow-lg bg-scheme-4 mt-7 ml-4 -translate-x-[50%] text-onscheme-4 flex flex-col text-center">
         <a class="rounded-md X-ListedButton m-0 p-2 px-4 bg-opacity-0 hover:bg-opacity-25 bg-scheme-5 hover:text-onscheme-4h" href="https://github.com/bleonard252/blakes.dev">Website Source</a>
-        <a class="rounded-md X-ListedButton m-0 p-2 px-4 bg-opacity-0 hover:bg-opacity-25 bg-scheme-5 hover:text-onscheme-4h" href="https://nimbus.blakes.dev">Try Nimbus!</a>
         <a class="rounded-md X-ListedButton m-0 p-2 px-4 bg-opacity-0 hover:bg-opacity-25 bg-scheme-5 hover:text-onscheme-4h" href="/posts/">Web Posts</a>
         <a class="rounded-md X-ListedButton m-0 p-2 px-4 bg-opacity-0 hover:bg-opacity-25 bg-scheme-5 hover:text-onscheme-4h" href="/bridges/">Bridge Tool</a>
         <button class="block md:hidden rounded-md X-ListedButton m-0 p-2 px-4 bg-opacity-0 hover:bg-opacity-25 bg-scheme-5 hover:text-onscheme-4h"
@@ -78,14 +77,6 @@
     <a href="/nimbus/matrix" class="X-MenuBarButton whitespace-nowrap p-1 px-2 text-opacity-30 hover:text-opacity-70 text-onscheme-3 hover:bg-scheme-4 inline-block rounded-md transition-colors"
       aria-label="Matrix">
       Matrix
-    </a>
-    <a href="https://nimbus.blakes.dev" class="X-MenuBarButton whitespace-nowrap p-1 px-2 text-opacity-30 hover:text-opacity-70 text-onscheme-3 hover:bg-scheme-4 inline-block rounded-md transition-colors"
-      aria-label="Try Nimbus">
-      Try Nimbus!
-    </a>
-    <a href="https://nimbus.blakes.dev" class="X-MenuBarButton whitespace-nowrap p-1 px-2 text-opacity-30 hover:text-opacity-70 text-onscheme-3 hover:bg-scheme-4 inline-block rounded-md transition-colors"
-      aria-label="Try Nimbus">
-      Try Nimbus!
     </a>
   </div>
   <div webc:if="url.startsWith('/bridges/')" class="pt-1 flex flex-row gap-4 justify-center flex-nowrap">
