@@ -7,6 +7,7 @@ metaDescription: |
   It is with a heavy heart that today I announce that, effective immediately, I am withdrawing my contributions to the open source and free software commons. This was a difficult decision to make, but after recent developments, revelations, and some helpful deep thinking, this seems like the right way for me.
 ---
 <small><time datetime="2024-04-28">2024/04/28</time></small>
+
 It is with a heavy heart that today I announce that, effective immediately, I am withdrawing my contributions to the open source and free software commons. This was a difficult decision to make, but after recent developments, revelations, and some helpful deep thinking, this seems like the right way for me.
 
 I owe you an explanation, and then I will detail what the consequences will be.
