@@ -1,6 +1,7 @@
 import { BridgeSupportedPlatform } from "../components/bridges/wizard-card.js";
 import { BridgesFromUser } from "./base";
 import { ActivityPubAddress } from "./convert-activitypub.js";
+import { ATProtoHandle } from "./convert-atproto.js";
 import { MatrixAddress } from "./convert-matrix.js";
 import { NostrAddress } from "./convert-nostr.js";
 import { XMPPAddress } from "./convert-xmpp.js";
@@ -33,7 +34,7 @@ export default async function runConversion({ from, to, originalAddress, bridges
   } else if (from == 'nostr') {
     fromAddr = NostrAddress.fromString(originalAddress);
   } else if (from == 'atproto') {
-    fromAddr = { toString: () => originalAddress };
+    fromAddr = ATProtoHandle.fromString(originalAddress);
   } else if (from == 'matrix') {
     fromAddr = MatrixAddress.fromString(originalAddress);
   } else if (from == 'xmpp') {

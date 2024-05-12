@@ -51,6 +51,9 @@ metaDescription: Find and use public bridges and gateways for decentralized/fede
         <span webc:elseif="bridge.from == 'xmpp'" aria-label="From XMPP" title="XMPP" class="text-orange-500 m-1">
           <iconify-icon icon="simple-icons:xmpp" class="block"></iconify-icon>
         </span>
+        <span webc:elseif="bridge.from == 'atproto'" aria-label="From AT Protocol" title="AT Protocol" class="text-blue-500 m-1">
+          <iconify-icon icon="mdi:at" class="block"></iconify-icon>
+        </span>
         <span webc:else :aria-label="'From '+bridge.from" :title="bridge.from+' (Unknown service)'" class="m-1">
           <iconify-icon icon="mdi:help" class="block"></iconify-icon>
         </span>
@@ -69,6 +72,9 @@ metaDescription: Find and use public bridges and gateways for decentralized/fede
         </span>
         <span webc:elseif="bridge.to == 'xmpp'" aria-label="To XMPP" title="XMPP" class="text-orange-500 m-1">
           <iconify-icon icon="simple-icons:xmpp" class="block"></iconify-icon>
+        </span>
+        <span webc:elseif="bridge.to == 'atproto'" aria-label="To AT Protocol" title="AT Protocol" class="text-blue-500 m-1">
+          <iconify-icon icon="mdi:at" class="block"></iconify-icon>
         </span>
         <span webc:else :aria-label="'To '+bridge.to" :title="bridge.to+' (Unknown service)'" class="m-1">
           <iconify-icon icon="mdi:help" class="block"></iconify-icon>

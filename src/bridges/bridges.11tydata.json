@@ -113,6 +113,32 @@
       "warnings": [
         "If you don't use Libervia or Movim, you may not be able to see any social posts."
       ]
+    },
+    {
+      "from": "atproto",
+      "to": "activitypub",
+      "template": "@{FROM}@bsky.brid.gy",
+      "homepage": "https://bsky.brid.gy",
+      "notes": [
+        "Both you and the Bluesky user you are attempting to follow may need to opt-in to the bridge by following @bsky.brid.gy@bsky.brid.gy (from ActivityPub/Mastodon) or @ap.brid.gy (from ATProto/Bluesky).",
+        "Some features are not fully supported. [Learn more](https://fed.brid.gy/docs#fediverse-what)"
+      ],
+      "warnings": [
+        "Some Fediverse servers may have this bridge blocked. Please ask your instance administrator to reconsider the block."
+      ]
+    },
+    {
+      "from": "activitypub",
+      "to": "atproto",
+      "template": "@{FROM_USER}.{FROM_DOMAIN}.ap.brid.gy",
+      "homepage": "https://bsky.brid.gy",
+      "notes": [
+        "Both you and the Fediverse user you are attempting to follow may need to opt-in to the bridge by following @bsky.brid.gy@bsky.brid.gy (from ActivityPub/Mastodon) or @ap.brid.gy (from ATProto/Bluesky).",
+        "Some features are not fully supported. [Learn more](https://fed.brid.gy/docs#bluesky-what-from)"
+      ],
+      "warnings": [
+        "Some Fediverse servers may have this bridge blocked. Please ask your contact's instance administrator to reconsider the block."
+      ]
     }
   ]
 }
