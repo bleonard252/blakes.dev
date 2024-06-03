@@ -117,7 +117,7 @@
     {
       "from": "atproto",
       "to": "activitypub",
-      "template": "@{FROM}@bsky.brid.gy",
+      "template": "@{FROM_DOMAIN}@bsky.brid.gy",
       "homepage": "https://bsky.brid.gy",
       "notes": [
         "Both you and the Bluesky user you are attempting to follow may need to opt-in to the bridge by following @bsky.brid.gy@bsky.brid.gy (from ActivityPub/Mastodon) or @ap.brid.gy (from ATProto/Bluesky).",
