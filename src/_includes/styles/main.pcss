@@ -177,3 +177,8 @@ dialog::backdrop {
     }
   }
 }
+
+.prose :where(img):not(:where([class~="not-prose"] *)) {
+  max-height: 50vh;
+  margin: auto;
+}
